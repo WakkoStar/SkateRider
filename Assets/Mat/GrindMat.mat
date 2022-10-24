@@ -404,7 +404,7 @@ Material:
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
     - _OutlineOverridden: 0
-    - _OutlineSize: 10
+    - _OutlineSize: 0
     - _OutlineVisible: 1
     - _Outline_Width: 0
     - _PPDLodThreshold: 5

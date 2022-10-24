@@ -4609,7 +4609,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
@@ -4683,18 +4682,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12138,2229 +12125,1407 @@ MonoBehaviour:
   Player: {fileID: 2086389094}
   baseHeightLevel: -1.47
   tiles:
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - obj: {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1066394121394468535, guid: 92d0b08da1e73074883ac76f5af9417e, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 1
-    - tileName: down -0.25
-      canBeBefore: 1
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 4579465496890921804, guid: f5e5dc06bb631a641a3ce5d38334eb97, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 1
-    - tileName: down -0.25
-      canBeBefore: 1
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 4353047096395048911, guid: 7f4d334d5ee4d2b4a8097413a437f26f, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 3697690501840188340, guid: 7eaaf8db122a0c144a9af36f833c034d, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 3697690501840188340, guid: 7eaaf8db122a0c144a9af36f833c034d, type: 3}
     shouldBeInSafeZone: 1
-    canLandingOn: 0
+    isSafe: 0
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 6020208591350915000, guid: 0262aea6299c8a146b5ec14aefa7b86c, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2323386410215381550, guid: 12b2c5ecb308f7149981b710be3d67dc, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 5621922516304734847, guid: c09605eb47e2b324988a022d9e4baec3, type: 3}
+    shouldBeInSafeZone: 0
     isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 6020208591350915000, guid: 0262aea6299c8a146b5ec14aefa7b86c, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 0
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 1
-    - tileName: grind-start 0.0
-      canBeBefore: 1
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5621922516304734847, guid: c09605eb47e2b324988a022d9e4baec3, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 6830273093571846947, guid: 5fad19e0eee3d7f4cb95edf2f19ff08c, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 6830273093571846947, guid: 5fad19e0eee3d7f4cb95edf2f19ff08c, type: 3}
     shouldBeInSafeZone: 1
-    canLandingOn: 1
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 1
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 4680667294943515832, guid: fc0122c4e30d98b4fb3affdd5854c961, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 4680667294943515832, guid: fc0122c4e30d98b4fb3affdd5854c961, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2323386410215381550, guid: 12b2c5ecb308f7149981b710be3d67dc, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 0
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 1
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 1
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2760183308850743478, guid: 47dc363f9c3748648830240bd7a8ba86, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 1
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 1
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1927389914842869102, guid: 3757ae4669a1d2a4ea3a8d617fa70aad, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 1
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 1
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 8588238606781135267, guid: 931a92b5272350543abf695881e10cba, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 1
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 1
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5960315044677609310, guid: f45058868d5577f43a0f10fe553d1ac6, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 2760183308850743478, guid: 47dc363f9c3748648830240bd7a8ba86, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2814429131389640308, guid: 91162e25e46ebeb49927e318b50bed4b, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 1927389914842869102, guid: 3757ae4669a1d2a4ea3a8d617fa70aad, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2664955041406220235, guid: 2c0cda584d0495e4692cbe12845e2368, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 8588238606781135267, guid: 931a92b5272350543abf695881e10cba, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 1
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 1
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1416245270597017846, guid: 497cee5b14ce18e47869d7affd586226, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 5960315044677609310, guid: f45058868d5577f43a0f10fe553d1ac6, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2302404173382381010, guid: a70298862b547d8469e97e52f1f5d9b7, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2814429131389640308, guid: 91162e25e46ebeb49927e318b50bed4b, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2664955041406220235, guid: 2c0cda584d0495e4692cbe12845e2368, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 1416245270597017846, guid: 497cee5b14ce18e47869d7affd586226, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2302404173382381010, guid: a70298862b547d8469e97e52f1f5d9b7, type: 3}
     shouldBeInSafeZone: 1
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 8077808462422456546, guid: 7d0b42f54a6b38c4199a4c81ea791cb0, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 8077808462422456546, guid: 7d0b42f54a6b38c4199a4c81ea791cb0, type: 3}
     shouldBeInSafeZone: 1
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 1
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1654154088866565503, guid: 9f582582d0fadf544ac182223c84b112, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 1654154088866565503, guid: 9f582582d0fadf544ac182223c84b112, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
-    isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 1
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 1
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 1
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5547901764203237319, guid: 64c1a2fd11d6b134c89b8b6431824dcb, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 1
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5972367528426307732, guid: c8e09eebd79d68d478a5487529b22f81, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 5547901764203237319, guid: 64c1a2fd11d6b134c89b8b6431824dcb, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 1
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2643615353291589842, guid: afb7958c2ca93c64985c722e55ca057f, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 5972367528426307732, guid: c8e09eebd79d68d478a5487529b22f81, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2364101625064101367, guid: 6047c6319beef634ab43590bcbd02bf1, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2364101625064101367, guid: 6047c6319beef634ab43590bcbd02bf1, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 1
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 1
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 1
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1606830654755122038, guid: 68cc40294450b3746a72f5bbff6ec095, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1606830654755122038, guid: 68cc40294450b3746a72f5bbff6ec095, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
-    isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 1
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 1
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 188917988200455280, guid: 29a10a26ab59b62438feebbd4d297dac, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 1
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 1
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 4445121867522349897, guid: e14d4ee9752b1ff49860ec542540ba0b, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 1
-    isSafe: 1
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 6830764920974161928, guid: f7fb70c69fac37441975830fd58cae88, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 5401944197820811994, guid: 6bb34faa7e5bc7045b261712bf59c17f, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 188917988200455280, guid: 29a10a26ab59b62438feebbd4d297dac, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 1
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 1
-    - tileName: bump-start +0.5
-      canBeBefore: 1
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 1
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 1
-    - tileName: down-end -0.25
-      canBeBefore: 1
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 1
-    - tileName: hole-end +0.5
-      canBeBefore: 1
-    - tileName: hole-start -0.5
-      canBeBefore: 1
-    - tileName: hole-start -1.0
-      canBeBefore: 1
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 1
-    - tileName: up-end +0.25
-      canBeBefore: 1
-    - tileName: up-end +0.125
-      canBeBefore: 1
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 2711866724054392901, guid: 5be2a5a8e9d5d8d449bb1da82c451e3f, type: 3}
+    isSafeFirst: 1
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 6830764920974161928, guid: f7fb70c69fac37441975830fd58cae88, type: 3}
     shouldBeInSafeZone: 0
-    canLandingOn: 1
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 1
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 9038416832945051318, guid: b7c58b8802cf76c46ad5e6c1a0ee9dad, type: 3}
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5401944197820811994, guid: 6bb34faa7e5bc7045b261712bf59c17f, type: 3}
+    shouldBeInSafeZone: 0
+    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 9038416832945051318, guid: b7c58b8802cf76c46ad5e6c1a0ee9dad, type: 3}
     shouldBeInSafeZone: 1
-    canLandingOn: 0
     isSafe: 0
-  - tileToggles:
-    - tileName: plain 0.0
-      canBeBefore: 0
-    - tileName: down-start -0.125
-      canBeBefore: 0
-    - tileName: down -0.25
-      canBeBefore: 0
-    - tileName: down-end -0.125
-      canBeBefore: 0
-    - tileName: bump-start +0.5
-      canBeBefore: 0
-    - tileName: bump-end -0.5
-      canBeBefore: 0
-    - tileName: grind 0.0
-      canBeBefore: 0
-    - tileName: grind-start 0.0
-      canBeBefore: 0
-    - tileName: grind-end 0.0
-      canBeBefore: 0
-    - tileName: bump-end -1.0
-      canBeBefore: 0
-    - tileName: down -0.5
-      canBeBefore: 0
-    - tileName: down -1.0
-      canBeBefore: 0
-    - tileName: down-end -0.5
-      canBeBefore: 0
-    - tileName: down-end -0.25
-      canBeBefore: 0
-    - tileName: down-start -0.5
-      canBeBefore: 0
-    - tileName: down-start -0.25
-      canBeBefore: 0
-    - tileName: downstairs -0.5
-      canBeBefore: 0
-    - tileName: hole 0.0
-      canBeBefore: 0
-    - tileName: hole-end +0.5
-      canBeBefore: 0
-    - tileName: hole-start -0.5
-      canBeBefore: 0
-    - tileName: hole-start -1.0
-      canBeBefore: 0
-    - tileName: up +0.5
-      canBeBefore: 0
-    - tileName: up +0.25
-      canBeBefore: 0
-    - tileName: up +1.0
-      canBeBefore: 0
-    - tileName: up-end +0.5
-      canBeBefore: 0
-    - tileName: up-end +0.25
-      canBeBefore: 0
-    - tileName: up-end +0.125
-      canBeBefore: 0
-    - tileName: up-start +0.5
-      canBeBefore: 0
-    - tileName: up-start +0.25
-      canBeBefore: 0
-    - tileName: up-start +0.125
-      canBeBefore: 0
-    - tileName: upstairs +0.5
-      canBeBefore: 0
-    - tileName: void 0.0
-      canBeBefore: 0
-    obj: {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
-    shouldBeInSafeZone: 0
-    canLandingOn: 0
-    isSafe: 0
+    isSafeFirst: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+  sideTilesForward: []
+  sideTilesBackward: []
   tileAmount: 6
-  tileSizeEnd: 10
-  tileSizeStart: 5
+  DefaultTile: {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3,
+    type: 3}
+  VoidTile: {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e,
+    type: 3}
+  StartSwitchTile: {fileID: 3697690501840188340, guid: 7eaaf8db122a0c144a9af36f833c034d,
+    type: 3}
+  EndSwitchTile: {fileID: 6020208591350915000, guid: 0262aea6299c8a146b5ec14aefa7b86c,
+    type: 3}
+  GrindStart: {fileID: 6830273093571846947, guid: 5fad19e0eee3d7f4cb95edf2f19ff08c,
+    type: 3}
+  GrindEnd: {fileID: 4680667294943515832, guid: fc0122c4e30d98b4fb3affdd5854c961,
+    type: 3}
+  cameraStartOffset: {x: 4, y: 3, z: -15}
+  cameraEndOffset: {x: 10, y: 5, z: -23}
   zStartScale: 1
-  yStartScale: 1.5
-  grindStartYScale: 1.6
   zEndScale: 0.7
+  yStartScale: 1.5
   yEndScale: 1.1
-  grindEndYScale: 1
-  grindPhysicMaterial: {fileID: 13400000, guid: 346b73eb47ab0994cac8017eee72b20f,
-    type: 2}
-  groundPhysicMaterial: {fileID: 13400000, guid: 63f540cb7832fd54fab3fd7a5d3a4794,
-    type: 2}
-  grindMaterial: {fileID: 2100000, guid: d869a400169f45043a0fac66e6017a4e, type: 2}
-  groundMaterial: {fileID: 2100000, guid: f612b4fc6b7ac704b8a313d4f218b5a5, type: 2}
+  startFOV: 80
+  endFOV: 100
+  tileSizeStart: 5
+  tileSizeEnd: 10
+  switchTileTransitionLength: 4
 --- !u!1 &2056978734
 GameObject:
   m_ObjectHideFlags: 0
@@ -15002,6 +14167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
+      propertyPath: maxStartSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
+        type: 3}
       propertyPath: cameraEndPos.x
       value: 10
       objectReference: {fileID: 0}
@@ -15033,7 +14203,7 @@ PrefabInstance:
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
       propertyPath: _onJump.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
@@ -15048,12 +14218,12 @@ PrefabInstance:
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
       propertyPath: _onJump.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PredictGroundHit
+      value: SetLandingHit
       objectReference: {fileID: 0}
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
       propertyPath: _onJump.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelGenerator, Assembly-CSharp
+      value: LevelTileMonitor, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3975282661086775365, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
@@ -15088,7 +14258,7 @@ PrefabInstance:
     - target: {fileID: 4484021880067501992, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5976849178261212483, guid: 75583f3b49f9cd54dbb600c1e1bdd03b,
         type: 3}

@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class TileToggle
+public class TileSelection
 {
-    public TileToggle(string name, bool canBeBefore)
+    public TileSelection(string name, bool shouldBeNextTo)
     {
-        this.tileName = name;
-        this.canBeBefore = canBeBefore;
+        this.name = name;
+        this.shouldBeNextTo = shouldBeNextTo;
     }
-    [HideInInspector] public string tileName;
-    public bool canBeBefore;
+    [HideInInspector] public string name;
+    public bool shouldBeNextTo;
 }

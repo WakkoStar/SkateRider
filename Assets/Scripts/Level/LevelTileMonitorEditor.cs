@@ -4,9 +4,9 @@ using UnityEditor;
 #endif
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(LevelGenerator))]
+[CustomEditor(typeof(LevelTileMonitor))]
 [CanEditMultipleObjects]
-public class LevelGeneratorEditor : Editor
+public class LevelTileMonitorEditor : Editor
 {
     SerializedProperty tiles;
 
@@ -19,7 +19,8 @@ public class LevelGeneratorEditor : Editor
     {
         base.OnInspectorGUI();
         serializedObject.Update();
-        (target as LevelGenerator).InitTiles();
+        (target as LevelTileMonitor).InitAllTiles();
+
     }
 }
 #endif

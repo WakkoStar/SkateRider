@@ -8,7 +8,6 @@ public class SkateController : MonoBehaviour
     [SerializeField] private SkateInput skateInput;
     [SerializeField] private GUIController guiController;
     [SerializeField] private AudioManager audioManager;
-    [SerializeField] private LevelGenerator levelGenerator;
     [SerializeField] private float maxStartSpeed = 10f;
     [SerializeField] private float maxEndSpeed = 10f;
     [SerializeField] private float jumpStartForce = 350f;
@@ -17,18 +16,13 @@ public class SkateController : MonoBehaviour
     [SerializeField] private float flipForce = 6;
     [SerializeField] private float rotateForce = 6;
     [SerializeField] private float maxAngle = 0.33f;
-    [SerializeField] private Vector3 cameraStartPos = new Vector3(4, 3, -15);
-    [SerializeField] private Vector3 cameraEndPos = new Vector3(4, 3, -15);
-    [SerializeField] private float startFOV = 80;
-    [SerializeField] private float endFOV = 80;
     [SerializeField] private float maxSkateOffset = 10f;
-    [SerializeField] private UnityEvent _onJump;
+    [SerializeField] private UnityEvent<Vector2> _onJump;
 
     //STATE
     [HideInInspector] public float jumpForce = 400f;
     private BoxCollider _groundDetection;
-    private GameObject _MainCamera;
-    private Vector3 _cameraPos;
+
     private Rigidbody _rb;
     private bool _canJump = false;
     private bool _isOnWheel = false;
@@ -50,6 +44,7 @@ public class SkateController : MonoBehaviour
     private float _totalScore;
     private float _minSensitivity = 100;
 
+    private float timer;
 
     //VALUES
     RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
@@ -57,16 +52,14 @@ public class SkateController : MonoBehaviour
 
     void Start()
     {
-        Camera.main.fieldOfView = startFOV;
         _maxSpeed = maxStartSpeed;
         jumpForce = jumpStartForce;
-        _cameraPos = cameraStartPos;
 
         if (_onJump == null)
-            _onJump = new UnityEvent();
+            _onJump = new UnityEvent<Vector2>();
 
         _groundDetection = GetComponent<BoxCollider>();
-        _MainCamera = Camera.main.gameObject;
+
 
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = Vector3.right;
@@ -159,9 +152,6 @@ public class SkateController : MonoBehaviour
 
     void Update()
     {
-        //SET CAMERA
-        SetCameraMovement();
-
         //SCORE
         guiController.DisplayScore(_totalScore += 1);
         guiController.DisplayJumpScore(_trickScore);
@@ -282,7 +272,7 @@ public class SkateController : MonoBehaviour
         skateInput.ResetNoseOffset();
         skateInput.ResetTailOffset();
 
-        _onJump.Invoke();
+        _onJump.Invoke(_rb.velocity);
 
         audioManager.Play("Jump");
     }
@@ -311,19 +301,6 @@ public class SkateController : MonoBehaviour
         {
             PlayOnly("onGround", 1.8f);
         }
-    }
-
-    private void SetCameraMovement()
-    {
-        //MAIN CAMERA
-        var camPos = _MainCamera.transform.position;
-        var pos = transform.position;
-
-        _MainCamera.transform.position = Vector3.Lerp(
-            camPos,
-            new Vector3(pos.x + _cameraPos.x, Mathf.Lerp(camPos.y, levelGenerator.GetHeightTerrain() + _cameraPos.y, 0.01f), pos.z + _cameraPos.z),
-            1f
-        );
     }
 
     private void GetGroundInformations()
@@ -415,10 +392,9 @@ public class SkateController : MonoBehaviour
 
         for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
         {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, endFOV, (float)a);
             _maxSpeed = Mathf.Lerp(_maxSpeed, maxEndSpeed, (float)a);
             jumpForce = Mathf.Lerp(jumpForce, jumpEndForce, (float)a);
-            _cameraPos = Vector3.Lerp(_cameraPos, cameraEndPos, (float)a);
+
             yield return null;
         }
     }
