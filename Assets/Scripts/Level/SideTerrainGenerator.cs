@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class SideTerrainTileGenerator : MonoBehaviour
 {
     public TerrainTileGenerator terrainTileGenerator;
+    public List<SideTile> sideTiles;
+    public List<SideTile> backwardSideTiles;
     GameObject _GroundBackward;
     GameObject _GroundForward;
     private List<List<GameObject>> _forwardSideTerrain = new List<List<GameObject>>();
@@ -15,9 +17,11 @@ public class SideTerrainTileGenerator : MonoBehaviour
     TileSideSelector tileSideSelector;
     private UnityAction onTilePassedAction;
 
-    public void Init(TerrainTileGenerator terrainTileGenerator)
+    public void Init(TerrainTileGenerator terrainTileGenerator, List<SideTile> sideTiles, List<SideTile> backwardSideTiles)
     {
         this.terrainTileGenerator = terrainTileGenerator;
+        this.sideTiles = sideTiles;
+        this.backwardSideTiles = backwardSideTiles;
     }
 
     private void Awake()
@@ -38,21 +42,22 @@ public class SideTerrainTileGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _GroundForward.transform.position = -Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize;
-        _GroundBackward.transform.position = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize;
+
     }
 
     public void AddTileToTerrain(GameObject baseTile)
     {
-        AddSideTileToTerrain(baseTile, _forwardSideTerrainLayers, _forwardSideTerrain, _GroundForward);
-        AddSideTileToTerrain(baseTile, _backwardSideTerrainLayers, _backwardSideTerrain, _GroundBackward);
+        UpdateSideTerrainPosition(_GroundForward, -1);
+        UpdateSideTerrainPosition(_GroundBackward, 1);
+
+        AddSideTileToTerrain(baseTile, sideTiles, _forwardSideTerrainLayers, _forwardSideTerrain, _GroundForward);
+        AddSideTileToTerrain(baseTile, sideTiles.Union(backwardSideTiles).ToList(), _backwardSideTerrainLayers, _backwardSideTerrain, _GroundBackward);
     }
 
-    private void AddSideTileToTerrain(GameObject baseTile, List<GameObject> sideTerrainLayers, List<List<GameObject>> sideTerrain, GameObject SideTerrainObj)
+    private void AddSideTileToTerrain(GameObject baseTile, List<SideTile> sideTiles, List<GameObject> sideTerrainLayers, List<List<GameObject>> sideTerrain, GameObject SideTerrainObj)
     {
-
         var sideChoosenTile = tileSideSelector != null
-        ? tileSideSelector.ChooseSideTile(baseTile, GetSideBaseTerrain(sideTerrain))
+        ? tileSideSelector.ChooseSideTile(baseTile, sideTiles, GetSideBaseTerrain(sideTerrain))
         : terrainTileGenerator.DefaultTile;
 
         var tileGroup = new List<GameObject>();
@@ -60,11 +65,17 @@ public class SideTerrainTileGenerator : MonoBehaviour
         for (int i = 0; i < (hasTileChild ? sideChoosenTile.transform.childCount : 1); i++)
         {
             var tileComponent = hasTileChild ? sideChoosenTile.transform.GetChild(i).gameObject : sideChoosenTile;
-
             var currentLayer = terrainTileGenerator.GetLayer(sideTerrainLayers, tileComponent, SideTerrainObj.transform);
+
+            var tileEuler = terrainTileGenerator.GetScaledEulerAngles(
+               new Vector2(terrainTileGenerator.tileSize, terrainTileGenerator.tileSize * terrainTileGenerator.yScale * terrainTileGenerator.GetHeightOffset(baseTile.name) / 2)
+               , tileComponent.transform.eulerAngles
+           );
+
             var tile = terrainTileGenerator.InstantiateTile(
                 tileComponent,
-                baseTile.transform.position,
+                baseTile.transform.position + SideTerrainObj.transform.position,
+                tileEuler,
                 new Vector2(terrainTileGenerator.yScale, terrainTileGenerator.zScale),
                 currentLayer.transform,
                 terrainTileGenerator.tileSize
@@ -90,10 +101,20 @@ public class SideTerrainTileGenerator : MonoBehaviour
     private GameObject InitLevelComponent(string name)
     {
         var levelComponent = new GameObject(name);
-        levelComponent.AddComponent<MeshFilter>();
         levelComponent.transform.parent = transform;
 
         return levelComponent;
+    }
+
+    private void UpdateSideTerrainPosition(GameObject SideTerrainObj, int direction)
+    {
+        SideTerrainObj.transform.position = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize * direction;
+
+        for (int i = 0; i < SideTerrainObj.transform.childCount; i++)
+        {
+            var layer = SideTerrainObj.transform.GetChild(i);
+            layer.transform.localPosition = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize * -direction;
+        }
     }
 
 

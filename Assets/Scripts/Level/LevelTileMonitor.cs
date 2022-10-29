@@ -1,4 +1,5 @@
-using System.Text.RegularExpressions;
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class LevelTileMonitor : MonoBehaviour
     private GameObject _GrindTerrain;
 
     private int _switchingTileIndex = 10000;
-    private bool _isSwitchingTileSize = false;
+    bool _isSwitchingSize;
 
     private int _tileSize;
     private float _currentileSize;
@@ -33,16 +34,16 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private float baseHeightLevel = -1.47f;
 
     [SerializeField] private List<Tile> tiles = new List<Tile>();
-    [SerializeField] private List<Tile> sideTilesForward = new List<Tile>();
-    [SerializeField] private List<Tile> sideTilesBackward = new List<Tile>();
+    [SerializeField] private List<SideTile> sideTiles = new List<SideTile>();
+    [SerializeField] private List<SideTile> sideTilesBackward = new List<SideTile>();
     [SerializeField] private int tileAmount = 2;
 
     [SerializeField] private GameObject DefaultTile;
     [SerializeField] private GameObject VoidTile;
     [SerializeField] private GameObject StartSwitchTile;
     [SerializeField] private GameObject EndSwitchTile;
-    [SerializeField] private GameObject GrindStart;
-    [SerializeField] private GameObject GrindEnd;
+    [SerializeField] private List<GameObject> GrindStarts = new List<GameObject>();
+    [SerializeField] private List<GameObject> GrindEnds = new List<GameObject>();
 
     [SerializeField] private Vector3 cameraStartOffset = new Vector3(4, 3, -15);
     [SerializeField] private Vector3 cameraEndOffset = new Vector3(4, 3, -15);
@@ -75,11 +76,11 @@ public class LevelTileMonitor : MonoBehaviour
 
         _SideTerrain = InitLevelComponent("SideTerrain");
         _sideTerrainTileGenerator = _SideTerrain.AddComponent<SideTerrainTileGenerator>();
-        _sideTerrainTileGenerator.Init(_terrainTileGenerator);
+        _sideTerrainTileGenerator.Init(_terrainTileGenerator, sideTiles, sideTilesBackward);
 
         _GrindTerrain = InitLevelComponent("GrindTerrain");
         _grindTileGenerator = _GrindTerrain.AddComponent<GrindTileGenerator>();
-        _grindTileGenerator.Init(_terrainTileGenerator, GrindStart, GrindEnd);
+        _grindTileGenerator.Init(_terrainTileGenerator, GrindStarts, GrindEnds);
 
         _MainCamera = Camera.main.gameObject;
         Camera.main.fieldOfView = startFOV;
@@ -95,8 +96,61 @@ public class LevelTileMonitor : MonoBehaviour
         StartCoroutine(IncreaseDifficulty());
     }
 
+    void Update()
+    {
+        if ((int)Mathf.Round(_currentileSize) != _tileSize && !_isSwitchingSize)
+        {
+            _switchingTileIndex = 0;
+            _isSwitchingSize = true;
+        }
 
-    private void SetCameraPosition(float levelHeight)
+        _MainCamera.transform.position = SetCameraPosition(_terrainTileGenerator.GetTerrainHeight());
+        _terrainTileGenerator.SetSafeZone(_landingHit / _tileSize, 2);
+
+        _terrainTileGenerator.yScale = _yScale;
+        _terrainTileGenerator.zScale = _zScale;
+        _terrainTileGenerator.tileSize = _tileSize;
+    }
+
+    void AddTileToOtherLevelComponents(List<GameObject> instanceTile)
+    {
+        if (instanceTile.Count == 2 && instanceTile[1].tag == "Grind")
+        {
+            var grindLayerCollider = instanceTile[1].transform.parent.GetComponent<MeshCollider>();
+            if (grindLayerCollider.enabled) grindLayerCollider.enabled = false;
+
+            _grindTileGenerator.AddTileToGrind(
+                instanceTile[0],
+                instanceTile[1]
+            );
+        }
+        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile[0]);
+    }
+
+    void ForceTerrainSwitch()
+    {
+        int endSwitchTileIndex = switchTileTransitionLength * 2 + 3;
+        if (_switchingTileIndex < endSwitchTileIndex && _isSwitchingSize)
+        {
+            _terrainTileGenerator.ForceStop(true);
+            SwitchTileTerrain(switchTileTransitionLength);
+        }
+        else
+        {
+            _isSwitchingSize = false;
+            _terrainTileGenerator.ForceStop(false);
+        }
+    }
+
+    private GameObject InitLevelComponent(string name)
+    {
+        var levelComponent = new GameObject(name);
+        levelComponent.transform.parent = transform;
+
+        return levelComponent;
+    }
+
+    private Vector3 SetCameraPosition(float levelHeight)
     {
         var camPos = _MainCamera.transform.position;
         var pos = Player.transform.position;
@@ -106,30 +160,7 @@ public class LevelTileMonitor : MonoBehaviour
             pos.z + _cameraOffset.z
         );
 
-        _MainCamera.transform.position = targetPos;
-    }
-
-    void Update()
-    {
-        SetCameraPosition(_terrainTileGenerator.GetTerrainHeight());
-        _terrainTileGenerator.SetSafeZone(_landingHit / _tileSize, 2);
-
-        if ((int)Mathf.Round(_currentileSize) != _tileSize && !_terrainTileGenerator.GetForceStop())
-        {
-            _switchingTileIndex = 0;
-            _terrainTileGenerator.ForceStop(true);
-        }
-    }
-
-
-
-    private GameObject InitLevelComponent(string name)
-    {
-        var levelComponent = new GameObject(name);
-        levelComponent.AddComponent<MeshFilter>();
-        levelComponent.transform.parent = transform;
-
-        return levelComponent;
+        return targetPos;
     }
 
     public void SetLandingHit(Vector2 playerVelocity)
@@ -139,7 +170,7 @@ public class LevelTileMonitor : MonoBehaviour
         float g = Physics.gravity.magnitude;
         // var currentPosition = Player.transform.position;
         float jumpCurrentHeight = Mathf.Infinity;
-        int i = 2; //AVOID TO BEGIN TOO LOW
+        int i = 2; //AVOID TO START TOO EARLY
 
         while (jumpCurrentHeight > _terrainTileGenerator.GetTerrainHeight())
         {
@@ -158,6 +189,13 @@ public class LevelTileMonitor : MonoBehaviour
         int endSwitchIndex = transitionLength + 3;
         int finalEndIndex = transitionLength * 2 + 3;
 
+        /*
+        We need to recalculate currentTileIndex because tileSize is changing 
+        between terrainTileGenerator update, when currentTileIndex isn't equal to _tileIndex
+        and the invoke of OnTilePassed
+        **/
+        var forceCurrentTileIndex = (int)Player.transform.position.x / _tileSize;
+
         if ((_switchingTileIndex >= 0 && _switchingTileIndex < startSwitchIndex)
         || (_switchingTileIndex >= endSwitchIndex && _switchingTileIndex < finalEndIndex)
         )
@@ -172,50 +210,24 @@ public class LevelTileMonitor : MonoBehaviour
 
         if (_switchingTileIndex == startSwitchIndex + 1)
         {
-            _terrainTileGenerator.AddTileToTerrain(VoidTile);
-
             var tileSizeGap = tileSizeEnd - tileSizeStart;
+            _tileSize = (int)Mathf.Round(_currentileSize);
             _yScale += (yEndScale - yStartScale) / tileSizeGap;
             _zScale += (zEndScale - zStartScale) / tileSizeGap;
-            _tileSize = (int)Mathf.Round(_currentileSize);
+
+            _terrainTileGenerator.AddTileToTerrain(VoidTile, forceCurrentTileIndex);
         }
 
         if (_switchingTileIndex == startSwitchIndex + 2)
         {
-            _terrainTileGenerator.AddTileToTerrain(StartSwitchTile);
+
+            _terrainTileGenerator.AddTileToTerrain(StartSwitchTile, forceCurrentTileIndex);
         }
 
         _switchingTileIndex += 1;
     }
 
-    void ForceTerrainSwitch()
-    {
-        int endSwitchTileIndex = switchTileTransitionLength * 2 + 3;
-        if (_switchingTileIndex < endSwitchTileIndex)
-        {
-            SwitchTileTerrain(switchTileTransitionLength);
-        }
-        else
-        {
-            _terrainTileGenerator.ForceStop(false);
-        }
-    }
-
-    void AddTileToOtherLevelComponents(List<GameObject> instanceTile)
-    {
-        if (instanceTile.Count == 2 && instanceTile[1].tag == "Grind")
-        {
-            var grindLayerCollider = instanceTile[1].transform.parent.GetComponent<MeshCollider>();
-            if (grindLayerCollider.enabled) grindLayerCollider.enabled = false;
-
-            _grindTileGenerator.AddTileToGrind(
-                instanceTile[0],
-                instanceTile[1]
-            );
-        }
-        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile[0]);
-    }
-
+    //COROUTINES
     private IEnumerator IncreaseDifficulty()
     {
         for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
@@ -227,11 +239,12 @@ public class LevelTileMonitor : MonoBehaviour
         }
     }
 
+    //EDITOR FUNCTIONS
     public void InitAllTiles()
     {
         InitTiles(tiles);
-        InitTiles(sideTilesForward);
-        InitTiles(sideTilesBackward);
+        InitSideTiles(sideTiles, tiles);
+        InitSideTiles(sideTilesBackward, tiles);
     }
 
     private void InitTiles(List<Tile> tiles)
@@ -252,6 +265,62 @@ public class LevelTileMonitor : MonoBehaviour
                     }
                 }
                 tiles[i].selection[j] = new TileSelection(tiles[j].obj.name, false);
+            }
+        }
+    }
+
+    private void InitSideTiles(List<SideTile> sideTiles, List<Tile> tiles)
+    {
+        for (int i = 0; i < sideTiles.Count; i++)
+        {
+            //SELECTION
+            var oldSelection = sideTiles[i].selection;
+            sideTiles[i].selection = new TileSelection[tiles.Count];
+
+            for (int j = 0; j < tiles.Count; j++)
+            {
+                if (oldSelection.Length > j)
+                {
+                    if (tiles[j].obj.name == oldSelection[j].name)
+                    {
+                        sideTiles[i].selection[j] = oldSelection[j];
+                        continue;
+                    }
+                }
+                sideTiles[i].selection[j] = new TileSelection(tiles[j].obj.name, false);
+            }
+
+            //SIDE SELECTION
+            if (!sideTiles[i].shouldHaveSideSelection)
+            {
+                sideTiles[i].sideSelection = new TileSelection[0];
+                continue;
+            }
+
+            var formattedTiles = tiles.Select((t) =>
+            {
+                var sT = new SideTile();
+                sT.obj = t.obj;
+                sT.selection = t.selection;
+                return sT;
+            });
+
+            var allTiles = formattedTiles.Union<SideTile>(sideTiles).ToList();
+
+            var oldSideSelection = sideTiles[i].sideSelection;
+            sideTiles[i].sideSelection = new TileSelection[allTiles.Count];
+
+            for (int j = 0; j < allTiles.Count; j++)
+            {
+                if (oldSideSelection.Length > j)
+                {
+                    if (allTiles[j].obj.name == oldSideSelection[j].name)
+                    {
+                        sideTiles[i].sideSelection[j] = oldSideSelection[j];
+                        continue;
+                    }
+                }
+                sideTiles[i].sideSelection[j] = new TileSelection(allTiles[j].obj.name, false);
             }
         }
     }

@@ -24,7 +24,6 @@ public class TerrainTileGenerator : MonoBehaviour
     private bool _shouldBeInSafeZone;
     private bool _forceStop;
     private int _tileIndex = -1;
-    private int _landingTileIndex = -1;
     private List<List<GameObject>> _terrain = new List<List<GameObject>>();
     List<GameObject> _terrainLayers = new List<GameObject>();
     private float _heightOffset = 0;
@@ -65,17 +64,18 @@ public class TerrainTileGenerator : MonoBehaviour
         int currentTileIndex = (int)(Player.transform.position.x / tileSize);
         if (currentTileIndex != _tileIndex)
         {
-            OnTilePassed.Invoke();
             DeleteTerrainFirstTile(_terrain);
+            OnTilePassed.Invoke();
             if (!_forceStop) AddTileToTerrain();
 
             _tileIndex = currentTileIndex;
         }
     }
 
-    public void AddTileToTerrain(GameObject forceTile = null)
+    public void AddTileToTerrain(GameObject forceTile = null, int forceCurrentTileIndex = -1)
     {
-        var playerPos = new Vector3(_tileIndex * tileSize, (baseHeightLevel * tileSize * yScale / 2f), 0);
+        var newTileIndex = forceCurrentTileIndex != -1 ? forceCurrentTileIndex : _tileIndex;
+        var playerPos = new Vector3(newTileIndex * tileSize, (baseHeightLevel * tileSize * yScale / 2f), 0);
         var nextTileOffset = Vector3.right * tileSize * _terrain.Count + Vector3.up * _heightOffset * tileSize * yScale / 2;
 
         var choosenTile = forceTile ? forceTile : _tileSelector.ChooseTile(GetBaseTerrain(), _heightOffset, GetSafeZone());
@@ -87,7 +87,9 @@ public class TerrainTileGenerator : MonoBehaviour
         {
             var tileComponent = hasTileChild ? choosenTile.transform.GetChild(i).gameObject : choosenTile;
             var currentLayer = GetLayer(_terrainLayers, tileComponent, transform);
-            var tile = InstantiateTile(tileComponent, playerPos + nextTileOffset, new Vector2(yScale, zScale), currentLayer.transform, tileSize);
+
+            var tileEuler = GetScaledEulerAngles(new Vector2(tileSize, tileSize * yScale * GetHeightOffset(choosenTile.name) / 2), tileComponent.transform.eulerAngles);
+            var tile = InstantiateTile(tileComponent, playerPos + nextTileOffset, tileEuler, new Vector2(yScale, zScale), currentLayer.transform, tileSize);
             tileGroup.Add(tile);
         }
 
@@ -95,27 +97,10 @@ public class TerrainTileGenerator : MonoBehaviour
         OnTileAdded.Invoke(tileGroup);
 
         MeshCombiner.CombineLayers(_terrainLayers);
-        // foreach (var layer in _terrainLayers)
-        // {
-        //     var layerTiles = new List<GameObject>();
-        //     for (int i = 0; i < layer.transform.childCount; i++)
-        //     {
-        //         var tileComponent = layer.transform.GetChild(i).gameObject;
-        //         layerTiles.Add(tileComponent);
-        //     }
-
-        //     if (layerTiles.Count == 0) continue;
-
-        //     List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerTiles);
-        //     MeshCombiner.ApplyMeshCombine(layer, meshCombine);
-        // }
     }
 
-
-
-
     //Get height offset by string, (must contains "+0.5" or "-1.0")
-    float GetHeightOffset(string stringToParse)
+    public float GetHeightOffset(string stringToParse)
     {
         var match = Regex.Match(stringToParse, @"([-+]?[0-9]*\.?[0-9]+)");
         if (match.Success)
@@ -124,9 +109,22 @@ public class TerrainTileGenerator : MonoBehaviour
         return 0;
     }
 
-    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector2 scale, Transform parent, float tileSize)
+    public Vector3 GetScaledEulerAngles(Vector2 scale, Vector3 eulerAngles)
+    {
+        if (eulerAngles.z == 0) return eulerAngles;
+
+        var scaledAngle = Mathf.Atan(scale.y / scale.x) * Mathf.Rad2Deg;
+        var formatedEulerAngleZ = eulerAngles.z > 180 ? eulerAngles.z - 360 : eulerAngles.z;
+
+        var scaledEulerAngles = new Vector3(0, 0, formatedEulerAngleZ * scaledAngle / formatedEulerAngleZ);
+
+        return scaledEulerAngles;
+    }
+
+    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector3 eulerAngles, Vector2 scale, Transform parent, float tileSize)
     {
         var instanceTile = Instantiate(tile, pos, Quaternion.identity, parent);
+        instanceTile.transform.eulerAngles = eulerAngles;
         instanceTile.transform.localScale = new Vector3(
             tile.transform.localScale.x,
             tile.transform.localScale.y * scale.x,
@@ -137,13 +135,6 @@ public class TerrainTileGenerator : MonoBehaviour
 
         return instanceTile;
     }
-
-    // static public void DeleteOldTile(List<GameObject> terrain)
-    // {
-    //     if (terrain.Count == 0) return;
-    //     Destroy(terrain[0]);
-    //     terrain.RemoveAt(0);
-    // }
 
     public void DeleteTerrainFirstTile(List<List<GameObject>> terrain)
     {

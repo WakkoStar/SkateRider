@@ -7,16 +7,16 @@ public class GrindTileGenerator : MonoBehaviour
 {
     // public GameObject Player;
     public TerrainTileGenerator terrainTileGenerator;
-    public GameObject GrindStart;
-    public GameObject GrindEnd;
+    public List<GameObject> GrindStarts = new List<GameObject>();
+    public List<GameObject> GrindEnds = new List<GameObject>();
     private List<GameObject> _grind = new List<GameObject>();
     private UnityAction onTilePassedAction;
 
-    public void Init(TerrainTileGenerator terrainTileGenerator, GameObject GrindStart, GameObject GrindEnd)
+    public void Init(TerrainTileGenerator terrainTileGenerator, List<GameObject> GrindStarts, List<GameObject> GrindEnds)
     {
         this.terrainTileGenerator = terrainTileGenerator;
-        this.GrindStart = GrindStart;
-        this.GrindEnd = GrindEnd;
+        this.GrindStarts = GrindStarts;
+        this.GrindEnds = GrindEnds;
     }
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,9 @@ public class GrindTileGenerator : MonoBehaviour
     private void DeleteGrindFirstTile()
     {
         var terrain = terrainTileGenerator.GetBaseTerrain();
-        var prevTile = terrain[terrain.Count - (terrainTileGenerator.tileAmount - 1)];
+        var prevTile = terrain[terrain.Count - (terrainTileGenerator.tileAmount - 2)];
 
-        if (prevTile.name.Contains(GrindEnd.name))
+        if (GrindEnds.Find(grindObj => grindObj.name.Contains(prevTile.name)) != null)
         {
             Destroy(_grind[0]);
             _grind.RemoveAt(0);
@@ -47,11 +47,12 @@ public class GrindTileGenerator : MonoBehaviour
     {
         var grindTileCollider = grindTile.GetComponent<BoxCollider>();
 
-        if (baseTile.name.Contains(GrindStart.name))
+        if (GrindStarts.Find(grindObj => grindObj.name.Contains(baseTile.name)) != null)
         {
             var grindSegment = new GameObject("Grind segment");
             grindSegment.transform.parent = transform;
             grindSegment.transform.position = grindTile.transform.position;
+            grindSegment.transform.rotation = grindTile.transform.rotation;
             grindSegment.transform.localScale = grindTile.transform.localScale;
             grindSegment.tag = "Grind";
 

@@ -27,7 +27,7 @@ public class Anchors
         return new Vector3(
             Anchors.GetNearestAnchor(tEulerAng.x),
             Anchors.GetNearestAnchor(tEulerAng.y),
-            Anchors.GetNearestAnchor(tEulerAng.z)
+            tEulerAng.z
         );
     }
 
@@ -37,7 +37,6 @@ public class Anchors
         if (angle >= 100 && angle < 180) return 180;
         if (angle >= 180 && angle < 260) return 180;
         if (angle >= 260 && angle < 360) return 360;
-
         return angle;
     }
 

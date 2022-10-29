@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TileSelector
 {
@@ -25,33 +26,36 @@ public class TileSelector
     {
         var selectedTiles = new List<GameObject>();
         var prevTile = previousTiles[previousTiles.Count - 1];
+        var isPrevTileShouldBeCompleted = tiles.Find(t => t.shouldBeCompleted && prevTile.name.Contains(t.obj.name)) != null;
 
         //TILE SELECTION
         foreach (var tile in tiles)
         {
-            var selection = SelectTile(tile, prevTile, previousTiles);
+            GameObject selection;
+
+            bool isPrevTileSafe = prevTile.name.Contains(tile.obj.name) && tile.isSafe;
+            if (shouldBeInSafeZone && !isPrevTileSafe && !isPrevTileShouldBeCompleted)
+            {
+                continue;
+            }
+
+            if (tile.shouldBeInSafeZone && IsSafeZone(previousTiles, 4) && !isPrevTileShouldBeCompleted)
+            {
+                selection = tile.obj;
+            }
+            else
+            {
+                selection = SelectTile(tile, prevTile, previousTiles);
+            }
 
             if (selection != null)
             {
-                bool isSafeFirst = prevTile.name.Contains(tile.obj.name) && tile.isSafeFirst;
-                bool isSafe = isSafeFirst || tile.isSafe;
-
-                if (shouldBeInSafeZone && !isSafe)
-                {
-                    continue;
-                }
-                // A SEPARER
-                // if (prevTileIndex != landingTileIndex - 2)
-                // {
-                //     selectedTiles.RemoveAll(t => t.name.Contains("grind-start") && t.name.Contains(" +") && t.name.Contains(" -"));
-                // }
-
                 selectedTiles.Add(selection);
             }
         }
 
         // FLATTEN CURVES
-        if (currentLevelHeight < -4)
+        if (currentLevelHeight < -4 && !isPrevTileShouldBeCompleted)
         {
             selectedTiles.RemoveAll(t => t.name.Contains(" -"));
         }
@@ -63,12 +67,12 @@ public class TileSelector
         //SPREAD
         selectedTiles = tileOccurenceHandler.SpreadTileCandidate(selectedTiles);
 
-        var defaultTileIndex = selectedTiles.FindIndex(c => c.name.Contains(DefaultTile.name));
-        if (defaultTileIndex != -1 && UnityEngine.Random.Range(0, 100f) > 90)
-        {
-            tileOccurenceHandler.AddOccurenceOnTile(selectedTiles[defaultTileIndex].name);
-            return DefaultTile;
-        }
+        // var defaultTileIndex = selectedTiles.FindIndex(c => c.name.Contains(DefaultTile.name));
+        // if (defaultTileIndex != -1 && UnityEngine.Random.Range(0, 100f) > 90)
+        // {
+        //     tileOccurenceHandler.AddOccurenceOnTile(selectedTiles[defaultTileIndex].name);
+        //     return DefaultTile;
+        // }
 
         //FALLBACK
         if (selectedTiles.Count == 0)
@@ -83,11 +87,6 @@ public class TileSelector
 
     public GameObject SelectTile(Tile newTile, GameObject prevTile, List<GameObject> previousTiles)
     {
-        if (newTile.shouldBeInSafeZone && IsSafeZone(previousTiles, 3))
-        {
-            return newTile.obj;
-        }
-
         foreach (var tileToSelect in newTile.selection)
         {
             if (tileToSelect.shouldBeNextTo && prevTile.name.Contains(tileToSelect.name))
@@ -99,27 +98,29 @@ public class TileSelector
         return null;
     }
 
-    /*
-    Check if zone is safe depending on previous Tiles
-    If one of them isn't safe, the zone too. Otherwise, this is safe;
-    **/
     bool IsSafeZone(List<GameObject> previousTiles, int safeZoneLength)
     {
+        bool[] isPrevTileSafeArray = new bool[safeZoneLength];
         for (int i = 0; i < safeZoneLength; i++)
         {
-            bool isFirstTile = i == 0;
             var prevTile = previousTiles[previousTiles.Count - (1 + i)];
+            var firstTileIndex = safeZoneLength - 1; //the oldest tile index
+
             foreach (var tile in tiles)
             {
-                bool isFirstTileSafe = isFirstTile && (tile.isSafeFirst || tile.isSafe) && prevTile.name.Contains(tile.obj.name);
-                bool isNextTilesSafe = !isFirstTile && tile.isSafe && prevTile.name.Contains(tile.obj.name);
-
-                if (!isFirstTileSafe && !isNextTilesSafe)
+                bool isFirstTileSafe = (tile.isSafeFirst || tile.isSafe) && prevTile.name.Contains(tile.obj.name);
+                if (i == firstTileIndex && isFirstTileSafe)
                 {
-                    return false;
+                    isPrevTileSafeArray[firstTileIndex] = true;
+                }
+
+                bool isNextTilesSafe = tile.isSafe && prevTile.name.Contains(tile.obj.name);
+                if (i < firstTileIndex && isNextTilesSafe)
+                {
+                    isPrevTileSafeArray[i] = true;
                 }
             }
         }
-        return true;
+        return Array.TrueForAll(isPrevTileSafeArray, isPrevTileSafe => isPrevTileSafe);
     }
 }

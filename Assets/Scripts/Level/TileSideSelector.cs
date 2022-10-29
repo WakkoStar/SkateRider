@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
-using System.Globalization;
+using System.Linq;
 
 public class TileSideSelector
 {
@@ -15,49 +15,63 @@ public class TileSideSelector
         this.DefaultTile = DefaultTile;
     }
 
-    public GameObject ChooseSideTile(GameObject baseTile, List<GameObject> previousTiles)
+    public GameObject ChooseSideTile(GameObject baseTile, List<SideTile> sideTiles, List<GameObject> previousSideTiles)
     {
+        var selectedTiles = new List<GameObject>();
+        var prevSideTile = previousSideTiles[previousSideTiles.Count - 1];
+
+        //SIDE TILE IS SPECIFIED
+        foreach (var tile in sideTiles)
+        {
+            var selection = SelectTile(tile, baseTile, prevSideTile);
+            if (selection != null) selectedTiles.Add(selection);
+        }
+
+        if (selectedTiles.Count > 0)
+            return selectedTiles[UnityEngine.Random.Range(0, selectedTiles.Count)]; ;
+
+        //SELECT SIDE TILE BY ITS HEIGHT
         var match = Regex.Match(baseTile.name, @"([-+]?[0-9]*\.?[0-9]+)");
         var height = "0.0";
         if (match.Success)
             height = match.Groups[1].Value;
 
-        var prevTile = previousTiles[previousTiles.Count - 1];
-        var candidates = new List<GameObject>();
         List<Tile> acceptedTiles = tiles.FindAll(t =>
             t.obj.name.Contains(height)
-            && !t.obj.name.Contains("grind")
         );
 
-        foreach (var tile in acceptedTiles)
-        {
-            var selection = SelectTile(tile, prevTile);
-            if (selection != null) candidates.Add(selection);
-        }
-
-        if (baseTile.name.Contains("hole"))
+        if (acceptedTiles.Count == 0)
             return DefaultTile;
 
-        if (baseTile.name.Contains("plain 0.0"))
-            return DefaultTile;
-
-        if (candidates.Count == 0)
-            candidates.Add(tiles.Find(t => t.obj.name.Contains("plain 0.0")).obj);
-
-        return candidates[UnityEngine.Random.Range(0, candidates.Count)];
+        var acceptedTilesObj = acceptedTiles.Select(t => t.obj).ToList();
+        return acceptedTilesObj[UnityEngine.Random.Range(0, acceptedTilesObj.Count)];
     }
 
-    public GameObject SelectTile(Tile tile, GameObject prevTile)
+    private GameObject SelectTile(SideTile tile, GameObject prevTile, GameObject prevSideTile)
     {
+        //FIRST SELECTION
         foreach (var tileToSelect in tile.selection)
         {
             if (tileToSelect.shouldBeNextTo && prevTile.name.Contains(tileToSelect.name))
             {
-                return tile.obj;
+                //NEED A SECOND SELECTION
+                if (tile.shouldHaveSideSelection)
+                {
+                    foreach (var sideTileToSelect in tile.sideSelection)
+                    {
+                        if (sideTileToSelect.shouldBeNextTo && prevSideTile.name.Contains(sideTileToSelect.name))
+                        {
+                            return tile.obj;
+                        }
+                    }
+                }
+                else
+                {
+                    return tile.obj;
+                }
             }
         }
 
         return null;
-
     }
 }

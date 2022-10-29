@@ -20,7 +20,6 @@ public class SkateController : MonoBehaviour
     [SerializeField] private UnityEvent<Vector2> _onJump;
 
     //STATE
-    [HideInInspector] public float jumpForce = 400f;
     private BoxCollider _groundDetection;
 
     private Rigidbody _rb;
@@ -40,6 +39,7 @@ public class SkateController : MonoBehaviour
     private float _rotateAmount = 0;
     private float _flipAmount = 0;
     private float _maxSpeed = 9f;
+    private float _jumpForce = 400f;
     private int _trickScore;
     private float _totalScore;
     private float _minSensitivity = 100;
@@ -53,7 +53,7 @@ public class SkateController : MonoBehaviour
     void Start()
     {
         _maxSpeed = maxStartSpeed;
-        jumpForce = jumpStartForce;
+        _jumpForce = jumpStartForce;
 
         if (_onJump == null)
             _onJump = new UnityEvent<Vector2>();
@@ -158,6 +158,8 @@ public class SkateController : MonoBehaviour
 
         //GET SWITCH
         _isSwitch = transform.localEulerAngles.y > 90 && transform.localEulerAngles.y < 270;
+        var isUpsideDown = (Mathf.Abs(transform.localEulerAngles.x) > 90 && Mathf.Abs(transform.localEulerAngles.x) < 270) || (Mathf.Abs(transform.localEulerAngles.z) > 90 && Mathf.Abs(transform.localEulerAngles.z) < 270);
+        if (isUpsideDown) _isSwitch = !_isSwitch;
 
         if (_canPlayLanding && _isOnWheel)
         {
@@ -181,16 +183,33 @@ public class SkateController : MonoBehaviour
         var tEulerAng = transform.localEulerAngles;
         var rotOffset = Mathf.Abs(tEulerAng.y) % 360;
 
+        var relativeEulerAngleZ = _isSwitch ? -(tEulerAng.z > 180 ? tEulerAng.z - 360 : tEulerAng.z) : tEulerAng.z;
+
+        var groundAngleOffset = relativeEulerAngleZ - Vector3.SignedAngle(Vector3.up, _groundInclinaison, Vector3.forward);
+        groundAngleOffset = groundAngleOffset > 180 ? groundAngleOffset - 360 : groundAngleOffset;
+
+        if (_isNoseTouch && _isTailTouch)
+        {
+            if (groundAngleOffset > 2)
+            {
+                _rb.angularVelocity -= Vector3.forward / 2;
+            }
+            else if (groundAngleOffset < -2)
+            {
+                _rb.angularVelocity += Vector3.forward / 2;
+            }
+            else
+            {
+                _rb.angularVelocity = Vector3.Lerp(_rb.angularVelocity, Vector3.zero, 0.01f);
+            }
+        }
+
+
         transform.localEulerAngles = Vector3.Lerp(
             tEulerAng,
             Anchors.GetGroundAnchors(transform.localEulerAngles),
             0.1f
         );
-
-        if (_isNoseTouch && _isTailTouch)
-        {
-            _rb.angularVelocity = Vector3.Lerp(_rb.angularVelocity, Vector3.zero, 0.04f);
-        }
 
         AddAndResetTrickScore();
 
@@ -218,6 +237,10 @@ public class SkateController : MonoBehaviour
 
     void OnAir()
     {
+        var tEulerAng = transform.localEulerAngles;
+
+        var isUpsideDown = (Mathf.Abs(tEulerAng.x) > 90 && Mathf.Abs(tEulerAng.x) < 270) || (Mathf.Abs(tEulerAng.z) > 90 && Mathf.Abs(tEulerAng.z) < 270);
+
         if (_isNoseTouch && _isTailTouch)
         {
             Physics.gravity = Vector3.down * 60;
@@ -225,10 +248,22 @@ public class SkateController : MonoBehaviour
             //STOP TRICK
             if (_flipCoroutine != null) StopCoroutine(_flipCoroutine);
 
+            //HANDLE SKATE INCLINAISON
+            if (isUpsideDown)
+            {
+                tEulerAng.z = Anchors.GetNearestAnchor(tEulerAng.z);
+            }
+            else
+            {
+                tEulerAng.z = Vector3.SignedAngle(Vector3.up, _groundInclinaison, Vector3.forward);
+                if (_isSwitch) tEulerAng.z *= -1;
+            }
+
             GoToAnchors(
                 _isGrindUnder
-                ? Anchors.GetGrindAnchors(transform.localEulerAngles)
-                : Anchors.GetAirAnchors(transform.localEulerAngles)
+                ? Anchors.GetGrindAnchors(tEulerAng)
+                : Anchors.GetAirAnchors(tEulerAng),
+                !isUpsideDown
             );
         }
 
@@ -257,7 +292,7 @@ public class SkateController : MonoBehaviour
         _isOllie = isManual; //USED FOR TRICKS
 
         _rb.angularVelocity = Vector3.zero;
-        _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
 
         _rotateAmount = 0;
         _flipAmount = 0;
@@ -309,19 +344,34 @@ public class SkateController : MonoBehaviour
         RaycastHit hitFront;
         Vector3 pos = transform.position;
 
-        Physics.Raycast(pos - Vector3.right, Vector3.down, out hitBack, Mathf.Infinity);
-        Physics.Raycast(pos + Vector3.right, Vector3.down, out hitFront, Mathf.Infinity);
+        Physics.Raycast(pos - transform.right, Vector3.down, out hitBack, Mathf.Infinity);
+        Physics.Raycast(pos + transform.right, Vector3.down, out hitFront, Mathf.Infinity);
+
+        bool isHitFront = hitFront.collider != null;
+        bool isHitBack = hitBack.collider != null;
 
         _hitDistance = hitFront.distance;
-        _isGrindUnder = hitFront.collider != null ? hitFront.collider.gameObject.tag == "Grind" : false;
-        _isOnWheel = hitFront.distance < 1f || hitBack.distance < 1f;
+        _isGrindUnder = isHitFront ? hitFront.collider.gameObject.tag == "Grind" : false;
+        _isOnWheel = isHitBack && isHitFront ? (hitFront.distance < 1f || hitBack.distance < 1f) : false;
+
+        var groundObj = hitFront.collider != null ? hitFront.collider.gameObject : null;
+        if (groundObj == null) return;
+        _groundInclinaison = groundObj.transform.InverseTransformVector(hitFront.normal);
 
     }
 
-    private void GoToAnchors(Vector3 anchor)
+    private void GoToAnchors(Vector3 anchor, bool formatEulerAngle = false)
     {
         _rb.angularVelocity = Vector3.zero;
-        transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, anchor, 0.1f);
+
+        var tEulerAng = transform.localEulerAngles;
+        if (formatEulerAngle)
+        {
+            tEulerAng.z = tEulerAng.z > 180 ? tEulerAng.z - 360 : tEulerAng.z;
+        }
+        transform.localEulerAngles = Vector3.Lerp(tEulerAng, anchor, 0.1f);
+        Debug.Log(anchor);
+        Debug.Log(tEulerAng.z);
     }
 
     private void AddAndResetTrickScore()
@@ -393,7 +443,7 @@ public class SkateController : MonoBehaviour
         for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
         {
             _maxSpeed = Mathf.Lerp(_maxSpeed, maxEndSpeed, (float)a);
-            jumpForce = Mathf.Lerp(jumpForce, jumpEndForce, (float)a);
+            _jumpForce = Mathf.Lerp(_jumpForce, jumpEndForce, (float)a);
 
             yield return null;
         }
