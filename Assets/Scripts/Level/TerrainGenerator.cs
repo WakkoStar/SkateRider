@@ -179,6 +179,10 @@ public class TerrainTileGenerator : MonoBehaviour
     {
         return _heightOffset * tileSize * yScale / 2;
     }
+    public float GetTerrainHeight(float heightAddition)
+    {
+        return heightAddition * tileSize * yScale / 2;
+    }
 
     public List<GameObject> GetBaseTerrain()
     {

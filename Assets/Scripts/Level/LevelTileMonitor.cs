@@ -124,6 +124,13 @@ public class LevelTileMonitor : MonoBehaviour
                 instanceTile[1]
             );
         }
+
+        if (instanceTile.Count == 2 && instanceTile[1].name.StartsWith("//"))
+        {
+            var layerCollider = instanceTile[1].transform.parent.GetComponent<MeshCollider>();
+            if (layerCollider.enabled) layerCollider.enabled = false;
+        }
+
         _sideTerrainTileGenerator.AddTileToTerrain(instanceTile[0]);
     }
 
@@ -156,7 +163,7 @@ public class LevelTileMonitor : MonoBehaviour
         var pos = Player.transform.position;
         var targetPos = new Vector3(
             pos.x + _cameraOffset.x,
-            Mathf.Lerp(camPos.y, levelHeight + _cameraOffset.y, 0.01f),
+            Mathf.Lerp(camPos.y, levelHeight + _cameraOffset.y, 0.01f * (Time.deltaTime * 60)),
             pos.z + _cameraOffset.z
         );
 
@@ -323,5 +330,11 @@ public class LevelTileMonitor : MonoBehaviour
                 sideTiles[i].sideSelection[j] = new TileSelection(allTiles[j].obj.name, false);
             }
         }
+    }
+
+    //PUBLIC FUNCTIONS
+    public TerrainTileGenerator GetTerrainTileGenerator()
+    {
+        return _terrainTileGenerator;
     }
 }

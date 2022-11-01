@@ -21,7 +21,6 @@ public class SkateController : MonoBehaviour
 
     //STATE
     private BoxCollider _groundDetection;
-
     private Rigidbody _rb;
     private bool _canJump = false;
     private bool _isOnWheel = false;
@@ -39,12 +38,13 @@ public class SkateController : MonoBehaviour
     private float _rotateAmount = 0;
     private float _flipAmount = 0;
     private float _maxSpeed = 9f;
+    private bool _forceMaxSpeed = true;
     private float _jumpForce = 400f;
     private int _trickScore;
     private float _totalScore;
     private float _minSensitivity = 100;
+    private int _collectibleCount = 0;
 
-    private float timer;
 
     //VALUES
     RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
@@ -102,8 +102,12 @@ public class SkateController : MonoBehaviour
         // if (_rb.velocity.x < 0.3) return;
 
         //SET DIRECTION
-        var direction = _rb.velocity.x < _maxSpeed ? Vector3.right : -Vector3.right;
-        _rb.AddForce(direction * speedForce, ForceMode.Acceleration);
+        if (_forceMaxSpeed)
+        {
+            var direction = _rb.velocity.x < _maxSpeed ? Vector3.right : -Vector3.right;
+            _rb.AddForce(direction * speedForce, ForceMode.Acceleration);
+        }
+
 
         //JUMP HEIGHT
         if (_hitDistance > maxSkateOffset)
@@ -200,7 +204,7 @@ public class SkateController : MonoBehaviour
             }
             else
             {
-                _rb.angularVelocity = Vector3.Lerp(_rb.angularVelocity, Vector3.zero, 0.01f);
+                _rb.angularVelocity = Vector3.Lerp(_rb.angularVelocity, Vector3.zero, 0.05f);
             }
         }
 
@@ -208,7 +212,7 @@ public class SkateController : MonoBehaviour
         transform.localEulerAngles = Vector3.Lerp(
             tEulerAng,
             Anchors.GetGroundAnchors(transform.localEulerAngles),
-            0.1f
+            0.1f * Time.deltaTime * 60
         );
 
         AddAndResetTrickScore();
@@ -338,6 +342,12 @@ public class SkateController : MonoBehaviour
         }
     }
 
+    public void AddCollectible()
+    {
+        _collectibleCount += 1;
+        guiController.DisplayCollectibleScore(_collectibleCount);
+    }
+
     private void GetGroundInformations()
     {
         RaycastHit hitBack;
@@ -369,9 +379,7 @@ public class SkateController : MonoBehaviour
         {
             tEulerAng.z = tEulerAng.z > 180 ? tEulerAng.z - 360 : tEulerAng.z;
         }
-        transform.localEulerAngles = Vector3.Lerp(tEulerAng, anchor, 0.1f);
-        Debug.Log(anchor);
-        Debug.Log(tEulerAng.z);
+        transform.localEulerAngles = Vector3.Lerp(tEulerAng, anchor, 0.1f * Time.deltaTime * 60);
     }
 
     private void AddAndResetTrickScore()
@@ -420,15 +428,28 @@ public class SkateController : MonoBehaviour
 
         for (float a = 0; a < 1; a += Time.deltaTime * 0.1f)
         {
-            _rotateAmount += rotateForce * rotateDirection;
-            _flipAmount += flipForce * flipDirection;
-            transform.Rotate(new Vector3(0, rotateForce * rotateDirection, 0), Space.Self);
-            transform.Rotate(new Vector3(flipForce * flipDirection, 0, 0), Space.Self);
+            var rotateForceTotal = rotateForce * rotateDirection * Time.deltaTime * 60;
+            var flipForceTotal = flipForce * flipDirection * Time.deltaTime * 60;
+
+            _rotateAmount += rotateForceTotal;
+            _flipAmount += flipForceTotal;
+            transform.Rotate(new Vector3(0, rotateForceTotal, 0), Space.Self);
+            transform.Rotate(new Vector3(flipForceTotal, 0, 0), Space.Self);
 
             _trickScore = (int)(Mathf.Abs(_flipAmount) / flipForce + Mathf.Abs(_rotateAmount) / rotateForce);
 
             yield return null;
         }
+    }
+
+    public float GetMaxSpeed()
+    {
+        return _maxSpeed;
+    }
+
+    public void ForceMaxSpeed(bool forceMaxSpeed)
+    {
+        _forceMaxSpeed = forceMaxSpeed;
     }
 
     private IEnumerator SetIsJumping()
@@ -439,7 +460,6 @@ public class SkateController : MonoBehaviour
 
     private IEnumerator IncreaseDifficulty()
     {
-
         for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
         {
             _maxSpeed = Mathf.Lerp(_maxSpeed, maxEndSpeed, (float)a);
@@ -447,6 +467,17 @@ public class SkateController : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void ForceMaxSpeedWithDelay(float delay)
+    {
+        StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
+    }
+
+    IEnumerator ForceMaxSpeedWithDelayCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _forceMaxSpeed = true;
     }
 
 }

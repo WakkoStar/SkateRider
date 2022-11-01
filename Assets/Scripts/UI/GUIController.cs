@@ -9,6 +9,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private GameObject TrickNameDisplayer;
     [SerializeField] private GameObject JumpScoreDisplayer;
     [SerializeField] private GameObject ScoreDisplayer;
+    [SerializeField] private GameObject CollectibleDisplayer;
     [SerializeField] private GameObject NollieSign;
     [SerializeField] private GameObject SwitchSign;
     [SerializeField] private AudioManager audioManager;
@@ -18,6 +19,7 @@ public class GUIController : MonoBehaviour
     private CanvasGroup _jumpScoreCanvas;
     private Text _jumpScoreText;
     private Text _scoreText;
+    private Text _collectibleText;
     private List<string> _tricksToDisplay = new List<string>();
     private bool _isDisplaying;
 
@@ -30,6 +32,7 @@ public class GUIController : MonoBehaviour
         _jumpScoreCanvas = JumpScoreDisplayer.GetComponent<CanvasGroup>();
 
         _scoreText = ScoreDisplayer.GetComponentInChildren<Text>();
+        _collectibleText = CollectibleDisplayer.GetComponentInChildren<Text>();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class GUIController : MonoBehaviour
             _tricksToDisplay.RemoveAt(0);
         }
     }
+
     public void AddTrickToDisplay(string trickName)
     {
         if (trickName == "") return;
@@ -78,6 +82,11 @@ public class GUIController : MonoBehaviour
     public void HandleSign(bool isActivate, GameObject ObjToActivate)
     {
         ObjToActivate.SetActive(isActivate);
+    }
+
+    public void DisplayCollectibleScore(float collectiblesCount)
+    {
+        _collectibleText.text = "" + collectiblesCount;
     }
 
     private IEnumerator DisplayTrick(string trick)

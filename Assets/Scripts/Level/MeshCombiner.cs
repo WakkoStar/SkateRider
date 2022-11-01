@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MeshCombiner
 {
+    private static bool GetIsMeshToAvoid(GameObject meshObject)
+    {
+        return meshObject.name.StartsWith("//");
+    }
+
     public static List<CombineInstance> SetMeshCombine(List<GameObject> meshObjects)
     {
         var meshCombine = new List<CombineInstance>();
@@ -12,6 +17,8 @@ public class MeshCombiner
         {
             var combine = InitCombineInstance(meshObject.GetComponent<MeshFilter>());
             meshCombine.Add(combine);
+
+            if (GetIsMeshToAvoid(meshObject)) continue;
             meshObject.gameObject.SetActive(false);
         }
 

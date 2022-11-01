@@ -111,15 +111,15 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FresnelBrightness: 0.19
-    - _FresnelPower: 0.37
-    - _FresnelShadowDropoff: 0.21
+    - _FresnelBrightness: 0.033
+    - _FresnelPower: 0.178
+    - _FresnelShadowDropoff: 0.162
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HighIntensity: 3.6
+    - _HighIntensity: 1.19
     - _LightScalar: 0.9
-    - _LowIntensity: 1.5
+    - _LowIntensity: 0.63
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutlineSize: 50
@@ -127,9 +127,9 @@ Material:
     - _QueueOffset: 0
     - _RampLevels: 6
     - _ReceiveShadows: 1
-    - _RimAlpha: 0.54
+    - _RimAlpha: 0.097
     - _RimDropOff: 0
-    - _RimPower: 0.25
+    - _RimPower: 0.262
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -139,13 +139,13 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.30503032, g: 0.31132078, b: 0.23349059, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     - _LowColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.6677643, g: 0.7735849, b: 0.74419034, a: 1}
+    - _RimColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &7304081591671963440

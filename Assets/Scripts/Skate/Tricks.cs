@@ -118,7 +118,7 @@ public class Tricks
         }
         else
         {
-            if (isManual) return "Tail Grind";
+            if (isManual) return "5-0 Grind";
             if (isNose) return "Nose Grind";
             return "50-50";
         }
