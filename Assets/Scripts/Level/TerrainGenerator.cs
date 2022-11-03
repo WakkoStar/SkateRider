@@ -24,12 +24,14 @@ public class TerrainTileGenerator : MonoBehaviour
     private bool _shouldBeInSafeZone;
     private bool _forceStop;
     private int _tileIndex = -1;
-    private List<List<GameObject>> _terrain = new List<List<GameObject>>();
-    List<GameObject> _terrainLayers = new List<GameObject>();
+    private List<GameObject> _terrain = new List<GameObject>();
+    private Dictionary<string, List<GameObject>> _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+
+    private GameObject _meshCombiner;
     private float _heightOffset = 0;
     TileSelector _tileSelector;
 
-    public UnityEvent<List<GameObject>> OnTileAdded = new UnityEvent<List<GameObject>>();
+    public UnityEvent<GameObject> OnTileAdded = new UnityEvent<GameObject>();
     public UnityEvent OnTilePassed = new UnityEvent();
 
     public void Init(GameObject Player, float baseHeightLevel, List<Tile> tiles, int tileAmount, int tileSize, float yScale, float zScale, GameObject DefaultTile)
@@ -52,6 +54,9 @@ public class TerrainTileGenerator : MonoBehaviour
     {
         _tileSelector = new TileSelector(tiles, DefaultTile);
 
+        _meshCombiner = new GameObject("Mesh Combiner");
+        _meshCombiner.transform.parent = transform;
+
         for (int i = 0; i < tileAmount - 1; i++)
         {
             AddTileToTerrain(DefaultTile);
@@ -64,6 +69,7 @@ public class TerrainTileGenerator : MonoBehaviour
         int currentTileIndex = (int)(Player.transform.position.x / tileSize);
         if (currentTileIndex != _tileIndex)
         {
+            DeleteTileMeshCombiner(_terrain, _tilesInMeshCombiner);
             DeleteTerrainFirstTile(_terrain);
             OnTilePassed.Invoke();
             if (!_forceStop) AddTileToTerrain();
@@ -78,25 +84,23 @@ public class TerrainTileGenerator : MonoBehaviour
         var playerPos = new Vector3(newTileIndex * tileSize, (baseHeightLevel * tileSize * yScale / 2f), 0);
         var nextTileOffset = Vector3.right * tileSize * _terrain.Count + Vector3.up * _heightOffset * tileSize * yScale / 2;
 
-        var choosenTile = forceTile ? forceTile : _tileSelector.ChooseTile(GetBaseTerrain(), _heightOffset, GetSafeZone());
+        var choosenTile = forceTile ? forceTile : _tileSelector.ChooseTile(GetTerrain(), _heightOffset, GetSafeZone());
         _heightOffset += GetHeightOffset(choosenTile.name);
 
-        bool hasTileChild = choosenTile.transform.childCount != 0;
-        var tileGroup = new List<GameObject>();
-        for (int i = 0; i < (hasTileChild ? choosenTile.transform.childCount : 1); i++)
-        {
-            var tileComponent = hasTileChild ? choosenTile.transform.GetChild(i).gameObject : choosenTile;
-            var currentLayer = GetLayer(_terrainLayers, tileComponent, transform);
+        var instanceTile = InstantiateTile(choosenTile, playerPos + nextTileOffset, new Vector2(yScale, zScale), transform, tileSize);
+        _terrain.Add(instanceTile);
 
-            var tileEuler = GetScaledEulerAngles(new Vector2(tileSize, tileSize * yScale * GetHeightOffset(choosenTile.name) / 2), tileComponent.transform.eulerAngles);
-            var tile = InstantiateTile(tileComponent, playerPos + nextTileOffset, tileEuler, new Vector2(yScale, zScale), currentLayer.transform, tileSize);
-            tileGroup.Add(tile);
+        var tileComponents = instanceTile.GetComponent<TileMeshCombinerInfo>().tileComponents;
+        foreach (var tileComponent in tileComponents)
+        {
+            if (tileComponent.shouldBeInMeshCombiner)
+            {
+                UpdateLayer(_tilesInMeshCombiner, tileComponent.Tile, _meshCombiner.transform);
+            }
         }
 
-        _terrain.Add(tileGroup);
-        OnTileAdded.Invoke(tileGroup);
-
-        MeshCombiner.CombineLayers(_terrainLayers);
+        MeshCombiner.CombineLayers(_tilesInMeshCombiner, _meshCombiner.transform);
+        OnTileAdded.Invoke(instanceTile);
     }
 
     //Get height offset by string, (must contains "+0.5" or "-1.0")
@@ -121,10 +125,9 @@ public class TerrainTileGenerator : MonoBehaviour
         return scaledEulerAngles;
     }
 
-    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector3 eulerAngles, Vector2 scale, Transform parent, float tileSize)
+    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector2 scale, Transform parent, float tileSize)
     {
         var instanceTile = Instantiate(tile, pos, Quaternion.identity, parent);
-        instanceTile.transform.eulerAngles = eulerAngles;
         instanceTile.transform.localScale = new Vector3(
             tile.transform.localScale.x,
             tile.transform.localScale.y * scale.x,
@@ -136,43 +139,59 @@ public class TerrainTileGenerator : MonoBehaviour
         return instanceTile;
     }
 
-    public void DeleteTerrainFirstTile(List<List<GameObject>> terrain)
+    public void DeleteTerrainFirstTile(List<GameObject> terrain)
     {
         if (terrain.Count == 0) return;
-        foreach (var tileComponent in terrain[0])
-        {
-            Destroy(tileComponent);
-        }
+        Destroy(terrain[0]);
         terrain.RemoveAt(0);
     }
 
-    public GameObject GetLayer(List<GameObject> layers, GameObject InspectedItem, Transform transform)
+    public void DeleteTileMeshCombiner(List<GameObject> terrain, Dictionary<string, List<GameObject>> meshCombiner)
     {
-        var currentLayer = layers.Find(layer =>
-                layer.GetComponent<MeshRenderer>().sharedMaterial.name == InspectedItem.GetComponent<MeshRenderer>().sharedMaterial.name
-                && layer.GetComponent<MeshCollider>().sharedMaterial.name == InspectedItem.GetComponent<MeshCollider>().sharedMaterial.name
-            );
+        if (terrain.Count == 0 || meshCombiner.Count == 0) return;
 
-        if (currentLayer == null)
+        foreach (var layer in meshCombiner)
         {
-            currentLayer = AddNewLayer(layers, InspectedItem, transform);
+            layer.Value.RemoveAll(t => t.transform.position == terrain[0].transform.position);
         }
-
-        return currentLayer;
     }
 
-    private GameObject AddNewLayer(List<GameObject> layers, GameObject BaseItem, Transform transform)
+    public List<GameObject> UpdateLayer(Dictionary<string, List<GameObject>> meshCombiner, GameObject InspectedItem, Transform meshCombinerTransform)
     {
-        var layer = new GameObject("Layer " + layers.Count);
-        layer.transform.parent = transform;
+        List<GameObject> currentLayerComponents = null;
 
-        layer.AddComponent<MeshFilter>().name = "Layer " + layers.Count;
-        layer.AddComponent<MeshRenderer>().sharedMaterial = BaseItem.GetComponent<MeshRenderer>().sharedMaterial;
+        foreach (var layer in meshCombiner)
+        {
+            var isLayerExist = layer.Value.Find(tileComponent =>
+                tileComponent.GetComponent<MeshCollider>().sharedMaterial.name == InspectedItem.GetComponent<MeshCollider>().sharedMaterial.name
+            ) != null;
+
+            if (isLayerExist)
+            {
+                currentLayerComponents = meshCombiner[layer.Key];
+            }
+        }
+
+        if (currentLayerComponents == null)
+        {
+            currentLayerComponents = AddNewLayer(meshCombiner, InspectedItem, meshCombinerTransform);
+        }
+
+        currentLayerComponents.Add(InspectedItem);
+
+        return currentLayerComponents;
+    }
+
+    private List<GameObject> AddNewLayer(Dictionary<string, List<GameObject>> meshCombiner, GameObject BaseItem, Transform meshCombinerTransform)
+    {
+        var layer = new GameObject("Layer " + meshCombiner.Count);
+        layer.transform.parent = meshCombinerTransform;
+
+        layer.AddComponent<MeshFilter>().name = "Layer " + meshCombiner.Count;
         layer.AddComponent<MeshCollider>().sharedMaterial = BaseItem.GetComponent<MeshCollider>().sharedMaterial;
+        meshCombiner.Add(layer.name, new List<GameObject>());
 
-        layers.Add(layer);
-
-        return layer;
+        return meshCombiner[layer.name];
     }
 
     public float GetTerrainHeight()
@@ -184,9 +203,9 @@ public class TerrainTileGenerator : MonoBehaviour
         return heightAddition * tileSize * yScale / 2;
     }
 
-    public List<GameObject> GetBaseTerrain()
+    public List<GameObject> GetTerrain()
     {
-        return _terrain.Select(tileGroup => tileGroup[0]).ToList();
+        return _terrain;
     }
 
     public bool GetForceStop()

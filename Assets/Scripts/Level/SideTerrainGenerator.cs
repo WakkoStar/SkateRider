@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,19 @@ public class SideTerrainTileGenerator : MonoBehaviour
     public TerrainTileGenerator terrainTileGenerator;
     public List<SideTile> sideTiles;
     public List<SideTile> backwardSideTiles;
+
     GameObject _GroundBackward;
     GameObject _GroundForward;
-    private List<List<GameObject>> _forwardSideTerrain = new List<List<GameObject>>();
-    List<GameObject> _forwardSideTerrainLayers = new List<GameObject>();
-    private List<List<GameObject>> _backwardSideTerrain = new List<List<GameObject>>();
-    List<GameObject> _backwardSideTerrainLayers = new List<GameObject>();
+
+    private List<GameObject> _forwardSideTerrain = new List<GameObject>();
+    private List<GameObject> _backwardSideTerrain = new List<GameObject>();
+
+    private GameObject _forwardMeshCombiner;
+    private GameObject _backwardMeshCombiner;
+
+    Dictionary<string, List<GameObject>> _forwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+    Dictionary<string, List<GameObject>> _backwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+
     TileSideSelector tileSideSelector;
     private UnityAction onTilePassedAction;
 
@@ -26,10 +34,11 @@ public class SideTerrainTileGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _GroundForward = InitLevelComponent("GroundForward");
-        _GroundBackward = InitLevelComponent("GroundBackward");
-        _GroundForward.transform.parent = transform;
-        _GroundBackward.transform.parent = transform;
+        _GroundForward = InitLevelComponent("GroundForward", transform);
+        _GroundBackward = InitLevelComponent("GroundBackward", transform);
+
+        _forwardMeshCombiner = InitLevelComponent("Mesh Combiner", _GroundForward.transform, typeof(MeshCollider), typeof(MeshRenderer));
+        _backwardMeshCombiner = InitLevelComponent("Mesh Combiner", _GroundBackward.transform, typeof(MeshCollider), typeof(MeshRenderer));
     }
 
     void Start()
@@ -50,58 +59,58 @@ public class SideTerrainTileGenerator : MonoBehaviour
         UpdateSideTerrainPosition(_GroundForward, -1);
         UpdateSideTerrainPosition(_GroundBackward, 1);
 
-        AddSideTileToTerrain(baseTile, sideTiles, _forwardSideTerrainLayers, _forwardSideTerrain, _GroundForward);
-        AddSideTileToTerrain(baseTile, sideTiles.Union(backwardSideTiles).ToList(), _backwardSideTerrainLayers, _backwardSideTerrain, _GroundBackward);
+        AddSideTileToTerrain(baseTile, sideTiles, _forwardSideTilesInMeshCombiner, _forwardMeshCombiner, _forwardSideTerrain, _GroundForward);
+        AddSideTileToTerrain(baseTile, sideTiles.Union(backwardSideTiles).ToList(), _backwardSideTilesInMeshCombiner, _backwardMeshCombiner, _backwardSideTerrain, _GroundBackward);
     }
 
-    private void AddSideTileToTerrain(GameObject baseTile, List<SideTile> sideTiles, List<GameObject> sideTerrainLayers, List<List<GameObject>> sideTerrain, GameObject SideTerrainObj)
+    private void AddSideTileToTerrain(
+        GameObject baseTile,
+        List<SideTile> sideTiles,
+        Dictionary<string, List<GameObject>> sideTilesInMeshCombiner,
+        GameObject meshCombiner,
+        List<GameObject> sideTerrain,
+        GameObject SideTerrainObj
+    )
     {
         var sideChoosenTile = tileSideSelector != null
-        ? tileSideSelector.ChooseSideTile(baseTile, sideTiles, GetSideBaseTerrain(sideTerrain))
+        ? tileSideSelector.ChooseSideTile(baseTile, sideTiles, sideTerrain)
         : terrainTileGenerator.DefaultTile;
 
-        var tileGroup = new List<GameObject>();
-        bool hasTileChild = sideChoosenTile.transform.childCount != 0;
-        for (int i = 0; i < (hasTileChild ? sideChoosenTile.transform.childCount : 1); i++)
+        var instanceTile = terrainTileGenerator.InstantiateTile(
+            sideChoosenTile,
+            baseTile.transform.position + SideTerrainObj.transform.position,
+            new Vector2(terrainTileGenerator.yScale, terrainTileGenerator.zScale),
+            SideTerrainObj.transform,
+            terrainTileGenerator.tileSize
+        );
+
+        sideTerrain.Add(instanceTile);
+
+        var tileComponents = instanceTile.GetComponent<TileMeshCombinerInfo>().tileComponents;
+        foreach (var tileComponent in tileComponents)
         {
-            var tileComponent = hasTileChild ? sideChoosenTile.transform.GetChild(i).gameObject : sideChoosenTile;
-            var currentLayer = terrainTileGenerator.GetLayer(sideTerrainLayers, tileComponent, SideTerrainObj.transform);
-
-            var tileEuler = terrainTileGenerator.GetScaledEulerAngles(
-               new Vector2(terrainTileGenerator.tileSize, terrainTileGenerator.tileSize * terrainTileGenerator.yScale * terrainTileGenerator.GetHeightOffset(baseTile.name) / 2)
-               , tileComponent.transform.eulerAngles
-           );
-
-            var tile = terrainTileGenerator.InstantiateTile(
-                tileComponent,
-                baseTile.transform.position + SideTerrainObj.transform.position,
-                tileEuler,
-                new Vector2(terrainTileGenerator.yScale, terrainTileGenerator.zScale),
-                currentLayer.transform,
-                terrainTileGenerator.tileSize
-            );
-            tileGroup.Add(tile);
+            if (tileComponent.shouldBeInMeshCombiner)
+            {
+                terrainTileGenerator.UpdateLayer(sideTilesInMeshCombiner, tileComponent.Tile, meshCombiner.transform);
+            }
         }
-        sideTerrain.Add(tileGroup);
 
-        MeshCombiner.CombineLayers(sideTerrainLayers);
+        MeshCombiner.CombineLayers(sideTilesInMeshCombiner, meshCombiner.transform);
     }
 
     private void DeleteSideTerrainFirstTile()
     {
+        terrainTileGenerator.DeleteTileMeshCombiner(_forwardSideTerrain, _forwardSideTilesInMeshCombiner);
         terrainTileGenerator.DeleteTerrainFirstTile(_forwardSideTerrain);
+
+        terrainTileGenerator.DeleteTileMeshCombiner(_backwardSideTerrain, _backwardSideTilesInMeshCombiner);
         terrainTileGenerator.DeleteTerrainFirstTile(_backwardSideTerrain);
     }
 
-    private List<GameObject> GetSideBaseTerrain(List<List<GameObject>> sideTerrain)
+    private GameObject InitLevelComponent(string name, Transform parent, params Type[] components)
     {
-        return sideTerrain.Select(tileGroup => tileGroup[0]).ToList();
-    }
-
-    private GameObject InitLevelComponent(string name)
-    {
-        var levelComponent = new GameObject(name);
-        levelComponent.transform.parent = transform;
+        var levelComponent = new GameObject(name, components);
+        levelComponent.transform.parent = parent;
 
         return levelComponent;
     }
@@ -109,13 +118,5 @@ public class SideTerrainTileGenerator : MonoBehaviour
     private void UpdateSideTerrainPosition(GameObject SideTerrainObj, int direction)
     {
         SideTerrainObj.transform.position = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize * direction;
-
-        for (int i = 0; i < SideTerrainObj.transform.childCount; i++)
-        {
-            var layer = SideTerrainObj.transform.GetChild(i);
-            layer.transform.localPosition = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize * -direction;
-        }
     }
-
-
 }

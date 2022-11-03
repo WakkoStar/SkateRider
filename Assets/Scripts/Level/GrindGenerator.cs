@@ -33,7 +33,7 @@ public class GrindTileGenerator : MonoBehaviour
 
     private void DeleteGrindFirstTile()
     {
-        var terrain = terrainTileGenerator.GetBaseTerrain();
+        var terrain = terrainTileGenerator.GetTerrain();
         var prevTile = terrain[terrain.Count - (terrainTileGenerator.tileAmount - 2)];
 
         if (GrindEnds.Find(grindObj => grindObj.name.Contains(prevTile.name)) != null)
@@ -52,8 +52,9 @@ public class GrindTileGenerator : MonoBehaviour
             var grindSegment = new GameObject("Grind segment");
             grindSegment.transform.parent = transform;
             grindSegment.transform.position = grindTile.transform.position;
-            grindSegment.transform.rotation = grindTile.transform.rotation;
-            grindSegment.transform.localScale = grindTile.transform.localScale;
+            grindSegment.transform.eulerAngles = ScaleEulerAngles(grindTile.transform.eulerAngles);
+            grindSegment.transform.localScale = ScaleToTerrain(grindTile.transform.localScale);
+
             grindSegment.tag = "Grind";
 
             var grindSegmentCollider = grindSegment.AddComponent<BoxCollider>();
@@ -66,9 +67,21 @@ public class GrindTileGenerator : MonoBehaviour
         else
         {
             var lastGrindSegmentCollider = _grind[_grind.Count - 1].GetComponent<BoxCollider>();
-
             lastGrindSegmentCollider.size += Vector3.right * grindTileCollider.size.x;
             lastGrindSegmentCollider.center += Vector3.right * grindTileCollider.size.x / 2;
         }
+
+        grindTileCollider.enabled = false;
+    }
+
+    private Vector3 ScaleToTerrain(Vector3 vectorToScale)
+    {
+        var tileSize = terrainTileGenerator.tileSize;
+        return new Vector3(vectorToScale.x * tileSize, vectorToScale.y * tileSize * terrainTileGenerator.yScale, vectorToScale.z * tileSize * terrainTileGenerator.zScale);
+    }
+
+    private Vector3 ScaleEulerAngles(Vector3 eulerAnglesToScale)
+    {
+        return new Vector3(eulerAnglesToScale.x, eulerAnglesToScale.y, eulerAnglesToScale.z * terrainTileGenerator.yScale);
     }
 }

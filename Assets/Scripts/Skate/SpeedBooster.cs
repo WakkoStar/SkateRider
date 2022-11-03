@@ -14,6 +14,7 @@ public class SpeedBooster : MonoBehaviour
 
     //SETTINGS
     [SerializeField] private BoosterScriptableObject props;
+    [SerializeField] private GameObject Lights;
 
     void Start()
     {
@@ -30,9 +31,11 @@ public class SpeedBooster : MonoBehaviour
 
     private void OnTriggerEnter(Collider skate)
     {
-        // GameObject.FindObjectOfType<AudioManager>().Play("Boost");
+
         if (skate.GetComponent<SkateController>() != null)
         {
+            GameObject.FindObjectOfType<AudioManager>().Play("Boost");
+
             _skateController = skate.GetComponent<SkateController>();
             _skateController.ForceMaxSpeed(false);
 
@@ -61,6 +64,7 @@ public class SpeedBooster : MonoBehaviour
         for (int i = 0; i < props.texStripLength; i++)
         {
             props.boosterMaterial.mainTextureOffset = new Vector2(i * (1 / (float)props.texStripLength), 0);
+            Lights.transform.localPosition = new Vector3(props.lightsPositions[i / props.lightsPositions.Length], 0, 0);
             yield return new WaitForSeconds(0.1f);
         }
         isBoosterMaterialAnimated = false;

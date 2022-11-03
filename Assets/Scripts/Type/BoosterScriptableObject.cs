@@ -9,5 +9,7 @@ public class BoosterScriptableObject : ScriptableObject
     public Material boosterMaterial;
     public int texStripLength;
     public float boostAmount;
+
+    public float[] lightsPositions;
 }
 

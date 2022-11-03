@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6931796987277532755}
   - component: {fileID: 4763773170203196348}
   m_Layer: 0
-  m_Name: Cube.001
+  m_Name: grind
   m_TagString: Grind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5458013892210183682}
+  - component: {fileID: -2401440541261837788}
   m_Layer: 0
   m_Name: grind-end 0.0
   m_TagString: Grind
@@ -142,6 +143,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2401440541261837788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680667294943515832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2203ccefdf7ca2d4f944056750c6c0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileComponents:
+  - Tile: {fileID: 5167907265149836173}
+    shouldBeInMeshCombiner: 1
+  - Tile: {fileID: 3810617357512993273}
+    shouldBeInMeshCombiner: 0
 --- !u!1 &5167907265149836173
 GameObject:
   m_ObjectHideFlags: 0

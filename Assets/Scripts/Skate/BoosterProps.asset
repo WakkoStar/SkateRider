@@ -15,3 +15,7 @@ MonoBehaviour:
   boosterMaterial: {fileID: 2100000, guid: 2e98fbf8deac46544afded9cdcd1bbeb, type: 2}
   texStripLength: 8
   boostAmount: 1.75
+  lightsPositions:
+  - -0.00444
+  - 0.00111
+  - 0.00677

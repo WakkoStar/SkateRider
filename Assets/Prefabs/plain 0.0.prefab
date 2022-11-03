@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8273941278784090470}
   - component: {fileID: 6140102325639644588}
   - component: {fileID: 4825487331243825450}
-  - component: {fileID: 4104309105089945943}
+  - component: {fileID: -6689031516640621629}
   m_Layer: 0
   m_Name: plain 0.0
   m_TagString: Untagged
@@ -97,17 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 1a6336da94acf7341a545f1eef170518, type: 3}
---- !u!64 &4104309105089945943
-MeshCollider:
+--- !u!114 &-6689031516640621629
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635967929492350073}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 1a6336da94acf7341a545f1eef170518, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2203ccefdf7ca2d4f944056750c6c0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileComponents:
+  - Tile: {fileID: 5635967929492350073}
+    shouldBeInMeshCombiner: 1

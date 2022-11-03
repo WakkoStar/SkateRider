@@ -57,7 +57,7 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private float tileSizeEnd = 10;
     [SerializeField] private int switchTileTransitionLength = 4;
 
-    private UnityAction<List<GameObject>> onTileAddedAction;
+    private UnityAction<GameObject> onTileAddedAction;
     private UnityAction onTilePassedAction;
 
     void Start()
@@ -112,26 +112,17 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.tileSize = _tileSize;
     }
 
-    void AddTileToOtherLevelComponents(List<GameObject> instanceTile)
+    void AddTileToOtherLevelComponents(GameObject instanceTile)
     {
-        if (instanceTile.Count == 2 && instanceTile[1].tag == "Grind")
+        if (instanceTile.tag == "Grind")
         {
-            var grindLayerCollider = instanceTile[1].transform.parent.GetComponent<MeshCollider>();
-            if (grindLayerCollider.enabled) grindLayerCollider.enabled = false;
-
             _grindTileGenerator.AddTileToGrind(
-                instanceTile[0],
-                instanceTile[1]
+                instanceTile.transform.GetChild(0).gameObject,
+                instanceTile.transform.GetChild(1).gameObject
             );
         }
 
-        if (instanceTile.Count == 2 && instanceTile[1].name.StartsWith("//"))
-        {
-            var layerCollider = instanceTile[1].transform.parent.GetComponent<MeshCollider>();
-            if (layerCollider.enabled) layerCollider.enabled = false;
-        }
-
-        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile[0]);
+        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
     }
 
     void ForceTerrainSwitch()
@@ -336,5 +327,20 @@ public class LevelTileMonitor : MonoBehaviour
     public TerrainTileGenerator GetTerrainTileGenerator()
     {
         return _terrainTileGenerator;
+    }
+
+    public List<SideTile> GetAllTiles()
+    {
+        var formattedTiles = tiles.Select((t) =>
+            {
+                var sT = new SideTile();
+                sT.obj = t.obj;
+                sT.selection = t.selection;
+                return sT;
+            });
+
+        var allTiles = formattedTiles.Union<SideTile>(sideTiles.Union<SideTile>(sideTilesBackward).ToList()).ToList();
+
+        return allTiles;
     }
 }

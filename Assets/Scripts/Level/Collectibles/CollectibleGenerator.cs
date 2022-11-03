@@ -5,16 +5,18 @@ using UnityEngine.Events;
 
 public class CollectibleGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject crossCollectible;
     [SerializeField] private GameObject upSkewCollectible;
+    [SerializeField] private GameObject upSkewThreeCollectible;
     [SerializeField] private GameObject jumpCollectible;
+    [SerializeField] private GameObject jumpFiveCollectible;
     [SerializeField] private GameObject downSkewCollectible;
-    [SerializeField] private GameObject triangleCollectible;
+    [SerializeField] private GameObject downSkewThreeCollectible;
+    [SerializeField] private GameObject cubeCollectible;
     [SerializeField] private GameObject followCollectible;
+    [SerializeField] private GameObject followThreeCollectible;
     [SerializeField] private LevelTileMonitor levelTileMonitor;
-    private UnityAction<List<GameObject>> onTileAdded;
 
-    private float _heightOffset;
+    private UnityAction<GameObject> onTileAdded;
     private TerrainTileGenerator _terrainTileGenerator;
     private List<GameObject> _terrain;
     public class GameObjectWithPosition
@@ -28,8 +30,7 @@ public class CollectibleGenerator : MonoBehaviour
             this.position = position;
         }
     }
-    private List<GameObject> _collectibles = new List<GameObject>();
-    private List<Tile> _tiles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class CollectibleGenerator : MonoBehaviour
 
     }
 
-    void AddCollectibleToTerrain(List<GameObject> terrainTile)
+    void AddCollectibleToTerrain(GameObject terrainTile)
     {
         if (Random.Range(0, 1f) > 0f)
         {
@@ -56,9 +57,9 @@ public class CollectibleGenerator : MonoBehaviour
         }
     }
 
-    void DeleteCollectibleToTerrain(List<GameObject> terrainTile)
+    void DeleteCollectibleToTerrain(GameObject terrainTile)
     {
-        _terrain = _terrainTileGenerator.GetBaseTerrain();
+        _terrain = _terrainTileGenerator.GetTerrain();
 
         if (_terrain.Count < 4) return;
         for (int i = 0; i < transform.childCount; i++)
@@ -76,7 +77,7 @@ public class CollectibleGenerator : MonoBehaviour
     {
         var selectedCollectibles = new List<GameObjectWithPosition>();
 
-        _terrain = _terrainTileGenerator.GetBaseTerrain();
+        _terrain = _terrainTileGenerator.GetTerrain();
         if (_terrain.Count < 4) return null;
 
         var prevTileOne = _terrain[_terrain.Count - 1];
@@ -88,6 +89,15 @@ public class CollectibleGenerator : MonoBehaviour
         var prevTileHeightTwo = _terrainTileGenerator.GetHeightOffset(prevTileTwo.name);
         var prevTileHeightThree = _terrainTileGenerator.GetHeightOffset(prevTileThree.name);
         var prevTileHeightFour = _terrainTileGenerator.GetHeightOffset(prevTileFour.name);
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var collectibleInstance = transform.GetChild(i);
+            if (Vector3.Distance(collectibleInstance.transform.position, prevTileOne.transform.position) < 10)
+            {
+                return null;
+            }
+        }
 
         //CROSS COLLECTIBLE
         // if (prevTileHeightOne <= 0 && prevTileHeightTwo == 0 && prevTileHeightThree == 0)
@@ -132,6 +142,8 @@ public class CollectibleGenerator : MonoBehaviour
 
             pos = new Vector3(pos.x, pos.y + _terrainTileGenerator.GetTerrainHeight(1.5f + heightVariation), pos.z);
             selectedCollectibles.Add(new GameObjectWithPosition(upSkewCollectible, pos));
+            selectedCollectibles.Add(new GameObjectWithPosition(upSkewThreeCollectible, pos));
+            selectedCollectibles.Add(new GameObjectWithPosition(cubeCollectible, pos));
         }
 
         //JUMP COLLECTIBLE
@@ -153,6 +165,7 @@ public class CollectibleGenerator : MonoBehaviour
 
             pos = new Vector3((pos.x + posTwo.x) / 2, pos.y + _terrainTileGenerator.GetTerrainHeight(2f), pos.z);
             selectedCollectibles.Add(new GameObjectWithPosition(jumpCollectible, pos));
+            selectedCollectibles.Add(new GameObjectWithPosition(jumpFiveCollectible, pos));
         }
 
         //LINE COLLECTIBLE
@@ -169,8 +182,9 @@ public class CollectibleGenerator : MonoBehaviour
             var pos = prevTileTwo.transform.position;
             // if (prevTileOne.name.Contains("grind")) prevTileHeightOne -= 1.0f;
 
-            pos = new Vector3(pos.x, pos.y + _terrainTileGenerator.GetTerrainHeight(1.2f), pos.z);
+            pos = new Vector3(pos.x, pos.y + _terrainTileGenerator.GetTerrainHeight(1.11f), pos.z);
             selectedCollectibles.Add(new GameObjectWithPosition(followCollectible, pos));
+            selectedCollectibles.Add(new GameObjectWithPosition(followThreeCollectible, pos));
         }
 
         //DOWN SKEW COLLECTIBLE
@@ -192,6 +206,7 @@ public class CollectibleGenerator : MonoBehaviour
 
             pos = new Vector3(pos.x, pos.y + _terrainTileGenerator.GetTerrainHeight(1.5f) + heightOffsetvariation, pos.z);
             selectedCollectibles.Add(new GameObjectWithPosition(downSkewCollectible, pos));
+            selectedCollectibles.Add(new GameObjectWithPosition(downSkewThreeCollectible, pos));
         }
 
         if (selectedCollectibles.Count == 0) return null;

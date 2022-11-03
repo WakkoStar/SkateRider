@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4152802147782384506}
   - component: {fileID: 6712048658221455802}
   - component: {fileID: 433363405094707473}
-  - component: {fileID: 5328198567862621193}
   - component: {fileID: 6051649321323386324}
   m_Layer: 0
   m_Name: grind
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5328198567862621193
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298500329510037656}
-  m_Material: {fileID: 13400000, guid: 346b73eb47ab0994cac8017eee72b20f, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7387706064836869012, guid: 83dc8a671b8cafa4e911bfe28783d0da, type: 3}
 --- !u!65 &6051649321323386324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,9 +104,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7181208977024052800}
+  - component: {fileID: -2879442834429183042}
   m_Layer: 0
   m_Name: grind-start +0.25
-  m_TagString: Untagged
+  m_TagString: Grind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +128,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2879442834429183042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557910063712384250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2203ccefdf7ca2d4f944056750c6c0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileComponents:
+  - Tile: {fileID: 8047401973284223951}
+    shouldBeInMeshCombiner: 1
+  - Tile: {fileID: 1298500329510037656}
+    shouldBeInMeshCombiner: 0
 --- !u!1 &8047401973284223951
 GameObject:
   m_ObjectHideFlags: 0

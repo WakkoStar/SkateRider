@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class MeshCombiner
 {
-    private static bool GetIsMeshToAvoid(GameObject meshObject)
-    {
-        return meshObject.name.StartsWith("//");
-    }
-
     public static List<CombineInstance> SetMeshCombine(List<GameObject> meshObjects)
     {
         var meshCombine = new List<CombineInstance>();
@@ -17,9 +12,7 @@ public class MeshCombiner
         {
             var combine = InitCombineInstance(meshObject.GetComponent<MeshFilter>());
             meshCombine.Add(combine);
-
-            if (GetIsMeshToAvoid(meshObject)) continue;
-            meshObject.gameObject.SetActive(false);
+            meshObject.GetComponent<MeshCollider>().enabled = false;
         }
 
         return meshCombine;
@@ -36,13 +29,18 @@ public class MeshCombiner
 
     public static void ApplyMeshCombine(GameObject gameObject, List<CombineInstance> meshCombine)
     {
+
         var meshFilter = gameObject.GetComponent<MeshFilter>();
         meshFilter.mesh.Clear();
         meshFilter.mesh = new Mesh();
         meshFilter.mesh.CombineMeshes(meshCombine.ToArray());
 
         gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
-        gameObject.gameObject.SetActive(true);
+
+        // var meshCollider = gameObject.GetComponent<MeshCollider>();
+        // meshCollider.sharedMesh.Clear();
+        // meshCollider.sharedMesh = new Mesh();
+        // meshCollider.sharedMesh.CombineMeshes(meshCombine.ToArray());
     }
 
 
@@ -50,21 +48,29 @@ public class MeshCombiner
     Combine layers is used to gameobject with childs named layers
     Each layers have its mesh, we have to combine child of each layers
     **/
-    public static void CombineLayers(List<GameObject> layers)
+    public static void CombineLayers(Dictionary<string, List<GameObject>> meshCombiner, Transform transform)
     {
-        foreach (var layer in layers)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            var layerGameObjs = new List<GameObject>();
-            for (int i = 0; i < layer.transform.childCount; i++)
-            {
-                var layerComp = layer.transform.GetChild(i).gameObject;
-                layerGameObjs.Add(layerComp);
-            }
-
-            if (layerGameObjs.Count == 0) continue;
-
-            List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerGameObjs);
+            var layer = transform.GetChild(i).gameObject;
+            var layerComponents = meshCombiner[layer.name];
+            List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerComponents);
             MeshCombiner.ApplyMeshCombine(layer, meshCombine);
         }
+        // foreach (var layer in meshCombiner)
+        // {
+
+        //     var layerGameObjs = new List<GameObject>();
+        //     for (int i = 0; i < layer.transform.childCount; i++)
+        //     {
+        //         var layerComp = layer.transform.GetChild(i).gameObject;
+        //         layerGameObjs.Add(layerComp);
+        //     }
+
+        //     if (layerGameObjs.Count == 0) continue;
+
+        //     List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerGameObjs);
+        //     MeshCombiner.ApplyMeshCombine(layer, meshCombine);
+        // }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3406172450194420650}
   - component: {fileID: 622007480647386976}
   - component: {fileID: 231533029220352938}
+  - component: {fileID: 1025337807344832245}
   m_Layer: 0
   m_Name: hole -1.0
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 64fe36c12598c374eb4aa49f1711e278, type: 3}
+--- !u!114 &1025337807344832245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414461176488666805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2203ccefdf7ca2d4f944056750c6c0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileComponents:
+  - Tile: {fileID: 1414461176488666805}
+    shouldBeInMeshCombiner: 1

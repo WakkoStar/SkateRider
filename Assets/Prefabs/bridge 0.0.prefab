@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3402146416646236756}
   - component: {fileID: 635620431038111390}
   - component: {fileID: 4530654851674167511}
+  - component: {fileID: 6357580972518419747}
   m_Layer: 0
   m_Name: bridge 0.0
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 21b3c09c454d0d94a950bf02fe5bca4e, type: 3}
+--- !u!114 &6357580972518419747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428433942011084619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2203ccefdf7ca2d4f944056750c6c0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileComponents:
+  - Tile: {fileID: 1428433942011084619}
+    shouldBeInMeshCombiner: 1
