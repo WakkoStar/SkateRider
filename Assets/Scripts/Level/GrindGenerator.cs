@@ -52,7 +52,7 @@ public class GrindTileGenerator : MonoBehaviour
             var grindSegment = new GameObject("Grind segment");
             grindSegment.transform.parent = transform;
             grindSegment.transform.position = grindTile.transform.position;
-            grindSegment.transform.eulerAngles = ScaleEulerAngles(grindTile.transform.eulerAngles);
+            grindSegment.transform.eulerAngles = ScaleEulerAngles(FormatEulerAngles(grindTile.transform.eulerAngles));
             grindSegment.transform.localScale = ScaleToTerrain(grindTile.transform.localScale);
 
             grindSegment.tag = "Grind";
@@ -83,5 +83,14 @@ public class GrindTileGenerator : MonoBehaviour
     private Vector3 ScaleEulerAngles(Vector3 eulerAnglesToScale)
     {
         return new Vector3(eulerAnglesToScale.x, eulerAnglesToScale.y, eulerAnglesToScale.z * terrainTileGenerator.yScale);
+    }
+
+    private Vector3 FormatEulerAngles(Vector3 eulerAngles)
+    {
+        return new Vector3(
+            eulerAngles.x > 180 ? eulerAngles.x - 360 : eulerAngles.x,
+            eulerAngles.y > 180 ? eulerAngles.y - 360 : eulerAngles.y,
+            eulerAngles.z > 180 ? eulerAngles.z - 360 : eulerAngles.z
+        );
     }
 }

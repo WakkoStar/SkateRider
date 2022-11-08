@@ -102,7 +102,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmmisTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d08e8f2ac1d20dc40b54069f930d1793, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
@@ -330,9 +330,9 @@ Material:
     - _Farthest_Distance: 100
     - _FirstShadeOverridden: 0
     - _FirstShadeVisible: 1
-    - _FresnelBrightness: 0
-    - _FresnelPower: 0
-    - _FresnelShadowDropoff: 0
+    - _FresnelBrightness: 0.059
+    - _FresnelPower: 0.312
+    - _FresnelShadowDropoff: 0.274
     - _GI_Intensity: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -347,7 +347,7 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _HighColor_Power: 0
-    - _HighIntensity: 1.5
+    - _HighIntensity: 3.32
     - _HighlightOverridden: 0
     - _HighlightVisible: 1
     - _InvTilingScale: 1
@@ -388,9 +388,9 @@ Material:
     - _Is_ViewCoord_Scroll: 0
     - _Is_ViewShift: 0
     - _LightDirection_MaskOn: 0
-    - _LightScalar: 1
+    - _LightScalar: 2.2
     - _LinkDetailsWithBase: 1
-    - _LowIntensity: 1
+    - _LowIntensity: 4.82
     - _MatCap: 0
     - _MaterialID: 1
     - _Metallic: 0
@@ -414,7 +414,7 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _RampLevels: 2
+    - _RampLevels: 3
     - _ReceiveShadows: 1
     - _ReceivesSSR: 1
     - _RefractionModel: 0
@@ -523,7 +523,7 @@ Material:
     - _BaseColor: {r: 0.7924528, g: 0.15978713, b: 0.15325737, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMaskColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7924528, g: 0.15978709, b: 0.15325734, a: 1}
+    - _Color: {r: 0.990566, g: 0.09984201, b: 0.08877712, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -533,11 +533,11 @@ Material:
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
     - _FirstShadeMaskColor: {r: 0, g: 1, b: 1, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HighColor: {r: 1, g: 0.7216981, b: 0.7216981, a: 1}
     - _HighlightMaskColor: {r: 1, g: 1, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _LowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LowColor: {r: 1, g: 0, b: 0, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineMaskColor: {r: 0, g: 0, b: 0, a: 1}

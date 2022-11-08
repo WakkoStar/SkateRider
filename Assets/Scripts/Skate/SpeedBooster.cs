@@ -38,6 +38,7 @@ public class SpeedBooster : MonoBehaviour
 
             _skateController = skate.GetComponent<SkateController>();
             _skateController.ForceMaxSpeed(false);
+            _skateController.DisplaySpeedLine();
 
             var rb = skate.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);

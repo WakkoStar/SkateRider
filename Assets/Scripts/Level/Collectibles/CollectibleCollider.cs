@@ -22,6 +22,7 @@ public class CollectibleCollider : MonoBehaviour
         {
             other.GetComponent<SkateController>().AddCollectible();
             GetComponent<MeshRenderer>().enabled = false;
+            if (transform.childCount == 1) transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

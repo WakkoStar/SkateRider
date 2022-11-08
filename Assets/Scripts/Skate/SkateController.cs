@@ -18,6 +18,8 @@ public class SkateController : MonoBehaviour
     [SerializeField] private float maxAngle = 0.33f;
     [SerializeField] private float maxSkateOffset = 10f;
     [SerializeField] private UnityEvent<Vector2> _onJump;
+    [SerializeField] private UnityEvent _onLand = new UnityEvent();
+    [SerializeField] private SpeedLineDisplayer speedLineDisplayer;
 
     //STATE
     private BoxCollider _groundDetection;
@@ -232,6 +234,7 @@ public class SkateController : MonoBehaviour
         //STOP TRICK
         if (_flipCoroutine != null) StopCoroutine(_flipCoroutine);
         audioManager.Play("Landing", 1.5f);
+        _onLand.Invoke();
 
         //GET TRICK NAME
         guiController.AddTrickToDisplay(Tricks.GetTrick(_isOllie, _flipAmount, _rotateAmount, _isSwitch));
@@ -469,6 +472,15 @@ public class SkateController : MonoBehaviour
         }
     }
 
+    public void DisplaySpeedLine()
+    {
+        speedLineDisplayer.DisplaySpeedLine();
+    }
+
+    public bool IsSwitch()
+    {
+        return _isSwitch;
+    }
     public void ForceMaxSpeedWithDelay(float delay)
     {
         StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
