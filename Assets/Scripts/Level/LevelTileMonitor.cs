@@ -47,6 +47,8 @@ public class LevelTileMonitor : MonoBehaviour
 
     [SerializeField] private Vector3 cameraStartOffset = new Vector3(4, 3, -15);
     [SerializeField] private Vector3 cameraEndOffset = new Vector3(4, 3, -15);
+
+    [SerializeField] private DifficultyIncreaser difficultyIncreaser;
     [SerializeField] private float zStartScale = 1;
     [SerializeField] private float zEndScale = 1;
     [SerializeField] private float yStartScale = 1.5f;
@@ -62,10 +64,17 @@ public class LevelTileMonitor : MonoBehaviour
 
     void Start()
     {
-        //ASSIGN START VALUES
+        //ASSIGN INCREASERS
         _tileSize = (int)tileSizeStart;
-        _currentileSize = tileSizeStart;
-        _cameraOffset = cameraStartOffset;
+        DifficultyIncreaser.DelValueModifier SetCurrentTileSizeCallback = SetCurrentTileSize;
+        difficultyIncreaser.AddIncreaser<float>(tileSizeStart, tileSizeEnd, SetCurrentTileSizeCallback);
+
+        DifficultyIncreaser.DelValueModifier SetCameraOffsetCallback = SetCameraOffset;
+        difficultyIncreaser.AddIncreaser<Vector3>(cameraStartOffset, cameraEndOffset, SetCameraOffsetCallback);
+
+        DifficultyIncreaser.DelValueModifier SetCameraFOVCallback = SetCameraFOV;
+        difficultyIncreaser.AddIncreaser<float>(startFOV, endFOV, SetCameraFOVCallback);
+
         _yScale = yStartScale;
         _zScale = zStartScale;
 
@@ -82,9 +91,6 @@ public class LevelTileMonitor : MonoBehaviour
         _grindTileGenerator = _GrindTerrain.AddComponent<GrindTileGenerator>();
         _grindTileGenerator.Init(_terrainTileGenerator, GrindStarts, GrindEnds);
 
-        _MainCamera = Camera.main.gameObject;
-        Camera.main.fieldOfView = startFOV;
-
 
         //EVENTS
         onTileAddedAction += AddTileToOtherLevelComponents;
@@ -93,7 +99,7 @@ public class LevelTileMonitor : MonoBehaviour
         onTilePassedAction += ForceTerrainSwitch;
         _terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
 
-        StartCoroutine(IncreaseDifficulty());
+        _MainCamera = Camera.main.gameObject;
     }
 
     void Update()
@@ -105,7 +111,7 @@ public class LevelTileMonitor : MonoBehaviour
         }
 
         _MainCamera.transform.position = SetCameraPosition(_terrainTileGenerator.GetTerrainHeight());
-        _terrainTileGenerator.SetSafeZone(_landingHit / _tileSize, 2);
+        _terrainTileGenerator.SetSafeZone((int)(_landingHit / _tileSize) - 2, 2);
 
         _terrainTileGenerator.yScale = _yScale;
         _terrainTileGenerator.zScale = _zScale;
@@ -166,15 +172,20 @@ public class LevelTileMonitor : MonoBehaviour
         float vx = playerVelocity.x;
         float vy = playerVelocity.y;
         float g = Physics.gravity.magnitude;
-        // var currentPosition = Player.transform.position;
+        var currentPosition = Player.transform.position;
         float jumpCurrentHeight = Mathf.Infinity;
         int i = 2; //AVOID TO START TOO EARLY
 
         while (jumpCurrentHeight > _terrainTileGenerator.GetTerrainHeight())
         {
+
             jumpCurrentHeight = vy * i / vx - g * Mathf.Pow(i / vx, 2) / 2f;
-            // Debug.DrawLine(currentPosition, Player.transform.position + new Vector3(i, y0, 0), Color.black, 2f);
-            // currentPosition = Player.transform.position + new Vector3(i, y0, 0);
+
+            // var y0 = vy * (i - 1) / vx - g * Mathf.Pow((i - 1) / vx, 2) / 2f;
+            // currentPosition = new Vector3(Player.transform.position.x + (i - 1), y0, 0);
+
+            // Debug.DrawLine(currentPosition, new Vector3(Player.transform.position.x + i, jumpCurrentHeight, 0), Color.black, 2f);
+
             i++;
         }
         // Instantiate(GameObject.Find("cars.001"), new Vector3(Player.transform.position.x + i, _terrainTileGenerator.GetTerrainHeight(), 0), Quaternion.identity);
@@ -225,19 +236,8 @@ public class LevelTileMonitor : MonoBehaviour
         _switchingTileIndex += 1;
     }
 
-    //COROUTINES
-    private IEnumerator IncreaseDifficulty()
-    {
-        for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
-        {
-            _currentileSize = Mathf.Lerp(_currentileSize, tileSizeEnd, (float)a);
-            _cameraOffset = Vector3.Lerp(_cameraOffset, cameraEndOffset, (float)a);
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, endFOV, (float)a);
-            yield return null;
-        }
-    }
 
-    //EDITOR FUNCTIONS
+
     public void InitAllTiles()
     {
         InitTiles(tiles);
@@ -323,7 +323,22 @@ public class LevelTileMonitor : MonoBehaviour
         }
     }
 
-    //PUBLIC FUNCTIONS
+
+    void SetCurrentTileSize(object value)
+    {
+        _currentileSize = (float)value;
+    }
+    void SetCameraOffset(object value)
+    {
+        _cameraOffset = (Vector3)value;
+    }
+    void SetCameraFOV(object value)
+    {
+        Camera.main.fieldOfView = (float)value;
+    }
+
+
+
     public TerrainTileGenerator GetTerrainTileGenerator()
     {
         return _terrainTileGenerator;

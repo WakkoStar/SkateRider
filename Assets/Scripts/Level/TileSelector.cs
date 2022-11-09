@@ -33,9 +33,13 @@ public class TileSelector
         {
             GameObject selection;
 
-            bool isPrevTileSafe = prevTile.name.Contains(tile.obj.name) && tile.isSafe;
-            if (shouldBeInSafeZone && !isPrevTileSafe && !isPrevTileShouldBeCompleted)
+            if (shouldBeInSafeZone && !tile.isSafe && !tile.isSafeFirst)
             {
+                if (isPrevTileShouldBeCompleted)
+                {
+                    var completion = SelectTile(tile, prevTile, previousTiles);
+                    if (completion != null) selectedTiles.Add(completion);
+                }
                 continue;
             }
 

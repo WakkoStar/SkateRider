@@ -46,7 +46,6 @@ public class GrindTileGenerator : MonoBehaviour
     public void AddTileToGrind(GameObject baseTile, GameObject grindTile)
     {
         var grindTileCollider = grindTile.GetComponent<BoxCollider>();
-
         if (GrindStarts.Find(grindObj => grindObj.name.Contains(baseTile.name)) != null)
         {
             var grindSegment = new GameObject("Grind segment");
@@ -70,8 +69,8 @@ public class GrindTileGenerator : MonoBehaviour
             lastGrindSegmentCollider.size += Vector3.right * grindTileCollider.size.x;
             lastGrindSegmentCollider.center += Vector3.right * grindTileCollider.size.x / 2;
         }
+        grindTile.GetComponent<BoxCollider>().enabled = false;
 
-        grindTileCollider.enabled = false;
     }
 
     private Vector3 ScaleToTerrain(Vector3 vectorToScale)

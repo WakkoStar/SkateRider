@@ -18,8 +18,8 @@ public class SparkDisplayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        sparks.transform.localPosition = skateController.IsSwitch() ? switchSparkPos : normalSparkPos;
-        sparks.transform.localEulerAngles = skateController.IsSwitch() ? new Vector3(0, 90, 180) : new Vector3(0, -90, 0);
+        // sparks.transform.localPosition = skateController.IsSwitch() ? switchSparkPos : normalSparkPos;
+        // sparks.transform.localEulerAngles = skateController.IsSwitch() ? new Vector3(0, 90, 180) : new Vector3(0, -90, 0);
     }
 
     private void OnTriggerStay(Collider other)

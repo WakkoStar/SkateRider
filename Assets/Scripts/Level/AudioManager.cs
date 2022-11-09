@@ -33,8 +33,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void PlayOnly(string trackName, string[] staticTracksNames, float pitch = 1.0f)
     {
+
+        foreach (var staticTrackName in staticTracksNames)
+        {
+            if (staticTrackName == trackName)
+            {
+                Play(staticTrackName, pitch);
+            }
+            else
+            {
+                Stop(staticTrackName);
+            }
+        }
     }
 
     public void Play(string name, float pitch = 1.0f)

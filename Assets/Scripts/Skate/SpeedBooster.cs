@@ -32,29 +32,18 @@ public class SpeedBooster : MonoBehaviour
     private void OnTriggerEnter(Collider skate)
     {
 
-        if (skate.GetComponent<SkateController>() != null)
+        if (skate.GetComponent<SkateStateManager>() != null)
         {
-            GameObject.FindObjectOfType<AudioManager>().Play("Boost");
-
-            _skateController = skate.GetComponent<SkateController>();
-            _skateController.ForceMaxSpeed(false);
-            _skateController.DisplaySpeedLine();
-
-            var rb = skate.GetComponent<Rigidbody>();
-            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-            _skateMaxSpeed = _skateController.GetMaxSpeed();
-            _skateBoostedSpeed = _skateMaxSpeed * props.boostAmount * rb.mass;
-
-            rb.AddForce(Vector3.right * _skateBoostedSpeed, ForceMode.Impulse);
+            skate.GetComponent<SkateStateManager>().OnBoost.Invoke();
         }
     }
 
     private void OnTriggerExit(Collider skate)
     {
-        if (skate.GetComponent<SkateController>() != null)
+        if (skate.GetComponent<SkateStateManager>() != null)
         {
-            _skateController = skate.GetComponent<SkateController>();
-            _skateController.ForceMaxSpeedWithDelay(0.5f);
+            _skateController = skate.GetComponent<SkateStateManager>().GetSkateController();
+            _skateController.StopBoost();
         }
     }
 
