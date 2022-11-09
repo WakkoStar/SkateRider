@@ -54,7 +54,7 @@ public class SkateParticleManager : MonoBehaviour
 
     void DisplayTruckOnJumpLandingSlam()
     {
-        TruckOnJumpLandingSlam.Display(TailTruck.transform.position + Vector3.up * 0.3f);
+        TruckOnJumpLandingSlam.Display(TailTruck.transform.position + Vector3.up * 0.6f);
     }
 
     void DisplayBoostSpeedLines()

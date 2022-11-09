@@ -39,6 +39,7 @@ public class SkateStateManager : MonoBehaviour
     private bool _isLanding;
     private bool _isOllie;
     private bool _isPushLanding;
+    private bool _isSwitchOnJump;
     private bool _shouldDisplayGrindTrick;
 
     private UnityAction _onBoostAction;
@@ -200,6 +201,15 @@ public class SkateStateManager : MonoBehaviour
         return _isOnGrind;
     }
 
+    private void SetIsSwitchOnJump(bool value)
+    {
+        _isSwitchOnJump = value;
+    }
+    private bool IsSwitchOnJump()
+    {
+        return _isSwitchOnJump;
+    }
+
 
 
     private void SetShouldDisplayGrindTrick(bool value)
@@ -324,7 +334,7 @@ public class SkateStateManager : MonoBehaviour
                 IsOllie(),
                 _skateController.GetFlipAmount(),
                 _skateController.GetRotateAmount(),
-                _skateRotationReader.IsSwitch()
+                IsSwitchOnJump()
             )
         );
         audioManager.Play("Landing", 1.5f);
@@ -354,6 +364,7 @@ public class SkateStateManager : MonoBehaviour
         audioManager.Play("Jump");
 
         _skateController.OnJump(isManual);
+        SetIsSwitchOnJump(_skateRotationReader.IsSwitch());
 
         skateInput.ResetNoseOffset();
         skateInput.ResetTailOffset();
