@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -60,6 +61,14 @@ public class AudioManager : MonoBehaviour
     {
         var track = audioTracks.First(track => track.name == name);
         if (track.source.isPlaying) track.source.Stop();
+    }
+
+    public void StopAll(string[] names)
+    {
+        foreach (var name in names)
+        {
+            Stop(name);
+        }
     }
 
 }

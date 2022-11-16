@@ -10,7 +10,12 @@ public class SkateInput : MonoBehaviour
     //SETTINGS
     [SerializeField] private GameObject NoseZone;
     [SerializeField] private GameObject TailZone;
+    [SerializeField] private Vector2 noseZoneUIOffset;
+    [SerializeField] private Vector2 tailZoneUIOffset;
     //STATE
+    private CanvasGroup _noseZoneCanvas;
+    private CanvasGroup _tailZoneCanvas;
+
     private bool _isTailTouch;
     private bool _isNoseTouch;
     private Touch _touchOne;
@@ -21,6 +26,8 @@ public class SkateInput : MonoBehaviour
     private bool _isNoseTouchWithTouchTwo;
     private Vector2 _noseOffset;
     private Vector2 _tailOffset;
+    private Vector2 _tailPosition;
+    private Vector2 _nosePosition;
     private bool _canResetTailOffset;
     private bool _canResetNoseOffset;
     private float _timeOnNose;
@@ -31,7 +38,8 @@ public class SkateInput : MonoBehaviour
     private bool _isNollie;
     void Start()
     {
-
+        _noseZoneCanvas = NoseZone.GetComponent<CanvasGroup>();
+        _tailZoneCanvas = TailZone.GetComponent<CanvasGroup>();
     }
 
     void Update()
@@ -45,10 +53,14 @@ public class SkateInput : MonoBehaviour
         if (Input.touchCount >= 1)
         {
             _touchOne = Input.GetTouch(0);
+            _touchTwo = Input.GetTouch(0);
 
+            var isTailNearest =
+            (_touchOne.position - _tailPosition).sqrMagnitude < (_touchOne.position - _nosePosition).sqrMagnitude;
 
-            _isTailTouchWithTouchOne = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), TailZone);
-            _isNoseTouchWithTouchOne = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), NoseZone);
+            _isTailTouchWithTouchOne = isTailNearest;
+            _isNoseTouchWithTouchOne = !isTailNearest;
+
             _isTailTouch = _isTailTouchWithTouchOne;
             _isNoseTouch = _isNoseTouchWithTouchOne;
         }
@@ -58,11 +70,26 @@ public class SkateInput : MonoBehaviour
             _touchOne = Input.GetTouch(0);
             _touchTwo = Input.GetTouch(1);
 
-            _isTailTouchWithTouchOne = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), TailZone);
-            _isTailTouchWithTouchTwo = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchTwo), TailZone);
+            var isTouchOneOnLeft = _touchOne.position.x < _touchTwo.position.x;
+            var isTouchTwoOnLeft = _touchTwo.position.x < _touchOne.position.x;
 
-            _isNoseTouchWithTouchOne = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), NoseZone);
-            _isNoseTouchWithTouchTwo = IsPointerOverUITarget(GetEventSystemRaycastResults(_touchTwo), NoseZone);
+            _isTailTouchWithTouchOne = isTouchOneOnLeft;//IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), TailZone);
+            _isTailTouchWithTouchTwo = isTouchTwoOnLeft;//IsPointerOverUITarget(GetEventSystemRaycastResults(_touchTwo), TailZone);
+
+            _isNoseTouchWithTouchOne = isTouchTwoOnLeft;//IsPointerOverUITarget(GetEventSystemRaycastResults(_touchOne), NoseZone);
+            _isNoseTouchWithTouchTwo = isTouchOneOnLeft;//IsPointerOverUITarget(GetEventSystemRaycastResults(_touchTwo), NoseZone);
+
+            if (_isTailTouchWithTouchOne)
+            {
+                _tailPosition = _touchOne.position;
+                _nosePosition = _touchTwo.position;
+            }
+
+            if (_isTailTouchWithTouchTwo)
+            {
+                _tailPosition = _touchTwo.position;
+                _nosePosition = _touchOne.position;
+            }
 
             _isTailTouch =
                 _isTailTouchWithTouchOne
@@ -73,6 +100,28 @@ public class SkateInput : MonoBehaviour
                 || _isNoseTouchWithTouchTwo;
         }
 
+        //HANDLE UI BEHAVIOR
+        if (_isTailTouchWithTouchOne)
+        {
+            TailZone.transform.position = _touchOne.position + tailZoneUIOffset;
+        }
+        if (_isTailTouchWithTouchTwo)
+        {
+            TailZone.transform.position = _touchTwo.position + tailZoneUIOffset;
+        }
+        if (_isNoseTouchWithTouchOne)
+        {
+            NoseZone.transform.position = _touchOne.position + noseZoneUIOffset;
+        }
+        if (_isNoseTouchWithTouchTwo)
+        {
+            NoseZone.transform.position = _touchTwo.position + noseZoneUIOffset;
+        }
+
+        _tailZoneCanvas.alpha = _isTailTouch ? 1 : 0;
+        _noseZoneCanvas.alpha = _isNoseTouch ? 1 : 0;
+
+        //RESET TOUCH OFFSET
         if (!_isTailTouch)
         {
             _canResetTailOffset = true;
@@ -80,11 +129,9 @@ public class SkateInput : MonoBehaviour
 
         if (_isTailTouch && _canResetTailOffset)
         {
-
             _tailOffset = Vector2.zero;
             _canResetTailOffset = false;
         }
-
 
         if (!_isNoseTouch)
         {
@@ -97,7 +144,7 @@ public class SkateInput : MonoBehaviour
             _canResetNoseOffset = false;
         }
 
-
+        //GET TOUCH OFFSET
         if (_isTailTouchWithTouchOne)
         {
             _tailOffset += _touchOne.deltaPosition;
@@ -116,6 +163,7 @@ public class SkateInput : MonoBehaviour
             _noseOffset += _touchTwo.deltaPosition;
         }
 
+        //IS OLLIE OR NOLLIE
         if (!_isNoseTouch && _shouldTakeTimeOnNose)
         {
             _timeOnNose = Time.time;

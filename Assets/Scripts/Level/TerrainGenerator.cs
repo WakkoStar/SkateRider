@@ -29,6 +29,7 @@ public class TerrainTileGenerator : MonoBehaviour
 
     private GameObject _meshCombiner;
     private float _heightOffset = 0;
+    private int _startTerrainIndex = 5;
     TileSelector _tileSelector;
 
     public UnityEvent<GameObject> OnTileAdded = new UnityEvent<GameObject>();
@@ -72,7 +73,7 @@ public class TerrainTileGenerator : MonoBehaviour
             DeleteTileMeshCombiner(_terrain, _tilesInMeshCombiner);
             DeleteTerrainFirstTile(_terrain);
             OnTilePassed.Invoke();
-            if (!_forceStop) AddTileToTerrain();
+            if (!_forceStop) AddTileToTerrain(_tileIndex > _startTerrainIndex ? null : DefaultTile);
 
             _tileIndex = currentTileIndex;
         }
@@ -84,7 +85,7 @@ public class TerrainTileGenerator : MonoBehaviour
         var playerPos = new Vector3(newTileIndex * tileSize, (baseHeightLevel * tileSize * yScale / 2f), 0);
         var nextTileOffset = Vector3.right * tileSize * _terrain.Count + Vector3.up * _heightOffset * tileSize * yScale / 2;
 
-        var choosenTile = forceTile ? forceTile : _tileSelector.ChooseTile(GetTerrain(), _heightOffset, GetSafeZone());
+        var choosenTile = forceTile != null ? forceTile : _tileSelector.ChooseTile(GetTerrain(), _heightOffset, GetSafeZone());
         _heightOffset += GetHeightOffset(choosenTile.name);
 
         var instanceTile = InstantiateTile(choosenTile, playerPos + nextTileOffset, new Vector2(yScale, zScale), transform, tileSize);

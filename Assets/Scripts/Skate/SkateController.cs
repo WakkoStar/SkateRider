@@ -22,6 +22,7 @@ public class SkateController : MonoBehaviour
     private float _flipAmount = 0;
     private float _maxSpeed = 9f;
     private bool _forceMaxSpeed = true;
+    private bool _isStopped = false;
     private float _jumpForce = 400f;
     private float _minSensitivity = 100;
 
@@ -54,15 +55,10 @@ public class SkateController : MonoBehaviour
 
     void Start()
     {
-        // _maxSpeed = maxStartSpeed;
-        // _jumpForce = jumpStartForce;
-
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = Vector3.right;
 
         Application.targetFrameRate = 60;
-
-        StartCoroutine(IncreaseDifficulty());
     }
 
     void FixedUpdate()
@@ -73,11 +69,8 @@ public class SkateController : MonoBehaviour
 
         _TE = transform.localEulerAngles;
 
-        // //DEFEAT CONDITON
-        // if (_rb.velocity.x < 0.3) return;
-
         //SET DIRECTION
-        if (GetForceMaxSpeed())
+        if (GetForceMaxSpeed() && !IsStopped())
         {
             var direction = _rb.velocity.x < GetMaxSpeed() ? Vector3.right : -Vector3.right;
             _rb.AddForce(direction * _speedForce, ForceMode.Acceleration);
@@ -88,6 +81,8 @@ public class SkateController : MonoBehaviour
         {
             if (_rb.velocity.y > 20) _rb.AddForce(-Vector3.up * 400, ForceMode.Acceleration);
         }
+
+        SetIsStopped(_skateTerrainReader.IsOnTerrain() && !IsMoving());
     }
 
     public void OnGrind()
@@ -142,6 +137,12 @@ public class SkateController : MonoBehaviour
     public void OnAir()
     {
         var currentTE = _TE;
+
+        if (IsStopped() && _skateState.IsJumping())
+        {
+            _rb.velocity += Vector3.right;
+            SetIsStopped(false);
+        }
 
         if (_skateState.GetIsNoseTouch() && _skateState.GetIsTailTouch())
         {
@@ -237,6 +238,13 @@ public class SkateController : MonoBehaviour
         return Mathf.Abs(offset) < _minSensitivity ? 0 : Mathf.Sign(offset);
     }
 
+    public bool IsMoving()
+    {
+        if (_rb == null) return true;
+
+        return Mathf.Abs(_rb.velocity.x) > 0.5f;
+    }
+
 
     private IEnumerator DoAFlip(float flipDirection, float rotateDirection)
     {
@@ -254,18 +262,6 @@ public class SkateController : MonoBehaviour
             transform.Rotate(new Vector3(flipForceTotal, 0, 0), Space.Self);
 
             // _trickScore = (int)(Mathf.Abs(_flipAmount) / flipForce + Mathf.Abs(_rotateAmount) / rotateForce);
-
-            yield return null;
-        }
-    }
-
-
-    private IEnumerator IncreaseDifficulty()
-    {
-        for (double a = 0; a < 1; a += Time.deltaTime / 2000000)
-        {
-            // _maxSpeed = Mathf.Lerp(_maxSpeed, maxEndSpeed, (float)a);
-            // _jumpForce = Mathf.Lerp(_jumpForce, jumpEndForce, (float)a);
 
             yield return null;
         }
@@ -348,6 +344,19 @@ public class SkateController : MonoBehaviour
     {
         StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
     }
+
+
+
+    public bool IsStopped()
+    {
+        return _isStopped;
+    }
+
+    public void SetIsStopped(bool value)
+    {
+        _isStopped = value;
+    }
+
 
     IEnumerator ForceMaxSpeedWithDelayCoroutine(float delay)
     {

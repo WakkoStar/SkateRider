@@ -158,10 +158,10 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 480, y: 0}
-  m_SizeDelta: {x: -960, y: 900}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 310}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &34345227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,15 +175,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3962264, g: 0.03987181, b: 0.3924716, a: 0.40392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: da7740768c0ab9749a26be4ae34e52f7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -208,7 +208,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34345225}
   m_Enabled: 1
-  m_Alpha: 0.5
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -10794,12 +10794,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834372537}
   m_CullTransparentMesh: 1
---- !u!1 &954801089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3594147514995943208, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8229003717340956243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -10813,6 +10807,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194230}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10959,6 +10954,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoseZone: {fileID: 34345225}
   TailZone: {fileID: 1155088522}
+  noseZoneUIOffset: {x: -72, y: -30}
+  tailZoneUIOffset: {x: -72, y: -30}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a48918840642a04fa84b398fc11a987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skateStateManager: {fileID: 7312117250052874107}
+  levelTileMonitor: {fileID: 2033424716}
+  difficultyIncreaser: {fileID: 1738640030}
+  cameraStartOffset: {x: 4, y: 3, z: -15}
+  cameraEndOffset: {x: 10, y: 5, z: -23}
+  startFOV: 80
+  endFOV: 100
 --- !u!1 &1084182899
 GameObject:
   m_ObjectHideFlags: 0
@@ -11132,10 +11148,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -479.99994, y: 0}
-  m_SizeDelta: {x: -960.0001, y: 900}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 310}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1155088524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11149,15 +11165,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.08176094, b: 0.18686171, a: 0.40392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 018b8cd5879c2f14f947b82435c3971e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11182,7 +11198,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155088522}
   m_Enabled: 1
-  m_Alpha: 0.5
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -25841,45 +25857,14 @@ MonoBehaviour:
   - {fileID: 4680667294943515832, guid: fc0122c4e30d98b4fb3affdd5854c961, type: 3}
   - {fileID: 4988713772943810011, guid: b8ef2b96e7591fb4491e1102ee62ea1b, type: 3}
   - {fileID: 5249985708401886292, guid: 78723a49cbaf76542830e5a36af742c4, type: 3}
-  cameraStartOffset: {x: 4, y: 3, z: -15}
-  cameraEndOffset: {x: 10, y: 5, z: -23}
   difficultyIncreaser: {fileID: 1738640030}
   zStartScale: 1
   zEndScale: 0.7
   yStartScale: 1.5
   yEndScale: 1.1
-  startFOV: 80
-  endFOV: 100
   tileSizeStart: 5
   tileSizeEnd: 10
   switchTileTransitionLength: 4
---- !u!1 &2087709594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1743582484726703026, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8229003717340956243}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2087709595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087709594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c7741f506f9704394d3db3fee8f53f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  onTriggerStay:
-    m_PersistentCalls:
-      m_Calls: []
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2097353382
 GameObject:
   m_ObjectHideFlags: 0
@@ -26124,36 +26109,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8229003717340956243}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7312117250052874107
+--- !u!114 &7312117250052874107 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7312117250052874106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241e1ef369725034798f262c8244b985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NoseGrindSparks: {fileID: 216974567}
-  TailGrindSparks: {fileID: 1816358128}
-  BoardJumpSlam: {fileID: 1388406772}
-  TruckOnJumpLandingSlam: {fileID: 2137697483}
-  BoostSpeedLines: {fileID: 596113930}
-  NoseTruck: {fileID: 954801089}
-  TailTruck: {fileID: 2087709594}
---- !u!4 &7312117250052874110 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2017964483034612627, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+  m_CorrespondingSourceObject: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
     type: 3}
   m_PrefabInstance: {fileID: 8229003717340956243}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7312117250052874113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7312117250052874106}
   m_Enabled: 1
@@ -26161,43 +26121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0456cb6fb42f3c14aa67f66af26250ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 114351441}
-  guiController: {fileID: 1310322653}
-  skateInput: {fileID: 963194230}
-  difficultyIncreaser: {fileID: 1738640030}
-  speedForce: 100
-  flipForce: 6
-  rotateForce: 6
-  maxAngle: 0.33
-  maxSkateHeight: 20
-  maxStartSpeed: 10
-  maxEndSpeed: 30
-  jumpStartForce: 350
-  jumpEndForce: 500
-  OnJumpLandingEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnJumpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnJumpWithVelocity:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2033424716}
-        m_TargetAssemblyTypeName: LevelTileMonitor, Assembly-CSharp
-        m_MethodName: SetLandingHit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnBoost:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!4 &7312117250052874110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2017964483034612627, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8229003717340956243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8229003717340956243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26205,20 +26134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 309210112}
     m_Modifications:
-    - target: {fileID: 1080897489073180793, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1678312887846852905, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
       propertyPath: m_Name
       value: SKATE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743582484726703026, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
-        type: 3}
-      propertyPath: m_Name
-      value: Tail Truck
       objectReference: {fileID: 0}
     - target: {fileID: 2017964483034612627, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
@@ -26275,30 +26194,124 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2526988313914995874, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+    - target: {fileID: 5478973558290839808, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3594147514995943208, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+    - target: {fileID: 7312117250052874107, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
-      propertyPath: m_Name
-      value: Nose Truck
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083416371393322731, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
-        type: 3}
-      propertyPath: groundSlam
+      propertyPath: BoardJumpSlam
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668348137518427647, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+      objectReference: {fileID: 1388406772}
+    - target: {fileID: 7312117250052874107, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
-      propertyPath: groundSlam
+      propertyPath: BoostSpeedLines
       value: 
-      objectReference: {fileID: 42451711}
-    - target: {fileID: 8342797428528496371, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+      objectReference: {fileID: 596113930}
+    - target: {fileID: 7312117250052874107, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
         type: 3}
-      propertyPath: playOnAwake
-      value: 0
+      propertyPath: NoseGrindSparks
+      value: 
+      objectReference: {fileID: 216974567}
+    - target: {fileID: 7312117250052874107, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: TailGrindSparks
+      value: 
+      objectReference: {fileID: 1816358128}
+    - target: {fileID: 7312117250052874107, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: TruckOnJumpLandingSlam
+      value: 
+      objectReference: {fileID: 2137697483}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: skateInput
+      value: 
+      objectReference: {fileID: 963194230}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 114351441}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: guiController
+      value: 
+      objectReference: {fileID: 1310322653}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: noseZoneCollider
+      value: 
+      objectReference: {fileID: 8229003717340956245}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: tailZoneCollider
+      value: 
+      objectReference: {fileID: 8229003717340956244}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: difficultyIncreaser
+      value: 
+      objectReference: {fileID: 1738640030}
+    - target: {fileID: 7312117250052874113, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: OnJumpWithVelocity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2033424716}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.26079
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.012545972
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.6661715
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.014605023
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.019999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220612452275225008, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.0041729156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c2e06ed88c11994ab9cec0ce7493a2d, type: 3}
+--- !u!114 &8229003717340956244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2511971844210903120, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8229003717340956243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeaed8aa3cec6445982608e1fd12796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8229003717340956245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5412712657351732080, guid: 9c2e06ed88c11994ab9cec0ce7493a2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8229003717340956243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeaed8aa3cec6445982608e1fd12796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

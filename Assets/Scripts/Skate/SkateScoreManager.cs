@@ -8,6 +8,7 @@ public class SkateScoreManager : MonoBehaviour
     private int _trickScore;
     private int _grindScore;
     private float _totalScore;
+    private bool _shouldStopScore;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class SkateScoreManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        IncrementScore(1);
+        if (!ShouldStopScore()) IncrementScore(1);
         guiController.DisplayScore(GetTotalScore());
 
         if (GetGrindScore() > 0)
@@ -80,5 +81,14 @@ public class SkateScoreManager : MonoBehaviour
         SetGrindScore(0);
     }
 
+
+    public void SetShouldStopScore(bool value)
+    {
+        _shouldStopScore = value;
+    }
+    private bool ShouldStopScore()
+    {
+        return _shouldStopScore;
+    }
 
 }

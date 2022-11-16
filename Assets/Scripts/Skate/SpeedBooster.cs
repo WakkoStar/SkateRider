@@ -32,8 +32,12 @@ public class SpeedBooster : MonoBehaviour
     private void OnTriggerEnter(Collider skate)
     {
 
-        if (skate.GetComponent<SkateStateManager>() != null)
+        if (
+            skate.GetComponent<SkateStateManager>() != null
+            && !skate.GetComponent<SkateStateManager>().GetSkateRotationReader().IsUpsideDown()
+        )
         {
+
             skate.GetComponent<SkateStateManager>().OnBoost.Invoke();
         }
     }

@@ -24,7 +24,6 @@ public class LevelTileMonitor : MonoBehaviour
     private SideTerrainTileGenerator _sideTerrainTileGenerator;
     private GrindTileGenerator _grindTileGenerator;
 
-    private GameObject _MainCamera;
     private Vector3 _cameraOffset;
     private float _landingHit;
 
@@ -44,17 +43,11 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private GameObject EndSwitchTile;
     [SerializeField] private List<GameObject> GrindStarts = new List<GameObject>();
     [SerializeField] private List<GameObject> GrindEnds = new List<GameObject>();
-
-    [SerializeField] private Vector3 cameraStartOffset = new Vector3(4, 3, -15);
-    [SerializeField] private Vector3 cameraEndOffset = new Vector3(4, 3, -15);
-
     [SerializeField] private DifficultyIncreaser difficultyIncreaser;
     [SerializeField] private float zStartScale = 1;
     [SerializeField] private float zEndScale = 1;
     [SerializeField] private float yStartScale = 1.5f;
     [SerializeField] private float yEndScale = 1.5f;
-    [SerializeField] private float startFOV = 80;
-    [SerializeField] private float endFOV = 80;
     [SerializeField] private float tileSizeStart = 5;
     [SerializeField] private float tileSizeEnd = 10;
     [SerializeField] private int switchTileTransitionLength = 4;
@@ -66,14 +59,8 @@ public class LevelTileMonitor : MonoBehaviour
     {
         //ASSIGN INCREASERS
         _tileSize = (int)tileSizeStart;
-        DifficultyIncreaser.DelValueModifier SetCurrentTileSizeCallback = SetCurrentTileSize;
-        difficultyIncreaser.AddIncreaser<float>(tileSizeStart, tileSizeEnd, SetCurrentTileSizeCallback);
 
-        DifficultyIncreaser.DelValueModifier SetCameraOffsetCallback = SetCameraOffset;
-        difficultyIncreaser.AddIncreaser<Vector3>(cameraStartOffset, cameraEndOffset, SetCameraOffsetCallback);
-
-        DifficultyIncreaser.DelValueModifier SetCameraFOVCallback = SetCameraFOV;
-        difficultyIncreaser.AddIncreaser<float>(startFOV, endFOV, SetCameraFOVCallback);
+        difficultyIncreaser.AddIncreaser<float>(tileSizeStart, tileSizeEnd, SetCurrentTileSize);
 
         _yScale = yStartScale;
         _zScale = zStartScale;
@@ -98,8 +85,6 @@ public class LevelTileMonitor : MonoBehaviour
 
         onTilePassedAction += ForceTerrainSwitch;
         _terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
-
-        _MainCamera = Camera.main.gameObject;
     }
 
     void Update()
@@ -110,7 +95,6 @@ public class LevelTileMonitor : MonoBehaviour
             _isSwitchingSize = true;
         }
 
-        _MainCamera.transform.position = SetCameraPosition(_terrainTileGenerator.GetTerrainHeight());
         _terrainTileGenerator.SetSafeZone((int)(_landingHit / _tileSize) - 2, 2);
 
         _terrainTileGenerator.yScale = _yScale;
@@ -152,19 +136,6 @@ public class LevelTileMonitor : MonoBehaviour
         levelComponent.transform.parent = transform;
 
         return levelComponent;
-    }
-
-    private Vector3 SetCameraPosition(float levelHeight)
-    {
-        var camPos = _MainCamera.transform.position;
-        var pos = Player.transform.position;
-        var targetPos = new Vector3(
-            pos.x + _cameraOffset.x,
-            Mathf.Lerp(camPos.y, levelHeight + _cameraOffset.y, 0.01f * (Time.deltaTime * 60)),
-            pos.z + _cameraOffset.z
-        );
-
-        return targetPos;
     }
 
     public void SetLandingHit(Vector2 playerVelocity)
@@ -328,15 +299,6 @@ public class LevelTileMonitor : MonoBehaviour
     {
         _currentileSize = (float)value;
     }
-    void SetCameraOffset(object value)
-    {
-        _cameraOffset = (Vector3)value;
-    }
-    void SetCameraFOV(object value)
-    {
-        Camera.main.fieldOfView = (float)value;
-    }
-
 
 
     public TerrainTileGenerator GetTerrainTileGenerator()
