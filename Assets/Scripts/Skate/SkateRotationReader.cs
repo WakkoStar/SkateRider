@@ -24,6 +24,15 @@ public class SkateRotationReader : MonoBehaviour
         return isUpsideDown;
     }
 
+    public bool IsTrueUpsideDown()
+    {
+        var isUpsideDown =
+        (Mathf.Abs(transform.localEulerAngles.x) > 170 && Mathf.Abs(transform.localEulerAngles.x) < 190)
+         || (Mathf.Abs(transform.localEulerAngles.z) > 170 && Mathf.Abs(transform.localEulerAngles.z) < 190);
+
+        return isUpsideDown;
+    }
+
     public bool IsPerpendicular()
     {
         var tEulerAng = transform.localEulerAngles;

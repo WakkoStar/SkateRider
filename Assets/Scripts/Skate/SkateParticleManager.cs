@@ -13,6 +13,7 @@ public class SkateParticleManager : MonoBehaviour
     [SerializeField] private ParticleDisplayer BoostSpeedLines;
     [SerializeField] private GameObject NoseTruck;
     [SerializeField] private GameObject TailTruck;
+
     private SkateStateManager _skateState;
     private GameObject _cameraObj;
     private UnityAction _onJumpLandingAction;

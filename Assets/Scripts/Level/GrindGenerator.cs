@@ -5,19 +5,13 @@ using UnityEngine.Events;
 
 public class GrindTileGenerator : MonoBehaviour
 {
-    // public GameObject Player;
     public TerrainTileGenerator terrainTileGenerator;
     public List<GameObject> GrindStarts = new List<GameObject>();
     public List<GameObject> GrindEnds = new List<GameObject>();
+
     private List<GameObject> _grind = new List<GameObject>();
     private UnityAction onTilePassedAction;
 
-    public void Init(TerrainTileGenerator terrainTileGenerator, List<GameObject> GrindStarts, List<GameObject> GrindEnds)
-    {
-        this.terrainTileGenerator = terrainTileGenerator;
-        this.GrindStarts = GrindStarts;
-        this.GrindEnds = GrindEnds;
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +28,7 @@ public class GrindTileGenerator : MonoBehaviour
     private void DeleteGrindFirstTile()
     {
         var terrain = terrainTileGenerator.GetTerrain();
+
         var prevTile = terrain[terrain.Count - (terrainTileGenerator.tileAmount - 2)];
 
         if (GrindEnds.Find(grindObj => grindObj.name.Contains(prevTile.name)) != null)

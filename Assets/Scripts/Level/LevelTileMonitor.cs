@@ -43,7 +43,6 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private GameObject EndSwitchTile;
     [SerializeField] private List<GameObject> GrindStarts = new List<GameObject>();
     [SerializeField] private List<GameObject> GrindEnds = new List<GameObject>();
-    [SerializeField] private DifficultyIncreaser difficultyIncreaser;
     [SerializeField] private float zStartScale = 1;
     [SerializeField] private float zEndScale = 1;
     [SerializeField] private float yStartScale = 1.5f;
@@ -59,8 +58,7 @@ public class LevelTileMonitor : MonoBehaviour
     {
         //ASSIGN INCREASERS
         _tileSize = (int)tileSizeStart;
-
-        difficultyIncreaser.AddIncreaser<float>(tileSizeStart, tileSizeEnd, SetCurrentTileSize);
+        _currentileSize = (int)tileSizeStart;
 
         _yScale = yStartScale;
         _zScale = zStartScale;
@@ -68,15 +66,31 @@ public class LevelTileMonitor : MonoBehaviour
         //INIT LEVEL STRUCTURE
         _Terrain = InitLevelComponent("BaseTerrain");
         _terrainTileGenerator = _Terrain.AddComponent<TerrainTileGenerator>();
-        _terrainTileGenerator.Init(Player, baseHeightLevel, tiles, tileAmount, _tileSize, _yScale, _zScale, DefaultTile);
+
+        _terrainTileGenerator.Player = Player;
+        _terrainTileGenerator.baseHeightLevel = baseHeightLevel;
+        _terrainTileGenerator.tiles = tiles;
+        _terrainTileGenerator.tileAmount = tileAmount;
+        _terrainTileGenerator.tileSize = (int)tileSizeStart;
+        _terrainTileGenerator.yScale = yStartScale;
+        _terrainTileGenerator.zScale = zStartScale;
+        _terrainTileGenerator.DefaultTile = DefaultTile;
+
 
         _SideTerrain = InitLevelComponent("SideTerrain");
         _sideTerrainTileGenerator = _SideTerrain.AddComponent<SideTerrainTileGenerator>();
-        _sideTerrainTileGenerator.Init(_terrainTileGenerator, sideTiles, sideTilesBackward);
+
+        _sideTerrainTileGenerator.terrainTileGenerator = _terrainTileGenerator;
+        _sideTerrainTileGenerator.sideTiles = sideTiles;
+        _sideTerrainTileGenerator.backwardSideTiles = sideTilesBackward;
+
 
         _GrindTerrain = InitLevelComponent("GrindTerrain");
         _grindTileGenerator = _GrindTerrain.AddComponent<GrindTileGenerator>();
-        _grindTileGenerator.Init(_terrainTileGenerator, GrindStarts, GrindEnds);
+
+        _grindTileGenerator.terrainTileGenerator = _terrainTileGenerator;
+        _grindTileGenerator.GrindStarts = GrindStarts;
+        _grindTileGenerator.GrindEnds = GrindEnds;
 
 
         //EVENTS
@@ -85,6 +99,12 @@ public class LevelTileMonitor : MonoBehaviour
 
         onTilePassedAction += ForceTerrainSwitch;
         _terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
+    }
+
+    public void RestartGame()
+    {
+        _sideTerrainTileGenerator.RestartGame();
+        _terrainTileGenerator.RestartGame();
     }
 
     void Update()
@@ -295,9 +315,9 @@ public class LevelTileMonitor : MonoBehaviour
     }
 
 
-    void SetCurrentTileSize(object value)
+    public void SetCurrentTileSize(float value)
     {
-        _currentileSize = (float)value;
+        _currentileSize = value;
     }
 
 

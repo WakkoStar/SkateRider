@@ -5,57 +5,68 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraPositionController : MonoBehaviour
 {
+    //SETTINGS
     [SerializeField] private SkateStateManager skateStateManager;
     [SerializeField] private LevelTileMonitor levelTileMonitor;
-    [SerializeField] private DifficultyIncreaser difficultyIncreaser;
 
-    [SerializeField] private Vector3 cameraStartOffset = new Vector3(4, 3, -15);
-    [SerializeField] private Vector3 cameraEndOffset = new Vector3(4, 3, -15);
-
-    [SerializeField] private float startFOV = 80;
-    [SerializeField] private float endFOV = 80;
-
-
+    //STATE
     private TerrainTileGenerator _terrainTileGenerator;
-    private SkateController _skateController;
+    private SkatePhysicsController _skatePhysController;
     private Camera _MainCamera;
-
     private Vector3 _cameraOffset;
-
     private float _cameraX;
     private float _cameraZ;
-
     private bool _isLosing;
+    private bool _isCameraStopped;
 
 
-    void Start()
+    IEnumerator Start()
     {
-        difficultyIncreaser.AddIncreaser<Vector3>(cameraStartOffset, cameraEndOffset, SetCameraOffset);
-        difficultyIncreaser.AddIncreaser<float>(startFOV, endFOV, SetCameraFOV);
-
-        StartCoroutine(OnStart());
-    }
-
-    IEnumerator OnStart()
-    {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForFixedUpdate();
 
         _MainCamera = GetComponent<Camera>();
         _terrainTileGenerator = levelTileMonitor.GetTerrainTileGenerator();
-        _skateController = skateStateManager.GetSkateController();
+        _skatePhysController = skateStateManager.GetSkatePhysicsController();
 
         _cameraX = skateStateManager.transform.position.x;
         _cameraZ = skateStateManager.transform.position.z;
     }
 
 
+    public void Init()
+    {
+        SetIsCameraStopped(true);
+    }
+    public void StartGame()
+    {
+        SetIsCameraStopped(false);
+    }
+    public void OnGameOver()
+    {
+        SetIsCameraStopped(true);
+    }
+    public void RestartGame()
+    {
+        SetIsCameraStopped(false);
 
+        _cameraX = skateStateManager.transform.position.x;
+        _cameraZ = skateStateManager.transform.position.z;
+
+        _MainCamera.transform.position = new Vector3(_cameraX, _terrainTileGenerator.GetTerrainHeight(), _cameraZ);
+    }
 
     void Update()
     {
-        if (skateStateManager.IsGameOver() || _terrainTileGenerator == null)
+        if (IsCameraStopped()) return;
+
+        if (_terrainTileGenerator == null)
         {
             return;
+        }
+
+        if (!IsOnScreenY(skateStateManager.gameObject))
+        {
+            skateStateManager.SetGameOver();
         }
 
         if (!_isLosing)
@@ -63,18 +74,18 @@ public class CameraPositionController : MonoBehaviour
             _cameraX = skateStateManager.transform.position.x;
         }
 
-        if (!_skateController.IsMoving())
+        if (!_skatePhysController.IsMoving())
         {
             _isLosing = true;
-            _cameraX = Mathf.Lerp(_cameraX, _cameraX + Time.deltaTime * _skateController.GetMaxSpeed() * 5, 0.1f * (Time.deltaTime * 60));
+            _cameraX = Mathf.Lerp(_cameraX, _cameraX + Time.deltaTime * _skatePhysController.GetMaxSpeed() * 5, 0.1f * (Time.deltaTime * 60));
 
-            if (!IsOnScreen(skateStateManager.gameObject))
+            if (!IsOnScreenX(skateStateManager.gameObject))
             {
                 skateStateManager.SetGameOver();
             }
         }
 
-        if (_skateController.IsMoving() && _isLosing)
+        if (_skatePhysController.IsMoving() && _isLosing)
         {
             var playerCameraXDistance = Mathf.Abs(_cameraX - skateStateManager.transform.position.x);
             if (_cameraX < skateStateManager.transform.position.x)
@@ -105,23 +116,45 @@ public class CameraPositionController : MonoBehaviour
 
 
 
-    private void SetCameraOffset(object value)
+    public void SetCameraOffset(Vector3 value)
     {
-        _cameraOffset = (Vector3)value;
+        _cameraOffset = value;
     }
-    private void SetCameraFOV(object value)
+    public void SetCameraFOV(float value)
     {
         Camera.main.fieldOfView = (float)value;
     }
 
 
 
-    private bool IsOnScreen(GameObject gameObject)
+    private bool IsOnScreenX(GameObject gameObject)
     {
         Vector3 screenPoint = _MainCamera.WorldToViewportPoint(gameObject.transform.position);
         bool onScreen = screenPoint.x >= -0.2 && screenPoint.x <= 1.2;
 
         return onScreen;
     }
+
+    private bool IsOnScreenY(GameObject gameObject)
+    {
+        Vector3 screenPoint = _MainCamera.WorldToViewportPoint(gameObject.transform.position);
+        bool onScreen = screenPoint.y >= -1 && screenPoint.y <= 2;
+
+        return onScreen;
+    }
+
+
+
+    public void SetIsCameraStopped(bool value)
+    {
+        _isCameraStopped = value;
+    }
+
+    public bool IsCameraStopped()
+    {
+        return _isCameraStopped;
+    }
+
+
 
 }

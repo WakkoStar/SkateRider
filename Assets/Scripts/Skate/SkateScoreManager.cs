@@ -4,38 +4,35 @@ using UnityEngine;
 
 public class SkateScoreManager : MonoBehaviour
 {
-    public GUIController guiController;
+    public SkateStateManager skateState;
     private int _trickScore;
     private int _grindScore;
     private float _totalScore;
     private bool _shouldStopScore;
 
-    void Start()
+    private void Start()
     {
 
     }
-
 
     void FixedUpdate()
     {
         if (!ShouldStopScore()) IncrementScore(1);
-        guiController.DisplayScore(GetTotalScore());
+        skateState.GetSkateMainScreen().DisplayScore(GetTotalScore());
 
         if (GetGrindScore() > 0)
         {
-            guiController.DisplayJumpScore(GetGrindScore());
+            skateState.GetSkateMainScreen().DisplayJumpScore(GetGrindScore());
         }
         else if (GetTrickScore() > 0)
         {
-            guiController.DisplayJumpScore(GetTrickScore());
+            skateState.GetSkateMainScreen().DisplayJumpScore(GetTrickScore());
         }
         else
         {
-            guiController.HideJumpScore();
+            skateState.GetSkateMainScreen().HideJumpScore();
         }
     }
-
-
 
     public void SetTrickScore(int value)
     {
@@ -90,5 +87,27 @@ public class SkateScoreManager : MonoBehaviour
     {
         return _shouldStopScore;
     }
+
+
+
+    public void SetInit()
+    {
+        SetShouldStopScore(true);
+    }
+    public void SetStartGame()
+    {
+        SetShouldStopScore(false);
+    }
+    public void SetGameOver()
+    {
+        SetShouldStopScore(true);
+        SetTrickScore(0);
+        SetGrindScore(0);
+    }
+    public void SetRestartGame()
+    {
+        SetShouldStopScore(false);
+    }
+
 
 }

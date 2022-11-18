@@ -1,97 +1,119 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class SkateStateManager : MonoBehaviour
 {
 
+
+    //OUTSIDER COMPONENTS
     [SerializeField] private AudioManager audioManager;
-    [SerializeField] private GUIController guiController;
-    [SerializeField] private SkateInput skateInput;
-    [SerializeField] private DifficultyIncreaser difficultyIncreaser;
+    [SerializeField] private SkateMainScreen skateMainScreen;
 
 
+    //SKATE INPUT PROPS
+    [SerializeField] private GameObject NoseZone;
+    [SerializeField] private GameObject TailZone;
+    [SerializeField] private Vector2 noseZoneUIOffset;
+    [SerializeField] private Vector2 tailZoneUIOffset;
     [SerializeField] private SkateInputCollider noseZoneCollider;
     [SerializeField] private SkateInputCollider tailZoneCollider;
 
+
+    //SKATE PHYSICS CONTROLLER PROPS
     [SerializeField] private float speedForce;
     [SerializeField] private float flipForce;
     [SerializeField] private float rotateForce;
     [SerializeField] private float maxAngle;
     [SerializeField] private float maxSkateHeight;
 
-    [SerializeField] private float maxStartSpeed = 10f;
-    [SerializeField] private float maxEndSpeed = 10f;
-    [SerializeField] private float jumpStartForce = 350f;
-    [SerializeField] private float jumpEndForce = 350f;
 
+    //COMPONENTS
     private SkateTerrainReader _skateTerrainReader;
     private SkateRotationReader _skateRotationReader;
-    private SkateController _skateController;
+    private SkatePhysicsController _skatePhysController;
     private SkateScoreManager _skateScoreManager;
     private SkateCollectibleCounter _skateCollectibleCounter;
+    private SkateInput _skateInput;
+    private TimerTrigger _timerTrigger;
 
+
+    //EVENTS
+    public UnityEvent OnInit = new UnityEvent();
+    public UnityEvent OnGameOver = new UnityEvent();
+    public UnityEvent OnStartGame = new UnityEvent();
+    public UnityEvent OnRestartGame = new UnityEvent();
     public UnityEvent OnJumpLandingEvent = new UnityEvent();
     public UnityEvent OnJumpEvent = new UnityEvent();
     public UnityEvent<Vector2> OnJumpWithVelocity = new UnityEvent<Vector2>();
     public UnityEvent OnBoost = new UnityEvent();
 
+
+    //ACTIONS
+    private UnityAction _onBoostAction;
+
+
+    //STATE
     private bool _isJumpAuthorized;
     private bool _isOnGrind;
     private bool _isJumping;
     private bool _isLanding;
     private bool _isOllie;
     private bool _isPushLanding;
-    private bool _isGameOver;
+    private bool _isSkateStateStopped;
     private bool _isSwitchOnJump;
     private bool _shouldDisplayGrindTrick;
     private bool _isTailTouchPressed;
     private bool _isNoseTouchPressed;
 
-    public delegate void TouchPressure(bool value);
-    private UnityAction _onBoostAction;
 
     //LOCAL VALUES
     private string[] staticTracksNames = new string[] { "onSlide", "onGround", "WheelsOnAir" };
 
+
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         _skateTerrainReader = gameObject.AddComponent<SkateTerrainReader>();
         _skateRotationReader = gameObject.AddComponent<SkateRotationReader>();
-        _skateController = gameObject.AddComponent<SkateController>();
+        _skatePhysController = gameObject.AddComponent<SkatePhysicsController>();
+        _skateInput = gameObject.AddComponent<SkateInput>();
         _skateScoreManager = gameObject.AddComponent<SkateScoreManager>();
         _skateCollectibleCounter = new SkateCollectibleCounter();
 
-        _skateController.Init(
-            speedForce,
-            flipForce,
-            rotateForce,
-            maxAngle,
-            maxSkateHeight,
-            _skateTerrainReader,
-            _skateRotationReader,
-            skateInput,
-            this
-        );
+        _timerTrigger = gameObject.AddComponent<TimerTrigger>();
 
-        _skateScoreManager.guiController = guiController;
+        _skatePhysController.skateState = this;
+        _skatePhysController.speedForce = speedForce;
+        _skatePhysController.flipForce = flipForce;
+        _skatePhysController.rotateForce = rotateForce;
+        _skatePhysController.maxAngle = maxAngle;
+        _skatePhysController.maxSkateHeight = maxSkateHeight;
 
-        _skateCollectibleCounter.guiController = guiController;
+        _skateInput.NoseZone = NoseZone;
+        _skateInput.TailZone = TailZone;
+        _skateInput.noseZoneUIOffset = noseZoneUIOffset;
+        _skateInput.tailZoneUIOffset = tailZoneUIOffset;
+
+
+        _timerTrigger.triggerTime = 1;
+        _timerTrigger.onTimeTriggered = OnNoTouch;
+        _timerTrigger.onResponse = OnTouchResponse;
+
+        _skateScoreManager.skateState = this;
+        _skateCollectibleCounter.skateState = this;
 
         _onBoostAction += OnBoostFunc;
         OnBoost.AddListener(_onBoostAction);
 
-        difficultyIncreaser.AddIncreaser<float>(maxStartSpeed, maxEndSpeed, _skateController.SetMaxSpeed);
-        difficultyIncreaser.AddIncreaser<float>(jumpStartForce, jumpEndForce, _skateController.SetJumpForce);
+        InitState();
     }
 
     void FixedUpdate()
     {
-        if (IsGameOver())
-        {
-            return;
-        }
+        if (IsSkateStateStopped()) return;
 
         if (GetSkateTerrainReader().IsOnTerrain())
         {
@@ -137,24 +159,24 @@ public class SkateStateManager : MonoBehaviour
             _skateScoreManager.AddAndResetGrindScore();
         }
 
-        _skateScoreManager.SetShouldStopScore(!_skateController.IsMoving());
+        _skateScoreManager.SetShouldStopScore(!_skatePhysController.IsMoving());
 
         DisplayInputCollider(
-            skateInput.GetIsNoseTouch(),
+            _skateInput.GetIsNoseTouch(),
             IsNoseTouchPressed(),
             Color.blue,
             SetIsNoseTouchPressed,
             false
         );
         DisplayInputCollider(
-            skateInput.GetIsTailTouch(),
+            _skateInput.GetIsTailTouch(),
             IsTailTouchPressed(),
             Color.red,
             SetIsTailTouchPressed,
             true
         );
 
-        if (!_skateController.IsMoving())
+        if (!_skatePhysController.IsMoving())
         {
             audioManager.StopAll(staticTracksNames);
         }
@@ -162,7 +184,7 @@ public class SkateStateManager : MonoBehaviour
 
     private void InclineAndJump(bool isTouchOne, bool isTouchTwo, bool isManual)
     {
-        var isExpectedJump = isManual ? skateInput.GetIsOllie() : skateInput.GetIsNollie();
+        var isExpectedJump = isManual ? _skateInput.GetIsOllie() : _skateInput.GetIsNollie();
         if (!isTouchOne)
         {
             if (!isTouchTwo && IsJumpAuthorized() == true && isExpectedJump)
@@ -196,11 +218,11 @@ public class SkateStateManager : MonoBehaviour
 
     public bool GetIsNoseTouch()
     {
-        return _skateRotationReader.IsSwitch() ? skateInput.GetIsTailTouch() : skateInput.GetIsNoseTouch();
+        return _skateRotationReader.IsSwitch() ? _skateInput.GetIsTailTouch() : _skateInput.GetIsNoseTouch();
     }
     public bool GetIsTailTouch()
     {
-        return _skateRotationReader.IsSwitch() ? skateInput.GetIsNoseTouch() : skateInput.GetIsTailTouch();
+        return _skateRotationReader.IsSwitch() ? _skateInput.GetIsNoseTouch() : _skateInput.GetIsTailTouch();
     }
     private bool GetIsInclined()
     {
@@ -339,37 +361,92 @@ public class SkateStateManager : MonoBehaviour
     {
         return _skateTerrainReader;
     }
-    public SkateController GetSkateController()
+    public SkatePhysicsController GetSkatePhysicsController()
     {
-        return _skateController;
+        return _skatePhysController;
+    }
+    public SkateInput GetSkateInput()
+    {
+        return _skateInput;
+    }
+    public SkateMainScreen GetSkateMainScreen()
+    {
+        return skateMainScreen;
     }
 
+
+    public void InitState()
+    {
+        _skateScoreManager.SetInit();
+        _skatePhysController.SetInit();
+        _isSkateStateStopped = true;
+
+        OnInit.Invoke();
+    }
+
+    public void StartGame()
+    {
+        _isSkateStateStopped = false;
+
+        _timerTrigger.ResetTime();
+        _skateScoreManager.SetStartGame();
+        _skatePhysController.SetStartGame();
+
+        OnStartGame.Invoke();
+    }
 
     public void SetGameOver()
     {
         audioManager.StopAll(staticTracksNames);
-        _skateScoreManager.SetShouldStopScore(true);
-        Debug.Log("you loose !");
 
-        _isGameOver = true;
+        _isSkateStateStopped = true;
+
+        _skatePhysController.SetGameOver();
+
+        OnGameOver.Invoke();
     }
 
-    public bool IsGameOver()
+    public void RestartGame()
     {
-        return _isGameOver;
+        transform.localPosition = Vector3.zero;
+        transform.localEulerAngles = Vector3.zero;
+        _isSkateStateStopped = false;
+
+        _timerTrigger.ResetTime();
+        _skateScoreManager.SetRestartGame();
+        _skatePhysController.SetRestartGame();
+        _skateCollectibleCounter.SetRestartGame();
+
+        OnRestartGame.Invoke();
+    }
+
+    public void SetGameOverWithDelay(float delay)
+    {
+        StartCoroutine(SetGameOverWithDelayCoroutine(delay));
+    }
+    private IEnumerator SetGameOverWithDelayCoroutine(float delay)
+    {
+        _isSkateStateStopped = true;
+        yield return new WaitForSeconds(delay);
+        SetGameOver();
+    }
+
+    public bool IsSkateStateStopped()
+    {
+        return _isSkateStateStopped;
     }
 
 
 
     private void OnGround()
     {
-        if (_skateRotationReader.IsUpsideDown())
+        if (_skateRotationReader.IsTrueUpsideDown())
         {
-            SetGameOver();
+            SetGameOverWithDelay(0.5f);
         }
         else if (!GetIsInclined())
         {
-            audioManager.PlayOnly("onGround", staticTracksNames, 1.5f);
+            audioManager.PlayOnly("onGround", staticTracksNames, (_skatePhysController.GetForwardingSpeed() / 20) + 1);
         }
 
         if ((_skateRotationReader.IsPerpendicular()))
@@ -377,7 +454,17 @@ public class SkateStateManager : MonoBehaviour
             audioManager.Play("Drift", 1.05f);
         }
 
-        _skateController.OnGround();
+        if (!GetIsNoseTouch() && !GetIsTailTouch())
+        {
+            _timerTrigger.IncrementTime(Time.deltaTime);
+        }
+        else
+        {
+            _timerTrigger.ResetTime();
+        }
+
+
+        _skatePhysController.OnGround();
 
     }
 
@@ -387,7 +474,7 @@ public class SkateStateManager : MonoBehaviour
 
         if (_skateScoreManager.GetGrindScore() > 5 && ShouldDisplayGrindTrick())
         {
-            guiController.AddTrickToDisplay(
+            skateMainScreen.AddTrickToDisplay(
             Tricks.GetGrindTrick(
                 Anchors.GetSimpleNearestAnchor(transform.localEulerAngles.z),
                 Anchors.GetFullNearestAnchor(transform.localEulerAngles.y),
@@ -399,24 +486,26 @@ public class SkateStateManager : MonoBehaviour
 
         audioManager.PlayOnly("onSlide", staticTracksNames);
 
-        _skateController.OnGrind();
+        _skatePhysController.OnGrind();
     }
 
     private void OnJumpLanding()
     {
         OnJumpLandingEvent.Invoke();
 
-        guiController.AddTrickToDisplay(
+        skateMainScreen.AddTrickToDisplay(
             Tricks.GetTrick(
                 IsOllie(),
-                _skateController.GetFlipAmount(),
-                _skateController.GetRotateAmount(),
+                _skatePhysController.GetFlipAmount(),
+                _skatePhysController.GetRotateAmount(),
                 IsSwitchOnJump()
             )
         );
         audioManager.Play("Landing", 1.5f);
 
-        _skateController.OnLanding();
+        _timerTrigger.ResetTime();
+
+        _skatePhysController.OnLanding();
     }
 
     private void OnLanding()
@@ -429,22 +518,22 @@ public class SkateStateManager : MonoBehaviour
     {
         audioManager.PlayOnly("WheelsOnAir", staticTracksNames, 1.8f);
 
-        var totalFlipAmount = Mathf.Abs(_skateController.GetFlipAmount()) / _skateController.GetFlipForce();
-        var totalRotateAmount = Mathf.Abs(_skateController.GetRotateAmount()) / _skateController.GetRotateForce();
+        var totalFlipAmount = Mathf.Abs(_skatePhysController.GetFlipAmount()) / _skatePhysController.GetFlipForce();
+        var totalRotateAmount = Mathf.Abs(_skatePhysController.GetRotateAmount()) / _skatePhysController.GetRotateForce();
         _skateScoreManager.SetTrickScore((int)(totalFlipAmount + totalRotateAmount));
 
-        _skateController.OnAir();
+        _skatePhysController.OnAir();
     }
 
     private void OnJump(bool isManual)
     {
         audioManager.Play("Jump");
 
-        _skateController.OnJump(isManual);
+        _skatePhysController.OnJump(isManual);
         SetIsSwitchOnJump(_skateRotationReader.IsSwitch());
 
-        skateInput.ResetNoseOffset();
-        skateInput.ResetTailOffset();
+        _skateInput.ResetNoseOffset();
+        _skateInput.ResetTailOffset();
 
         OnJumpEvent.Invoke();
 
@@ -457,14 +546,25 @@ public class SkateStateManager : MonoBehaviour
             audioManager.PlayOnly("onGround", staticTracksNames, 1.8f);
         }
 
-        _skateController.OnIncline(isManual);
+        _skatePhysController.OnIncline(isManual);
     }
 
     private void OnBoostFunc()
     {
         audioManager.Play("Boost");
+        _skatePhysController.OnBoost();
+    }
 
-        _skateController.OnBoost();
+    private void OnNoTouch()
+    {
+        skateMainScreen.DisplayNoTouchNotifier();
+        _skatePhysController.OnNoTouch();
+    }
+
+    private void OnTouchResponse()
+    {
+        skateMainScreen.HideNoTouchNotifier();
+        _skatePhysController.ForceMaxSpeed(true);
     }
 
     public void AddCollectible()
@@ -472,7 +572,7 @@ public class SkateStateManager : MonoBehaviour
         _skateCollectibleCounter.AddCollectible();
     }
 
-    private void DisplayInputCollider(bool isInputTouch, bool isTouchPressed, Color color, TouchPressure SetTouchPress, bool isTailMode)
+    private void DisplayInputCollider(bool isInputTouch, bool isTouchPressed, Color color, Action<bool> SetTouchPress, bool isTailMode)
     {
         var normalCollider = isTailMode ? tailZoneCollider : noseZoneCollider;
         var switchCollider = isTailMode ? noseZoneCollider : tailZoneCollider;
@@ -493,5 +593,15 @@ public class SkateStateManager : MonoBehaviour
         {
             SetTouchPress(true);
         }
+    }
+
+    public void SetMaxSpeed(float value)
+    {
+        _skatePhysController.SetMaxSpeed(value);
+    }
+
+    public void SetJumpForce(float value)
+    {
+        _skatePhysController.SetJumpForce(value);
     }
 }

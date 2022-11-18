@@ -25,13 +25,6 @@ public class SideTerrainTileGenerator : MonoBehaviour
     TileSideSelector tileSideSelector;
     private UnityAction onTilePassedAction;
 
-    public void Init(TerrainTileGenerator terrainTileGenerator, List<SideTile> sideTiles, List<SideTile> backwardSideTiles)
-    {
-        this.terrainTileGenerator = terrainTileGenerator;
-        this.sideTiles = sideTiles;
-        this.backwardSideTiles = backwardSideTiles;
-    }
-
     private void Awake()
     {
         _GroundForward = InitLevelComponent("GroundForward", transform);
@@ -72,7 +65,7 @@ public class SideTerrainTileGenerator : MonoBehaviour
         GameObject SideTerrainObj
     )
     {
-        var sideChoosenTile = tileSideSelector != null
+        var sideChoosenTile = tileSideSelector != null && sideTerrain.Count > 1
         ? tileSideSelector.ChooseSideTile(baseTile, sideTiles, sideTerrain)
         : terrainTileGenerator.DefaultTile;
 
@@ -119,4 +112,36 @@ public class SideTerrainTileGenerator : MonoBehaviour
     {
         SideTerrainObj.transform.position = Vector3.forward * terrainTileGenerator.zScale * terrainTileGenerator.tileSize * direction;
     }
+
+
+    public void RestartGame()
+    {
+        for (int i = 0; i < _GroundForward.transform.childCount; i++)
+        {
+            if (_GroundForward.transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
+            Destroy(_GroundForward.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < _GroundBackward.transform.childCount; i++)
+        {
+            if (_GroundBackward.transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
+            Destroy(_GroundBackward.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < _forwardMeshCombiner.transform.childCount; i++)
+        {
+            Destroy(_forwardMeshCombiner.transform.GetChild(i).gameObject);
+        }
+        for (int i = 0; i < _backwardMeshCombiner.transform.childCount; i++)
+        {
+            Destroy(_backwardMeshCombiner.transform.GetChild(i).gameObject);
+        }
+
+
+        _forwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+        _backwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+        _forwardSideTerrain = new List<GameObject>();
+        _backwardSideTerrain = new List<GameObject>();
+    }
+
 }

@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GUIController : MonoBehaviour
+public class SkateMainScreen : MonoBehaviour
 {
 
+    [SerializeField] private GameObject NollieSign;
+    [SerializeField] private GameObject SwitchSign;
     [SerializeField] private GameObject TrickNameDisplayer;
     [SerializeField] private GameObject JumpScoreDisplayer;
     [SerializeField] private GameObject ScoreDisplayer;
     [SerializeField] private GameObject CollectibleDisplayer;
-    [SerializeField] private GameObject NollieSign;
-    [SerializeField] private GameObject SwitchSign;
+    [SerializeField] private GameObject NoTouchNotifier;
     [SerializeField] private AudioManager audioManager;
 
     private CanvasGroup _trickNameCanvas;
+    private CanvasGroup _noTouchScreenCanvas;
+    private GameObjectActivator _noTouchScreenActivator;
     private Text _trickNameText;
     private CanvasGroup _jumpScoreCanvas;
     private Text _jumpScoreText;
@@ -33,6 +36,9 @@ public class GUIController : MonoBehaviour
 
         _scoreText = ScoreDisplayer.GetComponentInChildren<Text>();
         _collectibleText = CollectibleDisplayer.GetComponentInChildren<Text>();
+
+        _noTouchScreenCanvas = NoTouchNotifier.GetComponent<CanvasGroup>();
+        _noTouchScreenActivator = NoTouchNotifier.GetComponent<GameObjectActivator>();
     }
 
     void Update()
@@ -128,5 +134,24 @@ public class GUIController : MonoBehaviour
 
         _trickNameCanvas.alpha = 0;
         _isDisplaying = false;
+    }
+
+    public void DisplayNoTouchNotifier()
+    {
+        _noTouchScreenCanvas.alpha = 1;
+        _noTouchScreenActivator.EnableAll();
+    }
+
+    public void HideNoTouchNotifier()
+    {
+        _noTouchScreenCanvas.alpha = 0;
+        _noTouchScreenActivator.DisableAll();
+    }
+
+    public void OnGameOver()
+    {
+        HideNoTouchNotifier();
+        HideJumpScore();
+        _tricksToDisplay = new List<string>();
     }
 }

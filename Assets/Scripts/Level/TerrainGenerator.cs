@@ -11,14 +11,12 @@ public class TerrainTileGenerator : MonoBehaviour
     public GameObject Player;
     public float baseHeightLevel = -1.47f;
     public List<Tile> tiles = new List<Tile>();
-
     public int tileAmount = 2;
     public int tileSize = 5;
-
     public float yScale = 5;
     public float zScale = 5;
-
     public GameObject DefaultTile;
+
 
     //STATE
     private bool _shouldBeInSafeZone;
@@ -34,21 +32,6 @@ public class TerrainTileGenerator : MonoBehaviour
 
     public UnityEvent<GameObject> OnTileAdded = new UnityEvent<GameObject>();
     public UnityEvent OnTilePassed = new UnityEvent();
-
-    public void Init(GameObject Player, float baseHeightLevel, List<Tile> tiles, int tileAmount, int tileSize, float yScale, float zScale, GameObject DefaultTile)
-    {
-        this.Player = Player;
-        this.baseHeightLevel = baseHeightLevel;
-        this.tiles = tiles;
-
-        this.tileAmount = tileAmount;
-        this.tileSize = tileSize;
-
-        this.yScale = yScale;
-        this.zScale = zScale;
-
-        this.DefaultTile = DefaultTile;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -227,5 +210,30 @@ public class TerrainTileGenerator : MonoBehaviour
     private bool GetSafeZone()
     {
         return _shouldBeInSafeZone;
+    }
+
+    public void RestartGame()
+    {
+        _heightOffset = 0;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < _meshCombiner.transform.childCount; i++)
+        {
+            Destroy(_meshCombiner.transform.GetChild(i).gameObject);
+        }
+
+        _tileIndex = -1;
+
+        _terrain = new List<GameObject>();
+        _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+
+        for (int i = 0; i < tileAmount - 1; i++)
+        {
+            AddTileToTerrain(DefaultTile);
+        }
     }
 }

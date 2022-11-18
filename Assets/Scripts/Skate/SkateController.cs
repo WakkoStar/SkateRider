@@ -3,19 +3,18 @@ using UnityEngine.Events;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class SkateController : MonoBehaviour
+public class SkatePhysicsController : MonoBehaviour
 {
+    //SETTINGS
+    public float speedForce = 4000f;
+    public float flipForce = 6;
+    public float rotateForce = 6;
+    public float maxAngle = 0.33f;
+    public float maxSkateHeight = 10f;
+    public SkateStateManager skateState;
+
     //STATE
-    private float _speedForce = 4000f;
-    private float _flipForce = 6;
-    private float _rotateForce = 6;
-    private float _maxAngle = 0.33f;
-    private float _maxSkateHeight = 10f;
     private Vector3 _TE;
-    private SkateTerrainReader _skateTerrainReader;
-    private SkateRotationReader _skateRotationReader;
-    private SkateStateManager _skateState;
-    private SkateInput _skateInput;
     private Rigidbody _rb;
     private Coroutine _flipCoroutine;
     private float _rotateAmount = 0;
@@ -30,42 +29,17 @@ public class SkateController : MonoBehaviour
     RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
     RigidbodyConstraints _onGrindConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 
-    public void Init(
-        float speedForce,
-        float flipForce,
-        float rotateForce,
-        float maxAngle,
-        float maxSkateHeight,
-        SkateTerrainReader skateTerrainReader,
-        SkateRotationReader skateRotationReader,
-        SkateInput skateInput,
-        SkateStateManager skateStateManager
-    )
-    {
-        _speedForce = speedForce;
-        _flipForce = flipForce;
-        _rotateForce = rotateForce;
-        _maxAngle = maxAngle;
-        _maxSkateHeight = maxSkateHeight;
-        _skateTerrainReader = skateTerrainReader;
-        _skateRotationReader = skateRotationReader;
-        _skateInput = skateInput;
-        _skateState = skateStateManager;
-    }
 
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _rb.velocity = Vector3.right;
-
-        Application.targetFrameRate = 60;
     }
 
     void FixedUpdate()
     {
         //VALUES
-        Physics.gravity = _skateState.IsPushLanding() ? Vector3.down * 60 : Vector3.down * 20;
-        _rb.constraints = _skateState.IsOnGrind() ? _onGrindConstraints : _normalConstraints;
+        Physics.gravity = skateState.IsPushLanding() ? Vector3.down * 60 : Vector3.down * 20;
+        _rb.constraints = skateState.IsOnGrind() ? _onGrindConstraints : _normalConstraints;
 
         _TE = transform.localEulerAngles;
 
@@ -73,16 +47,16 @@ public class SkateController : MonoBehaviour
         if (GetForceMaxSpeed() && !IsStopped())
         {
             var direction = _rb.velocity.x < GetMaxSpeed() ? Vector3.right : -Vector3.right;
-            _rb.AddForce(direction * _speedForce, ForceMode.Acceleration);
+            _rb.AddForce(direction * speedForce, ForceMode.Acceleration);
         }
 
         //JUMP HEIGHT
-        if (_skateTerrainReader.GetTerrainDistance() > _maxSkateHeight)
+        if (skateState.GetSkateTerrainReader().GetTerrainDistance() > maxSkateHeight)
         {
             if (_rb.velocity.y > 20) _rb.AddForce(-Vector3.up * 400, ForceMode.Acceleration);
         }
 
-        SetIsStopped(_skateTerrainReader.IsOnTerrain() && !IsMoving());
+        SetIsStopped(skateState.GetSkateTerrainReader().IsOnTerrain() && !IsMoving());
     }
 
     public void OnGrind()
@@ -97,11 +71,11 @@ public class SkateController : MonoBehaviour
 
     public void OnGround()
     {
-        var relativeEulerAngleZ = _skateRotationReader.IsSwitch() ? -AngleHelper.FormatAngle(_TE.z) : _TE.z;
-        var groundAngleOffset = relativeEulerAngleZ - Vector3.SignedAngle(Vector3.up, _skateTerrainReader.GetTerrainInclination(), Vector3.forward);
+        var relativeEulerAngleZ = skateState.GetSkateRotationReader().IsSwitch() ? -AngleHelper.FormatAngle(_TE.z) : _TE.z;
+        var groundAngleOffset = relativeEulerAngleZ - Vector3.SignedAngle(Vector3.up, skateState.GetSkateTerrainReader().GetTerrainInclination(), Vector3.forward);
         groundAngleOffset = AngleHelper.FormatAngle(groundAngleOffset);
 
-        if (_skateState.GetIsNoseTouch() && _skateState.GetIsTailTouch())
+        if (skateState.GetIsNoseTouch() && skateState.GetIsTailTouch())
         {
             if (groundAngleOffset > 2)
             {
@@ -138,26 +112,26 @@ public class SkateController : MonoBehaviour
     {
         var currentTE = _TE;
 
-        if (IsStopped() && _skateState.IsJumping())
+        if (IsStopped() && skateState.IsJumping())
         {
             _rb.velocity += Vector3.right;
             SetIsStopped(false);
         }
 
-        if (_skateState.GetIsNoseTouch() && _skateState.GetIsTailTouch())
+        if (skateState.GetIsNoseTouch() && skateState.GetIsTailTouch())
         {
             //STOP TRICK
             if (_flipCoroutine != null) StopCoroutine(_flipCoroutine);
 
             //HANDLE SKATE INCLINAISON
-            if (_skateRotationReader.IsUpsideDown())
+            if (skateState.GetSkateRotationReader().IsUpsideDown())
             {
                 currentTE.z = Anchors.GetNearestAnchor(currentTE.z);
             }
             else
             {
-                currentTE.z = Vector3.SignedAngle(Vector3.up, _skateTerrainReader.GetTerrainInclination(), Vector3.forward);
-                if (_skateRotationReader.IsSwitch()) currentTE.z *= -1;
+                currentTE.z = Vector3.SignedAngle(Vector3.up, skateState.GetSkateTerrainReader().GetTerrainInclination(), Vector3.forward);
+                if (skateState.GetSkateRotationReader().IsSwitch()) currentTE.z *= -1;
             }
 
             _rb.angularVelocity = Vector3.zero;
@@ -165,10 +139,10 @@ public class SkateController : MonoBehaviour
             var baseEulerAngles = new Vector3(
                 _TE.x,
                 _TE.y,
-                !_skateRotationReader.IsUpsideDown() ? AngleHelper.FormatAngle(_TE.z) : _TE.z
+                !skateState.GetSkateRotationReader().IsUpsideDown() ? AngleHelper.FormatAngle(_TE.z) : _TE.z
             );
 
-            var targetEulerAngles = _skateTerrainReader.IsGrindOnTerrain()
+            var targetEulerAngles = skateState.GetSkateTerrainReader().IsGrindOnTerrain()
                 ? Anchors.GetGrindAnchors(currentTE)
                 : Anchors.GetAirAnchors(currentTE);
 
@@ -188,26 +162,26 @@ public class SkateController : MonoBehaviour
         _rotateAmount = 0;
         _flipAmount = 0;
 
-        var flipDirection = GetFlipFirection(isManual, _skateInput.GetNoseOffset().y, _skateInput.GetTailOffset().y);
-        var rotateDirection = GetFlipFirection(isManual, _skateInput.GetTailOffset().y, _skateInput.GetNoseOffset().y);
+        var flipDirection = GetFlipFirection(isManual, skateState.GetSkateInput().GetNoseOffset().y, skateState.GetSkateInput().GetTailOffset().y);
+        var rotateDirection = GetFlipFirection(isManual, skateState.GetSkateInput().GetTailOffset().y, skateState.GetSkateInput().GetNoseOffset().y);
 
         _flipCoroutine = StartCoroutine(DoAFlip(flipDirection, rotateDirection));
 
-        _skateState.OnJumpWithVelocity.Invoke(_rb.velocity);
+        skateState.OnJumpWithVelocity.Invoke(_rb.velocity);
     }
 
     public void OnIncline(bool isManual)
     {
         var direction = isManual ? Vector3.forward : -Vector3.forward;
-        direction = _skateRotationReader.IsSwitch() ? -direction : direction;
-        var currentMaxAngle = isManual ? _maxAngle - transform.right.y : transform.right.y + _maxAngle;
+        direction = skateState.GetSkateRotationReader().IsSwitch() ? -direction : direction;
+        var currentMaxAngle = isManual ? maxAngle - transform.right.y : transform.right.y + maxAngle;
 
         if (currentMaxAngle > 0)
         {
 
             _rb.angularVelocity += direction * 50 * Time.deltaTime;
         }
-        else if (currentMaxAngle > (_maxAngle + 0.1f))
+        else if (currentMaxAngle > (maxAngle + 0.1f))
         {
             _rb.angularVelocity -= direction * 50 * Time.deltaTime;
         }
@@ -238,6 +212,15 @@ public class SkateController : MonoBehaviour
         return Mathf.Abs(offset) < _minSensitivity ? 0 : Mathf.Sign(offset);
     }
 
+    public void OnNoTouch()
+    {
+        if (_rb.velocity.x > 0)
+        {
+            _rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, 0.03f);
+        }
+        ForceMaxSpeed(false);
+    }
+
     public bool IsMoving()
     {
         if (_rb == null) return true;
@@ -253,8 +236,8 @@ public class SkateController : MonoBehaviour
 
         for (float a = 0; a < 1; a += Time.deltaTime * 0.1f)
         {
-            var rotateForceTotal = _rotateForce * rotateDirection * Time.deltaTime * 60;
-            var flipForceTotal = _flipForce * flipDirection * Time.deltaTime * 60;
+            var rotateForceTotal = rotateForce * rotateDirection * Time.deltaTime * 60;
+            var flipForceTotal = flipForce * flipDirection * Time.deltaTime * 60;
 
             IncrementRotatemount(rotateForceTotal);
             IncrementFlipAmount(flipForceTotal);
@@ -271,13 +254,14 @@ public class SkateController : MonoBehaviour
     {
         _maxSpeed = value;
     }
-    public void SetMaxSpeed(object value)
-    {
-        _maxSpeed = (float)value;
-    }
     public float GetMaxSpeed()
     {
         return _maxSpeed;
+    }
+
+    public float GetForwardingSpeed()
+    {
+        return Mathf.Abs(_rb.velocity.x);
     }
 
 
@@ -285,10 +269,6 @@ public class SkateController : MonoBehaviour
     public void SetJumpForce(float value)
     {
         _jumpForce = value;
-    }
-    public void SetJumpForce(object value)
-    {
-        _jumpForce = (float)value;
     }
     public float GetJumpForce()
     {
@@ -322,12 +302,12 @@ public class SkateController : MonoBehaviour
 
     public float GetFlipForce()
     {
-        return _flipForce;
+        return flipForce;
     }
 
     public float GetRotateForce()
     {
-        return _rotateForce;
+        return rotateForce;
     }
 
 
@@ -362,6 +342,33 @@ public class SkateController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         _forceMaxSpeed = true;
+    }
+
+
+    public void SetInit()
+    {
+        _rb.isKinematic = true;
+        _rb.detectCollisions = false;
+    }
+
+    public void SetGameOver()
+    {
+        _rb.isKinematic = true;
+        _rb.detectCollisions = false;
+    }
+
+    public void SetStartGame()
+    {
+        _rb.velocity = Vector3.right * 10;
+        _rb.isKinematic = false;
+        _rb.detectCollisions = true;
+    }
+
+    public void SetRestartGame()
+    {
+        _rb.velocity = Vector3.right * 10;
+        _rb.isKinematic = false;
+        _rb.detectCollisions = true;
     }
 
 }

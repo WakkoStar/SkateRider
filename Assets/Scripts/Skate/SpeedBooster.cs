@@ -7,7 +7,6 @@ public class SpeedBooster : MonoBehaviour
 {
     //STATE
     private MeshRenderer _meshRenderer;
-    private SkateController _skateController;
     private bool isBoosterMaterialAnimated;
     private float _skateMaxSpeed;
     private float _skateBoostedSpeed;
@@ -34,7 +33,7 @@ public class SpeedBooster : MonoBehaviour
 
         if (
             skate.GetComponent<SkateStateManager>() != null
-            && !skate.GetComponent<SkateStateManager>().GetSkateRotationReader().IsUpsideDown()
+            && !skate.GetComponent<SkateStateManager>().GetSkateRotationReader().IsTrueUpsideDown()
         )
         {
 
@@ -46,8 +45,7 @@ public class SpeedBooster : MonoBehaviour
     {
         if (skate.GetComponent<SkateStateManager>() != null)
         {
-            _skateController = skate.GetComponent<SkateStateManager>().GetSkateController();
-            _skateController.StopBoost();
+            skate.GetComponent<SkateStateManager>().GetSkatePhysicsController().StopBoost();
         }
     }
 

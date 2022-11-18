@@ -8,10 +8,10 @@ using UnityEngine.EventSystems;
 public class SkateInput : MonoBehaviour
 {
     //SETTINGS
-    [SerializeField] private GameObject NoseZone;
-    [SerializeField] private GameObject TailZone;
-    [SerializeField] private Vector2 noseZoneUIOffset;
-    [SerializeField] private Vector2 tailZoneUIOffset;
+    public GameObject NoseZone;
+    public GameObject TailZone;
+    public Vector2 noseZoneUIOffset = new Vector2(-72f, -30f);
+    public Vector2 tailZoneUIOffset;
     //STATE
     private CanvasGroup _noseZoneCanvas;
     private CanvasGroup _tailZoneCanvas;
@@ -36,6 +36,7 @@ public class SkateInput : MonoBehaviour
     private bool _shouldTakeTimeOnTail;
     private bool _isOllie;
     private bool _isNollie;
+
     void Start()
     {
         _noseZoneCanvas = NoseZone.GetComponent<CanvasGroup>();
@@ -182,26 +183,6 @@ public class SkateInput : MonoBehaviour
         if (_isTailTouch) _shouldTakeTimeOnTail = true;
     }
 
-    private bool IsPointerOverUITarget(List<RaycastResult> eventSystemRaysastResults, GameObject Target)
-    {
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
-        {
-            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (GameObject.Equals(curRaysastResult.gameObject, Target))
-                return true;
-        }
-        return false;
-    }
-
-    static List<RaycastResult> GetEventSystemRaycastResults(Touch touch)
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = touch.position;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }
-
     public bool GetIsNoseTouch()
     {
         return _isNoseTouch;
@@ -240,6 +221,5 @@ public class SkateInput : MonoBehaviour
     {
         return _isNollie;
     }
-
 
 }

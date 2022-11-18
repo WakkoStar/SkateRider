@@ -1,55 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class DifficultyIncreaser : MonoBehaviour
 {
     [SerializeField] private float totalTime; //in secs
-    public delegate void DelValueModifier(object value);
 
-    public struct Increaser<T>
+    [Serializable]
+    public class FloatIncreaser
     {
-        public T startValue;
-        public T endValue;
-        public DelValueModifier SetValue;
+        public float startValue;
+        public float endValue;
+        public UnityEvent<float> SetFloatIncreaser;
     }
 
-    [HideInInspector] public List<Increaser<object>> increasers = new List<Increaser<object>>();
-    // Start is called before the first frame update
-    void Start()
+    [Serializable]
+    public class Vector3Increaser
     {
-        StartCoroutine(IncreaseDifficulty());
+        public Vector3 startValue;
+        public Vector3 endValue;
+        public UnityEvent<Vector3> SetVectorIncreaser;
     }
 
-    public void AddIncreaser<T>(T startValue, T endValue, DelValueModifier callback)
+    public List<FloatIncreaser> floatIncreasers = new List<FloatIncreaser>();
+    public List<Vector3Increaser> vectorIncreasers = new List<Vector3Increaser>();
+    private Coroutine _difficultyIncreaserCoroutine = null;
+
+    public void StartGame()
     {
-        var increaser = new Increaser<object>();
-        increaser.startValue = startValue;
-        increaser.endValue = endValue;
-        increaser.SetValue = callback;
-
-        increaser.SetValue(startValue);
-
-        increasers.Add(increaser);
+        _difficultyIncreaserCoroutine = StartCoroutine(IncreaseDifficulty());
+    }
+    public void RestartGame()
+    {
+        _difficultyIncreaserCoroutine = StartCoroutine(IncreaseDifficulty());
+    }
+    public void OnGameOver()
+    {
+        StopCoroutine(_difficultyIncreaserCoroutine);
     }
 
     private IEnumerator IncreaseDifficulty()
     {
-        yield return new WaitForSeconds(1f); //Wait till all increasers are initialized
-
         for (double a = 0; a < 1; a += Time.deltaTime / totalTime)
         {
-            foreach (var increaser in increasers)
+            foreach (var increaser in floatIncreasers)
             {
-                if (increaser.startValue.GetType() == typeof(Vector3))
-                {
-                    increaser.SetValue(Vector3.Lerp((Vector3)increaser.startValue, (Vector3)increaser.endValue, (float)a));
-                }
-
-                if (increaser.startValue.GetType() == typeof(float))
-                {
-                    increaser.SetValue(Mathf.Lerp((float)increaser.startValue, (float)increaser.endValue, (float)a));
-                }
+                increaser.SetFloatIncreaser.Invoke(Mathf.Lerp(increaser.startValue, increaser.endValue, (float)a));
+            }
+            foreach (var increaser in vectorIncreasers)
+            {
+                increaser.SetVectorIncreaser.Invoke(Vector3.Lerp(increaser.startValue, increaser.endValue, (float)a));
             }
 
             yield return null;
