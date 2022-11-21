@@ -23,6 +23,8 @@ public class LevelTileMonitor : MonoBehaviour
     private TerrainTileGenerator _terrainTileGenerator;
     private SideTerrainTileGenerator _sideTerrainTileGenerator;
     private GrindTileGenerator _grindTileGenerator;
+    private GameObject _objectPoolObj;
+    private ObjectPool _objectPool;
 
     private Vector3 _cameraOffset;
     private float _landingHit;
@@ -63,6 +65,20 @@ public class LevelTileMonitor : MonoBehaviour
         _yScale = yStartScale;
         _zScale = zStartScale;
 
+
+        //CREATE TILE POOL 
+        _objectPoolObj = new GameObject("Object Pool");
+        _objectPoolObj.transform.parent = transform;
+        _objectPool = _objectPoolObj.AddComponent<ObjectPool>();
+
+        for (int i = 0; i < tileAmount * 3; i++)
+        {
+            foreach (var tile in GetAllTiles())
+            {
+                _objectPool.Create(tile.obj, tile.obj.name + "-" + i);
+            }
+        }
+
         //INIT LEVEL STRUCTURE
         _Terrain = InitLevelComponent("BaseTerrain");
         _terrainTileGenerator = _Terrain.AddComponent<TerrainTileGenerator>();
@@ -75,6 +91,7 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.yScale = yStartScale;
         _terrainTileGenerator.zScale = zStartScale;
         _terrainTileGenerator.DefaultTile = DefaultTile;
+        _terrainTileGenerator.objectPool = _objectPool;
 
 
         _SideTerrain = InitLevelComponent("SideTerrain");
@@ -101,10 +118,21 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
-        _sideTerrainTileGenerator.RestartGame();
-        _terrainTileGenerator.RestartGame();
+        _tileSize = (int)tileSizeStart;
+        _currentileSize = (int)tileSizeStart;
+
+        _yScale = yStartScale;
+        _zScale = zStartScale;
+
+        _terrainTileGenerator.yScale = _yScale;
+        _terrainTileGenerator.zScale = _zScale;
+        _terrainTileGenerator.tileSize = _tileSize;
+
+        _sideTerrainTileGenerator.StartGame();
+        _terrainTileGenerator.StartGame();
+        _grindTileGenerator.StartGame();
     }
 
     void Update()

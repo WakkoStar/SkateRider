@@ -25,6 +25,8 @@ public class CameraPositionController : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         _MainCamera = GetComponent<Camera>();
+        _cameraOffset = transform.position;
+
         _terrainTileGenerator = levelTileMonitor.GetTerrainTileGenerator();
         _skatePhysController = skateStateManager.GetSkatePhysicsController();
 
@@ -37,68 +39,64 @@ public class CameraPositionController : MonoBehaviour
     {
         SetIsCameraStopped(true);
     }
-    public void StartGame()
-    {
-        SetIsCameraStopped(false);
-    }
     public void OnGameOver()
     {
         SetIsCameraStopped(true);
     }
-    public void RestartGame()
-    {
-        SetIsCameraStopped(false);
 
+    public void StartGame()
+    {
         _cameraX = skateStateManager.transform.position.x;
         _cameraZ = skateStateManager.transform.position.z;
 
-        _MainCamera.transform.position = new Vector3(_cameraX, _terrainTileGenerator.GetTerrainHeight(), _cameraZ);
+        _MainCamera.transform.position = new Vector3(_cameraX + _cameraOffset.x, _cameraOffset.y, _cameraZ + _cameraOffset.z);
+
+        SetIsCameraStopped(false);
+        SetIsLosing(false);
     }
 
     void Update()
     {
         if (IsCameraStopped()) return;
 
-        if (_terrainTileGenerator == null)
-        {
-            return;
-        }
-
-        if (!IsOnScreenY(skateStateManager.gameObject))
+        if (!IsOnScreen(skateStateManager.gameObject))
         {
             skateStateManager.SetGameOver();
         }
 
-        if (!_isLosing)
+        if (!IsLosing())
         {
             _cameraX = skateStateManager.transform.position.x;
+
+            _MainCamera.transform.position = SetCameraPosition(
+                new Vector3(_cameraX, _terrainTileGenerator.GetTerrainHeight(), _cameraZ)
+            );
+
+            if (!_skatePhysController.IsMoving()) SetIsLosing(true);
         }
-
-        if (!_skatePhysController.IsMoving())
+        else
         {
-            _isLosing = true;
-            _cameraX = Mathf.Lerp(_cameraX, _cameraX + Time.deltaTime * _skatePhysController.GetMaxSpeed() * 5, 0.1f * (Time.deltaTime * 60));
-
-            if (!IsOnScreenX(skateStateManager.gameObject))
+            if (!_skatePhysController.IsMoving())
             {
-                skateStateManager.SetGameOver();
+                _cameraX += Time.deltaTime * _skatePhysController.GetMaxSpeed() / 2;
+
+                _MainCamera.transform.position = SetCameraPosition(
+                new Vector3(
+                    _cameraX,
+                    _terrainTileGenerator.GetTerrainHeight(),
+                    _cameraZ
+                    )
+                );
+            }
+            else
+            {
+                if (_cameraX < skateStateManager.transform.position.x)
+                {
+                    _isLosing = false;
+                }
             }
         }
-
-        if (_skatePhysController.IsMoving() && _isLosing)
-        {
-            var playerCameraXDistance = Mathf.Abs(_cameraX - skateStateManager.transform.position.x);
-            if (_cameraX < skateStateManager.transform.position.x)
-            {
-                _isLosing = false;
-            }
-        }
-
-        _MainCamera.transform.position = SetCameraPosition(
-            new Vector3(_cameraX, _terrainTileGenerator.GetTerrainHeight(), _cameraZ)
-        );
     }
-
 
 
     private Vector3 SetCameraPosition(Vector3 targetPos)
@@ -126,19 +124,10 @@ public class CameraPositionController : MonoBehaviour
     }
 
 
-
-    private bool IsOnScreenX(GameObject gameObject)
+    private bool IsOnScreen(GameObject gameObject)
     {
         Vector3 screenPoint = _MainCamera.WorldToViewportPoint(gameObject.transform.position);
-        bool onScreen = screenPoint.x >= -0.2 && screenPoint.x <= 1.2;
-
-        return onScreen;
-    }
-
-    private bool IsOnScreenY(GameObject gameObject)
-    {
-        Vector3 screenPoint = _MainCamera.WorldToViewportPoint(gameObject.transform.position);
-        bool onScreen = screenPoint.y >= -1 && screenPoint.y <= 2;
+        bool onScreen = screenPoint.y >= -1 && screenPoint.y <= 2 && screenPoint.x >= -0.2 && screenPoint.x <= 1.2;
 
         return onScreen;
     }
@@ -153,6 +142,16 @@ public class CameraPositionController : MonoBehaviour
     public bool IsCameraStopped()
     {
         return _isCameraStopped;
+    }
+
+    private bool IsLosing()
+    {
+        return _isLosing;
+    }
+
+    private void SetIsLosing(bool value)
+    {
+        _isLosing = value;
     }
 
 

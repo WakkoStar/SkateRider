@@ -36,11 +36,6 @@ public class MeshCombiner
         meshFilter.mesh.CombineMeshes(meshCombine.ToArray());
 
         gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
-
-        // var meshCollider = gameObject.GetComponent<MeshCollider>();
-        // meshCollider.sharedMesh.Clear();
-        // meshCollider.sharedMesh = new Mesh();
-        // meshCollider.sharedMesh.CombineMeshes(meshCombine.ToArray());
     }
 
 
@@ -57,20 +52,5 @@ public class MeshCombiner
             List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerComponents);
             MeshCombiner.ApplyMeshCombine(layer, meshCombine);
         }
-        // foreach (var layer in meshCombiner)
-        // {
-
-        //     var layerGameObjs = new List<GameObject>();
-        //     for (int i = 0; i < layer.transform.childCount; i++)
-        //     {
-        //         var layerComp = layer.transform.GetChild(i).gameObject;
-        //         layerGameObjs.Add(layerComp);
-        //     }
-
-        //     if (layerGameObjs.Count == 0) continue;
-
-        //     List<CombineInstance> meshCombine = MeshCombiner.SetMeshCombine(layerGameObjs);
-        //     MeshCombiner.ApplyMeshCombine(layer, meshCombine);
-        // }
     }
 }

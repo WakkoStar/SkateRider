@@ -10,7 +10,7 @@ public class SkateStateManager : MonoBehaviour
     //OUTSIDER COMPONENTS
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private SkateMainScreen skateMainScreen;
-
+    [SerializeField] private SkateEndScreen skateEndScreen;
 
     //SKATE INPUT PROPS
     [SerializeField] private GameObject NoseZone;
@@ -43,7 +43,6 @@ public class SkateStateManager : MonoBehaviour
     public UnityEvent OnInit = new UnityEvent();
     public UnityEvent OnGameOver = new UnityEvent();
     public UnityEvent OnStartGame = new UnityEvent();
-    public UnityEvent OnRestartGame = new UnityEvent();
     public UnityEvent OnJumpLandingEvent = new UnityEvent();
     public UnityEvent OnJumpEvent = new UnityEvent();
     public UnityEvent<Vector2> OnJumpWithVelocity = new UnityEvent<Vector2>();
@@ -386,10 +385,14 @@ public class SkateStateManager : MonoBehaviour
 
     public void StartGame()
     {
+        transform.localPosition = Vector3.zero;
+        transform.localEulerAngles = Vector3.zero;
+
         _isSkateStateStopped = false;
 
         _timerTrigger.ResetTime();
         _skateScoreManager.SetStartGame();
+        _skateCollectibleCounter.SetStartGame();
         _skatePhysController.SetStartGame();
 
         OnStartGame.Invoke();
@@ -399,25 +402,25 @@ public class SkateStateManager : MonoBehaviour
     {
         audioManager.StopAll(staticTracksNames);
 
+        var isBestScore = _skateScoreManager.GetTotalScore() > PlayerPrefs.GetFloat("bestScore");
+
+        if (_skateScoreManager.GetTotalScore() > PlayerPrefs.GetFloat("bestScore"))
+        {
+            PlayerPrefs.SetFloat("bestScore", _skateScoreManager.GetTotalScore());
+        }
+        PlayerPrefs.SetInt("collectibleCount", PlayerPrefs.GetInt("collectibleCount") + _skateCollectibleCounter.GetCollectibleCount());
+
+        skateEndScreen.DisplayBestScoreSign(isBestScore);
+        skateEndScreen.DisplayBestScore(PlayerPrefs.GetFloat("bestScore"));
+        skateEndScreen.DisplayScore(_skateScoreManager.GetTotalScore());
+        skateEndScreen.DisplayCollectibleCount(_skateCollectibleCounter.GetCollectibleCount());
+        skateEndScreen.DisplayAllCollectibleCount(PlayerPrefs.GetInt("collectibleCount"));
+
         _isSkateStateStopped = true;
 
         _skatePhysController.SetGameOver();
 
         OnGameOver.Invoke();
-    }
-
-    public void RestartGame()
-    {
-        transform.localPosition = Vector3.zero;
-        transform.localEulerAngles = Vector3.zero;
-        _isSkateStateStopped = false;
-
-        _timerTrigger.ResetTime();
-        _skateScoreManager.SetRestartGame();
-        _skatePhysController.SetRestartGame();
-        _skateCollectibleCounter.SetRestartGame();
-
-        OnRestartGame.Invoke();
     }
 
     public void SetGameOverWithDelay(float delay)
@@ -440,7 +443,7 @@ public class SkateStateManager : MonoBehaviour
 
     private void OnGround()
     {
-        if (_skateRotationReader.IsTrueUpsideDown())
+        if (_skateRotationReader.IsTrueUpsideDown() && !_skateTerrainReader.IsGrindOnTerrain())
         {
             SetGameOverWithDelay(0.5f);
         }

@@ -60,7 +60,7 @@ public class SkateScoreManager : MonoBehaviour
     {
         _totalScore += value;
     }
-    private float GetTotalScore()
+    public float GetTotalScore()
     {
         return _totalScore;
     }
@@ -97,16 +97,13 @@ public class SkateScoreManager : MonoBehaviour
     public void SetStartGame()
     {
         SetShouldStopScore(false);
+        _totalScore = 0;
     }
     public void SetGameOver()
     {
         SetShouldStopScore(true);
         SetTrickScore(0);
         SetGrindScore(0);
-    }
-    public void SetRestartGame()
-    {
-        SetShouldStopScore(false);
     }
 
 

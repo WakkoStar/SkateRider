@@ -19,6 +19,7 @@ public class CollectibleGenerator : MonoBehaviour
     private UnityAction<GameObject> onTileAdded;
     private TerrainTileGenerator _terrainTileGenerator;
     private List<GameObject> _terrain;
+
     public class GameObjectWithPosition
     {
         public GameObject gameObject;
@@ -32,15 +33,16 @@ public class CollectibleGenerator : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForFixedUpdate();
         _terrainTileGenerator = levelTileMonitor.GetTerrainTileGenerator();
         onTileAdded += AddCollectibleToTerrain;
         onTileAdded += DeleteCollectibleToTerrain;
         _terrainTileGenerator.OnTileAdded.AddListener(onTileAdded);
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -57,6 +59,11 @@ public class CollectibleGenerator : MonoBehaviour
 
     void AddCollectibleToTerrain(GameObject terrainTile)
     {
+        if (_terrainTileGenerator.GetTileIndex() <= _terrainTileGenerator.GetStartTerrainIndex())
+        {
+            return;
+        }
+
         if (Random.Range(0, 1f) > 0f)
         {
             var collectible = ChooseCollectible();

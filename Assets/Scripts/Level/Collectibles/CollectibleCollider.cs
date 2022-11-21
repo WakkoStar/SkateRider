@@ -21,6 +21,7 @@ public class CollectibleCollider : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.GetComponent<SkateStateManager>().AddCollectible();
+            FindObjectOfType<AudioManager>().Play("collectableSong", 1.0f, true);
             GetComponent<MeshRenderer>().enabled = false;
             if (transform.childCount == 1) transform.GetChild(0).gameObject.SetActive(false);
         }

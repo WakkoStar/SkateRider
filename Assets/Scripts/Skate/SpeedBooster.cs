@@ -10,6 +10,7 @@ public class SpeedBooster : MonoBehaviour
     private bool isBoosterMaterialAnimated;
     private float _skateMaxSpeed;
     private float _skateBoostedSpeed;
+    private Material _boosterMaterial;
 
     //SETTINGS
     [SerializeField] private BoosterScriptableObject props;
@@ -17,10 +18,11 @@ public class SpeedBooster : MonoBehaviour
 
     void Start()
     {
-        props.boosterMaterial.mainTextureScale = new Vector2(1 / (float)props.texStripLength, 1);
+        _boosterMaterial = props.boosterMaterial;
+        _boosterMaterial.mainTextureScale = new Vector2(1 / (float)props.texStripLength, 1);
 
         _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = props.boosterMaterial;
+        _meshRenderer.material = _boosterMaterial;
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class SpeedBooster : MonoBehaviour
 
         for (int i = 0; i < props.texStripLength; i++)
         {
-            props.boosterMaterial.mainTextureOffset = new Vector2(i * (1 / (float)props.texStripLength), 0);
+            _boosterMaterial.mainTextureOffset = new Vector2(i * (1 / (float)props.texStripLength), 0);
             Lights.transform.localPosition = new Vector3(props.lightsPositions[i / props.lightsPositions.Length], 0, 0);
             yield return new WaitForSeconds(0.1f);
         }

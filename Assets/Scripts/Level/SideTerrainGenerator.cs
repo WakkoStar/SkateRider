@@ -114,34 +114,15 @@ public class SideTerrainTileGenerator : MonoBehaviour
     }
 
 
-    public void RestartGame()
+    public void StartGame()
     {
-        for (int i = 0; i < _GroundForward.transform.childCount; i++)
-        {
-            if (_GroundForward.transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
-            Destroy(_GroundForward.transform.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < _GroundBackward.transform.childCount; i++)
-        {
-            if (_GroundBackward.transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
-            Destroy(_GroundBackward.transform.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < _forwardMeshCombiner.transform.childCount; i++)
-        {
-            Destroy(_forwardMeshCombiner.transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i < _backwardMeshCombiner.transform.childCount; i++)
-        {
-            Destroy(_backwardMeshCombiner.transform.GetChild(i).gameObject);
-        }
-
-
-        _forwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
-        _backwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
         _forwardSideTerrain = new List<GameObject>();
+        _forwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+        terrainTileGenerator.CleanGameObjectChilds(_forwardMeshCombiner);
+
         _backwardSideTerrain = new List<GameObject>();
+        _backwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+        terrainTileGenerator.CleanGameObjectChilds(_backwardMeshCombiner);
     }
 
 }

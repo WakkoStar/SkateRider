@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using System.Collections;
 public class ScreenManager : MonoBehaviour
 {
     [Serializable]
@@ -35,9 +35,16 @@ public class ScreenManager : MonoBehaviour
             return;
         }
 
+        StartCoroutine(HideCoroutine(0.5f, screen));
+    }
+
+    IEnumerator HideCoroutine(float delay, NamedScreen screen)
+    {
+        yield return new WaitForSeconds(delay);
         screen.canvas.alpha = 0;
         screen.canvas.interactable = false;
         screen.canvas.blocksRaycasts = false;
     }
+
 
 }

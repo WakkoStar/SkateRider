@@ -30,10 +30,7 @@ public class DifficultyIncreaser : MonoBehaviour
 
     public void StartGame()
     {
-        _difficultyIncreaserCoroutine = StartCoroutine(IncreaseDifficulty());
-    }
-    public void RestartGame()
-    {
+        if (_difficultyIncreaserCoroutine != null) StopCoroutine(_difficultyIncreaserCoroutine);
         _difficultyIncreaserCoroutine = StartCoroutine(IncreaseDifficulty());
     }
     public void OnGameOver()

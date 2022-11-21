@@ -20,15 +20,20 @@ public class SkateTerrainReader : MonoBehaviour
         RaycastHit hitBack;
         RaycastHit hitFront;
         Vector3 pos = transform.position;
+        Vector3 posOffset = new Vector3(transform.right.x, transform.right.y, 0);
 
-        Physics.Raycast(pos - transform.right, Vector3.down, out hitBack, Mathf.Infinity);
-        Physics.Raycast(pos + transform.right, Vector3.down, out hitFront, Mathf.Infinity);
+        Physics.Raycast(pos - posOffset, Vector3.down, out hitBack, Mathf.Infinity);
+        Physics.Raycast(pos + posOffset, Vector3.down, out hitFront, Mathf.Infinity);
 
         bool isHitFront = hitFront.collider != null;
         bool isHitBack = hitBack.collider != null;
 
         SetTerrainDistance(hitFront.distance);
-        SetIsGrindOnTerrain(isHitFront ? hitFront.collider.gameObject.tag == "Grind" : false);
+        SetIsGrindOnTerrain(
+            isHitBack && isHitFront
+            ? (hitFront.collider.gameObject.tag == "Grind" || hitBack.collider.gameObject.tag == "Grind")
+            : false
+        );
         SetIsOnTerrain(isHitBack && isHitFront ? (hitFront.distance < 1f || hitBack.distance < 1f) : false);
 
         var terrainObject = hitFront.collider != null ? hitFront.collider.gameObject : null;

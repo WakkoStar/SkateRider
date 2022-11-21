@@ -24,6 +24,7 @@ public class SkatePhysicsController : MonoBehaviour
     private bool _isStopped = false;
     private float _jumpForce = 400f;
     private float _minSensitivity = 100;
+    private Coroutine _stopForceMaxSpeed;
 
     //VALUES
     RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
@@ -194,6 +195,7 @@ public class SkatePhysicsController : MonoBehaviour
 
     public void OnBoost()
     {
+        if (_stopForceMaxSpeed != null) StopCoroutine(_stopForceMaxSpeed);
         ForceMaxSpeed(false);
         _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
         var skateBoostedSpeed = GetMaxSpeed() * 1.75f * _rb.mass;
@@ -243,8 +245,6 @@ public class SkatePhysicsController : MonoBehaviour
             IncrementFlipAmount(flipForceTotal);
             transform.Rotate(new Vector3(0, rotateForceTotal, 0), Space.Self);
             transform.Rotate(new Vector3(flipForceTotal, 0, 0), Space.Self);
-
-            // _trickScore = (int)(Mathf.Abs(_flipAmount) / flipForce + Mathf.Abs(_rotateAmount) / rotateForce);
 
             yield return null;
         }
@@ -322,7 +322,7 @@ public class SkatePhysicsController : MonoBehaviour
     }
     public void ForceMaxSpeedWithDelay(float delay)
     {
-        StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
+        _stopForceMaxSpeed = StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
     }
 
 
@@ -359,13 +359,7 @@ public class SkatePhysicsController : MonoBehaviour
 
     public void SetStartGame()
     {
-        _rb.velocity = Vector3.right * 10;
-        _rb.isKinematic = false;
-        _rb.detectCollisions = true;
-    }
-
-    public void SetRestartGame()
-    {
+        _rb.angularVelocity = Vector3.zero;
         _rb.velocity = Vector3.right * 10;
         _rb.isKinematic = false;
         _rb.detectCollisions = true;

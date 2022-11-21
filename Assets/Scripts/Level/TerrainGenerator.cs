@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
@@ -16,19 +16,21 @@ public class TerrainTileGenerator : MonoBehaviour
     public float yScale = 5;
     public float zScale = 5;
     public GameObject DefaultTile;
+    public ObjectPool objectPool;
 
 
     //STATE
     private bool _shouldBeInSafeZone;
+    private int _safeZoneCounter;
     private bool _forceStop;
-    private int _tileIndex = -1;
+    private int _tileIndex = -2;
     private List<GameObject> _terrain = new List<GameObject>();
     private Dictionary<string, List<GameObject>> _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
 
     private GameObject _meshCombiner;
     private float _heightOffset = 0;
     private int _startTerrainIndex = 5;
-    TileSelector _tileSelector;
+    private TileSelector _tileSelector;
 
     public UnityEvent<GameObject> OnTileAdded = new UnityEvent<GameObject>();
     public UnityEvent OnTilePassed = new UnityEvent();
@@ -68,6 +70,7 @@ public class TerrainTileGenerator : MonoBehaviour
         var playerPos = new Vector3(newTileIndex * tileSize, (baseHeightLevel * tileSize * yScale / 2f), 0);
         var nextTileOffset = Vector3.right * tileSize * _terrain.Count + Vector3.up * _heightOffset * tileSize * yScale / 2;
 
+        SetSafeZoneCounter(ShouldBeInSafeZone());
         var choosenTile = forceTile != null ? forceTile : _tileSelector.ChooseTile(GetTerrain(), _heightOffset, GetSafeZone());
         _heightOffset += GetHeightOffset(choosenTile.name);
 
@@ -111,14 +114,13 @@ public class TerrainTileGenerator : MonoBehaviour
 
     public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector2 scale, Transform parent, float tileSize)
     {
-        var instanceTile = Instantiate(tile, pos, Quaternion.identity, parent);
+        var instanceTile = objectPool.Instantiate(tile, pos, Quaternion.identity, parent);
+
         instanceTile.transform.localScale = new Vector3(
             tile.transform.localScale.x,
             tile.transform.localScale.y * scale.x,
             tile.transform.localScale.z * scale.y
         ) * tileSize;
-
-        instanceTile.name = tile.name;
 
         return instanceTile;
     }
@@ -126,7 +128,7 @@ public class TerrainTileGenerator : MonoBehaviour
     public void DeleteTerrainFirstTile(List<GameObject> terrain)
     {
         if (terrain.Count == 0) return;
-        Destroy(terrain[0]);
+        objectPool.Destroy(terrain[0]);
         terrain.RemoveAt(0);
     }
 
@@ -202,38 +204,69 @@ public class TerrainTileGenerator : MonoBehaviour
         _forceStop = value;
     }
 
+
+
+
     public void SetSafeZone(float safePoint, int zoneLenght)
     {
         _shouldBeInSafeZone = Mathf.Abs(safePoint - _tileIndex) < zoneLenght;
     }
 
-    private bool GetSafeZone()
+    private bool ShouldBeInSafeZone()
     {
         return _shouldBeInSafeZone;
     }
 
-    public void RestartGame()
+
+
+    private int GetSafeZoneCounter()
+    {
+        return _safeZoneCounter;
+    }
+
+    private void SetSafeZoneCounter(bool isSafeZone)
+    {
+        _safeZoneCounter = isSafeZone ? _safeZoneCounter + 1 : 0;
+    }
+
+
+    private bool GetSafeZone()
+    {
+        if (GetSafeZoneCounter() >= 5) return false;
+        return ShouldBeInSafeZone();
+    }
+
+    public void StartGame()
     {
         _heightOffset = 0;
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (transform.GetChild(i).gameObject.name == "Mesh Combiner") continue;
-            Destroy(transform.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < _meshCombiner.transform.childCount; i++)
-        {
-            Destroy(_meshCombiner.transform.GetChild(i).gameObject);
-        }
-
         _tileIndex = -1;
+
+        objectPool.DestroyAll();
 
         _terrain = new List<GameObject>();
         _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+        CleanGameObjectChilds(_meshCombiner);
 
         for (int i = 0; i < tileAmount - 1; i++)
         {
             AddTileToTerrain(DefaultTile);
         }
+    }
+
+    public void CleanGameObjectChilds(GameObject gameObject)
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            Destroy(gameObject.transform.GetChild(i).gameObject);
+        }
+    }
+
+    public int GetTileIndex()
+    {
+        return _tileIndex;
+    }
+    public int GetStartTerrainIndex()
+    {
+        return _startTerrainIndex;
     }
 }

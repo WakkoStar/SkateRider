@@ -50,11 +50,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name, float pitch = 1.0f)
+    public void Play(string name, float pitch = 1.0f, bool forcePlay = false)
     {
         var track = audioTracks.First(track => track.name == name);
         track.source.pitch = pitch;
-        if (!track.source.isPlaying) track.source.Play();
+        if (!track.source.isPlaying || forcePlay) track.source.Play();
     }
 
     public void Stop(string name)

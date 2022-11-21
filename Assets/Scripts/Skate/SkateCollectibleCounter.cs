@@ -9,7 +9,7 @@ public class SkateCollectibleCounter
     public void AddCollectible()
     {
         IncrementCollectible();
-        skateState.GetSkateMainScreen().DisplayCollectibleScore(GetCollectibleCount());//A VIRER
+        skateState.GetSkateMainScreen().DisplayCollectibleScore(GetCollectibleCount());
     }
 
     public void ResetCollectible()
@@ -21,14 +21,16 @@ public class SkateCollectibleCounter
     {
         _collectibleCount += 1;
     }
-    private int GetCollectibleCount()
+    public int GetCollectibleCount()
     {
         return _collectibleCount;
     }
 
-    public void SetRestartGame()
+
+    public void SetStartGame()
     {
         ResetCollectible();
+        skateState.GetSkateMainScreen().DisplayCollectibleScore(GetCollectibleCount());
     }
 
 }
