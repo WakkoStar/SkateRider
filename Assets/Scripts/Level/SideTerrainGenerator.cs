@@ -41,12 +41,6 @@ public class SideTerrainTileGenerator : MonoBehaviour
         terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddTileToTerrain(GameObject baseTile)
     {
         UpdateSideTerrainPosition(_GroundForward, -1);

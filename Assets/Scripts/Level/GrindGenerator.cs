@@ -19,12 +19,6 @@ public class GrindTileGenerator : MonoBehaviour
         terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void StartGame()
     {
         _grind = new List<GameObject>();

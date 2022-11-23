@@ -50,13 +50,6 @@ public class CollectibleGenerator : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void AddCollectibleToTerrain(GameObject terrainTile)
     {
         if (_terrainTileGenerator.GetTileIndex() <= _terrainTileGenerator.GetStartTerrainIndex())
