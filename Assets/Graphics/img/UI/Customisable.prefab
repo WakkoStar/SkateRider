@@ -249,8 +249,8 @@ GameObject:
   - component: {fileID: 2716966085865254915}
   - component: {fileID: 7925971466713187662}
   - component: {fileID: 3221670415096273297}
-  - component: {fileID: 9147584941042679502}
   - component: {fileID: 982267416077537325}
+  - component: {fileID: 5668301888132410469}
   m_Layer: 5
   m_Name: Customisable
   m_TagString: Untagged
@@ -318,25 +318,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9147584941042679502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213856636806586862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb1e25c001111a40bca57b79786617c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  priceText: {fileID: 5376093837664759112}
-  productRect: {fileID: 3221670415096273297}
-  selectedSprite: {fileID: 21300000, guid: 4ae53fe51656b00449bd6b52324de4b9, type: 3}
-  normalSprite: {fileID: 21300000, guid: 6155f85e47618a644bfd30b95505da96, type: 3}
-  thumbnailImg: {fileID: 4487691874545563009}
-  priceCanvas: {fileID: 7809124439997313517}
-  purchaseCanvas: {fileID: 1077535459974425153}
 --- !u!114 &982267416077537325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +362,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5668301888132410469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213856636806586862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd8590b2c64b0b4fbef6ecf45254998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thumbnailImg: {fileID: 4487691874545563009}
+  selectedSprite: {fileID: 21300000, guid: 4ae53fe51656b00449bd6b52324de4b9, type: 3}
+  normalSprite: {fileID: 21300000, guid: 6155f85e47618a644bfd30b95505da96, type: 3}
+  priceText: {fileID: 5376093837664759112}
+  customableRect: {fileID: 3221670415096273297}
+  priceCanvas: {fileID: 7809124439997313517}
+  purchaseCanvas: {fileID: 1077535459974425153}
 --- !u!1 &8677155338330710470
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8934092985452926008}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

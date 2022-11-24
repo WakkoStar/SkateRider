@@ -9,47 +9,74 @@ public class LootBoxDisplayer : MonoBehaviour
     public UnityEvent OnBuyAccept;
     public UnityEvent OnBuyDeny;
 
+    [SerializeField] private int lootboxPrice;
+    [SerializeField] private Text lootBoxPriceText;
+
     [SerializeField] private ShopDisplayer shopDisplayer;
     [SerializeField] private CanvasGroup duplicateSignCanvas;
     [SerializeField] private CanvasGroup moneyGainCanvas;
     [SerializeField] private Text moneyGainText;
-    [SerializeField] ProductDisplayer productDisplayer;
+    [SerializeField] CustomableDisplayer customableDisplayer;
+
+    private void Start()
+    {
+        lootBoxPriceText.text = "" + lootboxPrice;
+    }
 
     public void BuyLootBox()
     {
         var collectableCount = PlayerPrefs.GetInt("collectibleCount");
-        if (collectableCount >= 10)
+
+        if (collectableCount >= lootboxPrice)
         {
-            duplicateSignCanvas.alpha = 0;
-            moneyGainCanvas.alpha = 0;
-            PlayerPrefs.SetInt("collectibleCount", collectableCount - 10);
+            PlayerPrefs.SetInt("collectibleCount", collectableCount - lootboxPrice);
 
-            var selectedProduct = shopDisplayer.SerializeProduct(shopDisplayer.products[Random.Range(0, shopDisplayer.products.Length)]);
-            selectedProduct.price = -1;
-            productDisplayer.SetProduct(selectedProduct);
+            var selectedCustomable = Customable.SerializeCustomable(
+                shopDisplayer.shopCustomables[Random.Range(0, shopDisplayer.shopCustomables.Count)]
+            );
+            selectedCustomable.price = -1;
+            customableDisplayer.DeserializeCustomable(selectedCustomable);
 
-            var inventory = DataManager.LoadData<SerializableProduct>("inventory");
-            if (inventory.Find(item => item.nameId == selectedProduct.nameId) == null)
+            var inventory = DataManager.LoadData<SerializableCustomable>("inventory");
+            var gain = Random.Range(100, 1501);
+            var isDuplicate = inventory.Find(customable => customable.nameId == selectedCustomable.nameId) != null;
+
+            SetDuplicateInterface(isDuplicate, gain);
+
+            if (!isDuplicate)
             {
-                DataManager.AddToData<SerializableProduct>(selectedProduct, "inventory");
+                DataManager.AddToData<SerializableCustomable>(selectedCustomable, "inventory");
             }
             else
             {
-                var gain = Random.Range(100, 1501);
-                PlayerPrefs.SetInt("collectibleCount", collectableCount + gain);
-                moneyGainCanvas.alpha = 1;
-                moneyGainText.text = "+" + gain;
-                duplicateSignCanvas.alpha = 1;
+                PlayerPrefs.SetInt("collectibleCount", collectableCount - lootboxPrice + gain);
             }
 
 
             OnBuyAccept.Invoke();
-            //AFFICHER CONFIRMATION
         }
         else
         {
             OnBuyDeny.Invoke();
-            //AFFICHER MESSAGE D'ERREUR
         }
     }
+
+
+    void SetDuplicateInterface(bool isDuplicate, int gain = 0)
+    {
+        if (isDuplicate)
+        {
+            duplicateSignCanvas.alpha = 1;
+            moneyGainCanvas.alpha = 1;
+            moneyGainText.text = "+" + gain;
+        }
+        else
+        {
+            duplicateSignCanvas.alpha = 0;
+            moneyGainCanvas.alpha = 0;
+
+        }
+    }
+
+
 }
