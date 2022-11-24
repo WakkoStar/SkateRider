@@ -37,8 +37,15 @@ public class SkateInput : MonoBehaviour
     private bool _isOllie;
     private bool _isNollie;
 
+    private float _scaleCanvasX;
+    private float _scaleCanvasY;
+
     void Start()
     {
+        var canvasRect = GameObject.Find("Canvas").GetComponent<RectTransform>();
+        _scaleCanvasX = canvasRect.rect.width / Screen.width;
+        _scaleCanvasY = canvasRect.rect.height / Screen.height;
+
         _noseZoneCanvas = NoseZone.GetComponent<CanvasGroup>();
         _tailZoneCanvas = TailZone.GetComponent<CanvasGroup>();
     }
@@ -104,19 +111,26 @@ public class SkateInput : MonoBehaviour
         //HANDLE UI BEHAVIOR
         if (_isTailTouchWithTouchOne)
         {
-            TailZone.transform.position = _touchOne.position + tailZoneUIOffset;
+            // Vector2 anchoredPos;
+            // RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            //     NoseZone.GetComponentInParent<RectTransform>(), 
+            //     _touchOne.position, 
+            //     Camera.main.gameObject, 
+            //     anchoredPos
+            // )
+            TailZone.transform.localPosition = ScaleToCanvas(_touchOne.position + tailZoneUIOffset);
         }
         if (_isTailTouchWithTouchTwo)
         {
-            TailZone.transform.position = _touchTwo.position + tailZoneUIOffset;
+            TailZone.transform.localPosition = ScaleToCanvas(_touchTwo.position + tailZoneUIOffset);
         }
         if (_isNoseTouchWithTouchOne)
         {
-            NoseZone.transform.position = _touchOne.position + noseZoneUIOffset;
+            NoseZone.transform.localPosition = ScaleToCanvas(_touchOne.position + noseZoneUIOffset);
         }
         if (_isNoseTouchWithTouchTwo)
         {
-            NoseZone.transform.position = _touchTwo.position + noseZoneUIOffset;
+            NoseZone.transform.localPosition = ScaleToCanvas(_touchTwo.position + noseZoneUIOffset);
         }
 
         _tailZoneCanvas.alpha = _isTailTouch ? 1 : 0;
@@ -220,6 +234,11 @@ public class SkateInput : MonoBehaviour
     public bool GetIsNollie()
     {
         return _isNollie;
+    }
+
+    private Vector2 ScaleToCanvas(Vector2 position)
+    {
+        return new Vector2(position.x * _scaleCanvasX, position.y * _scaleCanvasY);
     }
 
 }

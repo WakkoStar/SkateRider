@@ -14,10 +14,12 @@ public class Wrapper<T>
 
 public static class DataManager
 {
-    static string filePath = Application.persistentDataPath + "/dataToSave.dat";
+    static string baseFilePath = Application.persistentDataPath;
 
-    public static void SaveData<T>(Wrapper<T> itemWrapper)
+    public static void SaveData<T>(Wrapper<T> itemWrapper, string fileName)
     {
+        var filePath = baseFilePath + "/" + fileName + ".dat";
+
         FileStream fs = new FileStream(filePath, FileMode.Create);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         try
@@ -35,8 +37,34 @@ public static class DataManager
         }
     }
 
-    public static List<T> LoadData<T>()
+    public static void AddToData<T>(T item, string fileName)
     {
+        var filePath = baseFilePath + "/" + fileName + ".dat";
+
+        Wrapper<T> itemWrapper = new Wrapper<T>();
+        itemWrapper.items = LoadData<T>(fileName);
+        itemWrapper.items.Add(item);
+
+        FileStream fs = new FileStream(filePath, FileMode.Create);
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        try
+        {
+            binaryFormatter.Serialize(fs, itemWrapper);
+        }
+        catch (SerializationException e)
+        {
+            Debug.Log("Failed to serialize. Reason: " + e.Message);
+            throw;
+        }
+        finally
+        {
+            fs.Close();
+        }
+    }
+
+    public static List<T> LoadData<T>(string fileName)
+    {
+        var filePath = baseFilePath + "/" + fileName + ".dat";
         if (!File.Exists(filePath)) return default(List<T>);
 
         Wrapper<T> itemWrapper = null;

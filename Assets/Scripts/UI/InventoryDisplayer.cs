@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class InventoryDisplayer : MonoBehaviour
 {
     [SerializeField] private GameObject ProductElement;
-    private Product[] _products;
+    private SerializableProduct[] _products;
     private List<Product> _filteredProducts;
+
+    [SerializeField] private Product[] defaultInventory;
+    [SerializeField] private Material WheelMat;
+    [SerializeField] private Material TruckMat;
+    [SerializeField] private Material GripMat;
+    [SerializeField] private Material BoardMat;
 
     // Start is called before the first frame update
     void Start()
@@ -32,15 +38,19 @@ public class InventoryDisplayer : MonoBehaviour
         DisplayProducts(_products.ToList());
     }
 
-    public void DisplayProducts(List<Product> filteredProducts)
+    public void DisplayProducts(List<SerializableProduct> filteredProducts)
     {
         DestroyChilds();
 
         foreach (var product in filteredProducts)
         {
             var productDisplayer = Instantiate(ProductElement, transform).GetComponent<ProductDisplayer>();
+            productDisplayer.SetSelected(IsProductSelected(product));
             productDisplayer.SetProduct(product);
+
             productDisplayer.gameObject.GetComponent<Button>().onClick.AddListener(() => SelectObject(product));
+
+
         }
     }
 
@@ -52,31 +62,99 @@ public class InventoryDisplayer : MonoBehaviour
         }
     }
 
-    void SelectObject(Product item)
+    void SelectObject(SerializableProduct item)
     {
-        //APPLY ITEM TO SKATE
+        var texToApply = new Texture2D(1024, 1024, TextureFormat.RGB24, false);
+        texToApply.LoadRawTextureData(item.textureToApply);
+        texToApply.Apply();
+
+        switch (item.type)
+        {
+            case ProductType.Wheels:
+                WheelMat.mainTexture = texToApply;
+                PlayerPrefs.SetString("skate_wheels", item.nameId);
+                break;
+            case ProductType.Trucks:
+                TruckMat.mainTexture = texToApply;
+                PlayerPrefs.SetString("skate_trucks", item.nameId);
+                break;
+            case ProductType.Board:
+                BoardMat.mainTexture = texToApply;
+                PlayerPrefs.SetString("skate_board", item.nameId);
+                break;
+            case ProductType.Grip:
+                GripMat.mainTexture = texToApply;
+                PlayerPrefs.SetString("skate_grip", item.nameId);
+                break;
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var productDisplayer = transform.GetChild(i).gameObject.GetComponent<ProductDisplayer>();
+            productDisplayer.SetSelected(IsProductSelected(productDisplayer.GetProduct()));
+        }
     }
 
-    List<Product> GetInventory()
+    List<SerializableProduct> GetInventory()
     {
-        var inventory = DataManager.LoadData<Product>();
+        var inventory = DataManager.LoadData<SerializableProduct>("inventory");
 
         if (inventory == null)
         {
-            var defaultInventory = new Product[] {
-                new Product(ProductType.Wheels, "null", "null", -1, "wheels-default"),
-                new Product(ProductType.Trucks, "null", "null", -1, "trucks-default"),
-                new Product(ProductType.Board, "null", "null", -1, "board-default"),
-                new Product(ProductType.Grip, "null", "null", -1, "grip-default"),
-            };
+            var inventoryWrapper = new Wrapper<SerializableProduct>();
 
-            var inventoryWrapper = new Wrapper<Product>();
-            inventoryWrapper.items = defaultInventory.ToList();
-            DataManager.SaveData<Product>(inventoryWrapper);
+            inventoryWrapper.items = defaultInventory.Select(item =>
+            {
+                return new SerializableProduct(
+                item.type,
+                item.textureToApply.GetRawTextureData(),
+                item.thumbnail.GetRawTextureData(),
+                item.price,
+                item.nameId
+                );
 
-            inventory = defaultInventory.ToList();
+            }).ToList();
+
+            foreach (var item in inventoryWrapper.items)
+            {
+                SelectObject(item);
+            }
+
+            DataManager.SaveData<SerializableProduct>(inventoryWrapper, "inventory");
+
+            inventory = inventoryWrapper.items;
+        }
+        else
+        {
+            var selectedItemsInInventory = inventory.FindAll(item => IsProductSelected(item));
+            foreach (var item in selectedItemsInInventory)
+            {
+                SelectObject(item);
+            }
         }
 
         return inventory;
+    }
+
+    private bool IsProductSelected(SerializableProduct product)
+    {
+        var isSelected = false;
+        switch (product.type)
+        {
+            case ProductType.Wheels:
+                isSelected = PlayerPrefs.GetString("skate_wheels") == product.nameId;
+                break;
+            case ProductType.Trucks:
+                isSelected = PlayerPrefs.GetString("skate_trucks") == product.nameId;
+                break;
+            case ProductType.Board:
+                isSelected = PlayerPrefs.GetString("skate_board") == product.nameId;
+                break;
+            case ProductType.Grip:
+                isSelected = PlayerPrefs.GetString("skate_grip") == product.nameId;
+                break;
+        }
+
+        return isSelected;
     }
 }

@@ -577,10 +577,12 @@ public class SkateStateManager : MonoBehaviour
 
     private void DisplayInputCollider(bool isInputTouch, bool isTouchPressed, Color color, Action<bool> SetTouchPress, bool isTailMode)
     {
+
         var normalCollider = isTailMode ? tailZoneCollider : noseZoneCollider;
         var switchCollider = isTailMode ? noseZoneCollider : tailZoneCollider;
         if (isInputTouch && isTouchPressed)
         {
+
             if (_skateRotationReader.IsSwitch())
             {
                 switchCollider.Display(color);

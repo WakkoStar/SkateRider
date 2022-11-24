@@ -13,36 +13,28 @@ public class ShopDisplayer : MonoBehaviour
     public UnityEvent OnBuyAccept;
     public UnityEvent OnBuyDeny;
 
-    private Product _wantedProduct;
+    private SerializableProduct _wantedProduct;
 
-    private List<Product> _inventory;
+    private List<SerializableProduct> _inventory;
     // Start is called before the first frame update
     void Start()
     {
-        _inventory = DataManager.LoadData<Product>();
-
-        products = new Product[] {
-            new Product(ProductType.Wheels, "null", "null", 5000, "wheels-test"),
-            new Product(ProductType.Trucks, "null", "null", 5000, "trucks-test"),
-            new Product(ProductType.Trucks, "null", "null", 5000, "trucks-2-test"),
-            new Product(ProductType.Board, "null", "null", 5000, "board-test"),
-            new Product(ProductType.Grip, "null", "null", 5000, "grip-test"),
-        };
+        _inventory = DataManager.LoadData<SerializableProduct>("inventory");
 
         DisplayAll();
     }
 
     public void FilterBy(int type)
     {
-        DisplayProducts(products.ToList().FindAll(p => p.type == (ProductType)type));
+        DisplayProducts(SerializeProducts(products.ToList().FindAll(p => p.type == (ProductType)type)));
     }
 
     public void DisplayAll()
     {
-        DisplayProducts(products.ToList());
+        DisplayProducts(SerializeProducts(products.ToList()));
     }
 
-    public void DisplayProducts(List<Product> filteredProducts)
+    public void DisplayProducts(List<SerializableProduct> filteredProducts)
     {
         DestroyChilds();
 
@@ -68,7 +60,7 @@ public class ShopDisplayer : MonoBehaviour
         }
     }
 
-    void Buy(Product product)
+    void Buy(SerializableProduct product)
     {
         var collectableCount = PlayerPrefs.GetInt("collectibleCount");
         if (collectableCount >= product.price)
@@ -86,21 +78,47 @@ public class ShopDisplayer : MonoBehaviour
 
     public void UpdateShop()
     {
-        _inventory = DataManager.LoadData<Product>();
+        _inventory = DataManager.LoadData<SerializableProduct>("inventory");
         DisplayAll();
     }
 
     public void ConfirmBuy()
     {
         PlayerPrefs.SetInt("collectibleCount", PlayerPrefs.GetInt("collectibleCount") - _wantedProduct.price);
-        _wantedProduct.price = -1;
-        _inventory.Add(_wantedProduct);
-        _wantedProduct = null;
 
-        var inventoryWrapper = new Wrapper<Product>();
-        inventoryWrapper.items = _inventory;
-        DataManager.SaveData<Product>(inventoryWrapper);
+        _wantedProduct.price = -1;
+        DataManager.AddToData<SerializableProduct>(_wantedProduct, "inventory");
+
+        _inventory = DataManager.LoadData<SerializableProduct>("inventory");
 
         DisplayAll();
+    }
+
+    List<SerializableProduct> SerializeProducts(List<Product> products)
+    {
+        var serializableProducts = products.Select(item =>
+           {
+               return new SerializableProduct(
+               item.type,
+               item.textureToApply.GetRawTextureData(),
+               item.thumbnail.GetRawTextureData(),
+               item.price,
+               item.nameId
+               );
+
+           }).ToList();
+
+        return serializableProducts;
+    }
+
+    public SerializableProduct SerializeProduct(Product product)
+    {
+        return new SerializableProduct(
+               product.type,
+               product.textureToApply.GetRawTextureData(),
+               product.thumbnail.GetRawTextureData(),
+               product.price,
+               product.nameId
+        );
     }
 }

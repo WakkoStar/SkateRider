@@ -13,27 +13,25 @@ public class LootBoxDisplayer : MonoBehaviour
     [SerializeField] private CanvasGroup duplicateSignCanvas;
     [SerializeField] private CanvasGroup moneyGainCanvas;
     [SerializeField] private Text moneyGainText;
+    [SerializeField] ProductDisplayer productDisplayer;
 
     public void BuyLootBox()
     {
         var collectableCount = PlayerPrefs.GetInt("collectibleCount");
-        if (collectableCount >= 1000)
+        if (collectableCount >= 10)
         {
             duplicateSignCanvas.alpha = 0;
             moneyGainCanvas.alpha = 0;
-            PlayerPrefs.SetInt("collectibleCount", collectableCount - 1000);
+            PlayerPrefs.SetInt("collectibleCount", collectableCount - 10);
 
-            var selectedProduct = shopDisplayer.products[Random.Range(0, shopDisplayer.products.Length)];
+            var selectedProduct = shopDisplayer.SerializeProduct(shopDisplayer.products[Random.Range(0, shopDisplayer.products.Length)]);
+            selectedProduct.price = -1;
+            productDisplayer.SetProduct(selectedProduct);
 
-            var inventory = DataManager.LoadData<Product>();
+            var inventory = DataManager.LoadData<SerializableProduct>("inventory");
             if (inventory.Find(item => item.nameId == selectedProduct.nameId) == null)
             {
-                var inventoryWrapper = new Wrapper<Product>();
-                selectedProduct.price = -1;
-                inventory.Add(selectedProduct);
-                inventoryWrapper.items = inventory;
-
-                DataManager.SaveData<Product>(inventoryWrapper);
+                DataManager.AddToData<SerializableProduct>(selectedProduct, "inventory");
             }
             else
             {
