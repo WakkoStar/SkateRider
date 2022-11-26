@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ebbc218a8786145b763a18ae342b54, type: 3}
+  m_Name: Booster+0.5Props
+  m_EditorClassIdentifier: 
+  boosterMaterial: {fileID: 2100000, guid: 2e98fbf8deac46544afded9cdcd1bbeb, type: 2}
+  texStripLength: 8
+  boostAmount: 1.75
+  lightsPositions:
+  - {x: -0.00132, y: 0.00225, z: 0}
+  - {x: 0.00417, y: 0.00225, z: 0}
+  - {x: 0.00988, y: 0.00225, z: 0}

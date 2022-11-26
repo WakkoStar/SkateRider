@@ -21,4 +21,5 @@ public class GameObjectActivator : MonoBehaviour
             element.SetActive(false);
         }
     }
+
 }

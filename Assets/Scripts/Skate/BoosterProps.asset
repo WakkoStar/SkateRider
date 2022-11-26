@@ -16,6 +16,6 @@ MonoBehaviour:
   texStripLength: 8
   boostAmount: 1.75
   lightsPositions:
-  - -0.00444
-  - 0.00111
-  - 0.00677
+  - {x: -0.0044, y: 0, z: 0}
+  - {x: 0.00122, y: 0, z: 0}
+  - {x: 0.00714, y: 0, z: 0}

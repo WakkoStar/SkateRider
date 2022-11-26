@@ -58,7 +58,8 @@ public class SpeedBooster : MonoBehaviour
         for (int i = 0; i < props.texStripLength; i++)
         {
             _boosterMaterial.mainTextureOffset = new Vector2(i * (1 / (float)props.texStripLength), 0);
-            Lights.transform.localPosition = new Vector3(props.lightsPositions[i / props.lightsPositions.Length], 0, 0);
+            var lightPos = props.lightsPositions[i / props.lightsPositions.Length];
+            Lights.transform.localPosition = new Vector3(lightPos.x, lightPos.y, lightPos.z);
             yield return new WaitForSeconds(0.1f);
         }
         isBoosterMaterialAnimated = false;

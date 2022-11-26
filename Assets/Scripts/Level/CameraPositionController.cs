@@ -105,7 +105,7 @@ public class CameraPositionController : MonoBehaviour
 
         var newPos = new Vector3(
             targetPos.x + _cameraOffset.x,
-            Mathf.Lerp(camPos.y, targetPos.y + _cameraOffset.y, 0.01f * (Time.deltaTime * 60)),
+            Mathf.Lerp(camPos.y, targetPos.y + _cameraOffset.y, 0.02f * (Time.deltaTime * 60)),
             targetPos.z + _cameraOffset.z
         );
 
@@ -127,7 +127,7 @@ public class CameraPositionController : MonoBehaviour
     private bool IsOnScreen(GameObject gameObject)
     {
         Vector3 screenPoint = _MainCamera.WorldToViewportPoint(gameObject.transform.position);
-        bool onScreen = screenPoint.y >= -1 && screenPoint.y <= 2 && screenPoint.x >= -0.2 && screenPoint.x <= 1.2;
+        bool onScreen = screenPoint.y >= -1 && screenPoint.y <= 30 && screenPoint.x >= -0.2 && screenPoint.x <= 1.2;
 
         return onScreen;
     }

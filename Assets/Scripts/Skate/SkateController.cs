@@ -249,6 +249,16 @@ public class SkatePhysicsController : MonoBehaviour
             yield return null;
         }
     }
+    private IEnumerator Decelerate()
+    {
+        Vector3 startVel = _rb.velocity;
+
+        for (float a = 0; a < 1; a += Time.deltaTime * 2)
+        {
+            _rb.velocity = Vector3.Lerp(startVel, Vector3.zero, a);
+            yield return null;
+        }
+    }
 
     public void SetMaxSpeed(float value)
     {
@@ -324,6 +334,11 @@ public class SkatePhysicsController : MonoBehaviour
     {
         _stopForceMaxSpeed = StartCoroutine(ForceMaxSpeedWithDelayCoroutine(delay));
     }
+    public void StopSkate()
+    {
+        ForceMaxSpeed(false);
+        StartCoroutine(Decelerate());
+    }
 
 
 
@@ -359,6 +374,7 @@ public class SkatePhysicsController : MonoBehaviour
 
     public void SetStartGame()
     {
+        ForceMaxSpeed(true);
         _rb.angularVelocity = Vector3.zero;
         _rb.velocity = Vector3.right * 10;
         _rb.isKinematic = false;

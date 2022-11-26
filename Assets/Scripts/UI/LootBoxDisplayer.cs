@@ -45,10 +45,12 @@ public class LootBoxDisplayer : MonoBehaviour
 
             if (!isDuplicate)
             {
+                FindObjectOfType<AudioManager>().PlayWithDelay("openLootBoxWin", 4.0f);
                 DataManager.AddToData<SerializableCustomable>(selectedCustomable, "inventory");
             }
             else
             {
+                FindObjectOfType<AudioManager>().PlayWithDelay("openLootBoxLoose", 4.0f);
                 PlayerPrefs.SetInt("collectibleCount", collectableCount - lootboxPrice + gain);
             }
 

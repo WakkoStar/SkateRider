@@ -24,6 +24,7 @@ public class InventoryDisplayer : MonoBehaviour
     {
         _gridCustomableDisplayer = GetComponent<GridCustomableDisplayer>();
         _gridCustomableDisplayer.OnClickOnElement = SelectCustomable;
+        _gridCustomableDisplayer.OnClickOnElement += (value) => FindObjectOfType<AudioManager>().Play("applat");
         _gridCustomableDisplayer.OnDisplayElement = SetInventoryCustomableDisplayer;
 
         UpdateInventory();
@@ -40,6 +41,13 @@ public class InventoryDisplayer : MonoBehaviour
         customableDisplayer.SetSelected(IsCustomableSelected(customable));
     }
 
+    void SelectCustomables(List<SerializableCustomable> customables)
+    {
+        foreach (var customable in customables)
+        {
+            SelectCustomable(customable);
+        }
+    }
     void SelectCustomable(SerializableCustomable customable)
     {
         var texToApply = new Texture2D(1024, 1024, TextureFormat.RGB24, false);
@@ -84,17 +92,15 @@ public class InventoryDisplayer : MonoBehaviour
             DataManager.SaveData<SerializableCustomable>(inventoryWrapper, "inventory");
 
             inventory = inventoryWrapper.items;
-            foreach (var customable in inventoryWrapper.items)
-            {
-                SelectCustomable(customable);
-            }
         }
 
         var selectedCustomableInInventory = inventory.FindAll(customable => IsCustomableSelected(customable));
-        foreach (var customable in selectedCustomableInInventory)
-        {
-            SelectCustomable(customable);
-        }
+
+        SelectCustomables(
+        selectedCustomableInInventory.Count == 0
+            ? Customable.SerializeCustomables(defaultInventory.ToList()) //FALLBACK
+            : selectedCustomableInInventory
+         );
 
         return inventory;
     }

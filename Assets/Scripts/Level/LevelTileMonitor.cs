@@ -7,12 +7,28 @@ using UnityEngine.Events;
 
 public class LevelTileMonitor : MonoBehaviour
 {
+    //INNER STRUCTS
+    [Serializable]
+    public class IndexedEvent
+    {
+        public int index;
+        public UnityEvent onIndexReached = new UnityEvent();
+    }
+
+
     //STATE
     private GameObject _Terrain;
     private GameObject _SideTerrain;
     private GameObject _GrindTerrain;
 
     private int _switchingTileIndex = 10000;
+
+    /*
+      We need to recalculate currentTileIndex because tileSize is changing 
+      between terrainTileGenerator update, when currentTileIndex isn't equal to _tileIndex
+      and the invoke of OnTilePassed
+      **/
+    private int _forceCurrentTileIndex = -1;
     bool _isSwitchingSize;
 
     private int _tileSize;
@@ -37,12 +53,15 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private List<Tile> tiles = new List<Tile>();
     [SerializeField] private List<SideTile> sideTiles = new List<SideTile>();
     [SerializeField] private List<SideTile> sideTilesBackward = new List<SideTile>();
+    [SerializeField] private List<GameObject> switchTiles = new List<GameObject>();
+
+    [SerializeField] private List<IndexedEvent> switchTileEvents = new List<IndexedEvent>();
     [SerializeField] private int tileAmount = 2;
 
     [SerializeField] private GameObject DefaultTile;
-    [SerializeField] private GameObject VoidTile;
-    [SerializeField] private GameObject StartSwitchTile;
-    [SerializeField] private GameObject EndSwitchTile;
+    // [SerializeField] private GameObject VoidTile;
+    // [SerializeField] private GameObject StartSwitchTile;
+    // [SerializeField] private GameObject EndSwitchTile;
     [SerializeField] private List<GameObject> GrindStarts = new List<GameObject>();
     [SerializeField] private List<GameObject> GrindEnds = new List<GameObject>();
     [SerializeField] private float zStartScale = 1;
@@ -51,7 +70,7 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private float yEndScale = 1.5f;
     [SerializeField] private float tileSizeStart = 5;
     [SerializeField] private float tileSizeEnd = 10;
-    [SerializeField] private int switchTileTransitionLength = 4;
+    // [SerializeField] private int switchTileTransitionLength = 4;
 
     private UnityAction<GameObject> onTileAddedAction;
     private UnityAction onTilePassedAction;
@@ -144,10 +163,6 @@ public class LevelTileMonitor : MonoBehaviour
         }
 
         _terrainTileGenerator.SetSafeZone((int)(_landingHit / _tileSize) - 2, 2);
-
-        _terrainTileGenerator.yScale = _yScale;
-        _terrainTileGenerator.zScale = _zScale;
-        _terrainTileGenerator.tileSize = _tileSize;
     }
 
     void AddTileToOtherLevelComponents(GameObject instanceTile)
@@ -160,16 +175,17 @@ public class LevelTileMonitor : MonoBehaviour
             );
         }
 
-        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
+        // _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
     }
 
     void ForceTerrainSwitch()
     {
-        int endSwitchTileIndex = switchTileTransitionLength * 2 + 3;
+        int endSwitchTileIndex = switchTiles.Count - 1;
         if (_switchingTileIndex < endSwitchTileIndex && _isSwitchingSize)
         {
             _terrainTileGenerator.ForceStop(true);
-            SwitchTileTerrain(switchTileTransitionLength);
+            SwitchTileTerrain(_switchingTileIndex);
+            _switchingTileIndex += 1;
         }
         else
         {
@@ -211,50 +227,32 @@ public class LevelTileMonitor : MonoBehaviour
         _landingHit = Player.transform.position.x + i;
     }
 
-    private void SwitchTileTerrain(int transitionLength)
+    private void SwitchTileTerrain(int switchingTileIndex)
     {
-        int startSwitchIndex = transitionLength;
-        int endSwitchIndex = transitionLength + 3;
-        int finalEndIndex = transitionLength * 2 + 3;
+        _forceCurrentTileIndex = -1;
 
-        /*
-        We need to recalculate currentTileIndex because tileSize is changing 
-        between terrainTileGenerator update, when currentTileIndex isn't equal to _tileIndex
-        and the invoke of OnTilePassed
-        **/
-        var forceCurrentTileIndex = (int)Player.transform.position.x / _tileSize;
-
-        if ((_switchingTileIndex >= 0 && _switchingTileIndex < startSwitchIndex)
-        || (_switchingTileIndex >= endSwitchIndex && _switchingTileIndex < finalEndIndex)
-        )
+        var existingEventOnIndex = switchTileEvents.Find(indexedEvent => indexedEvent.index == switchingTileIndex);
+        if (existingEventOnIndex != null)
         {
-            _terrainTileGenerator.AddTileToTerrain(DefaultTile);
+            existingEventOnIndex.onIndexReached.Invoke();
         }
 
-        if (_switchingTileIndex == startSwitchIndex)
-        {
-            _terrainTileGenerator.AddTileToTerrain(EndSwitchTile);
-        }
-
-        if (_switchingTileIndex == startSwitchIndex + 1)
-        {
-            var tileSizeGap = tileSizeEnd - tileSizeStart;
-            _tileSize = (int)Mathf.Round(_currentileSize);
-            _yScale += (yEndScale - yStartScale) / tileSizeGap;
-            _zScale += (zEndScale - zStartScale) / tileSizeGap;
-
-            _terrainTileGenerator.AddTileToTerrain(VoidTile, forceCurrentTileIndex);
-        }
-
-        if (_switchingTileIndex == startSwitchIndex + 2)
-        {
-
-            _terrainTileGenerator.AddTileToTerrain(StartSwitchTile, forceCurrentTileIndex);
-        }
-
-        _switchingTileIndex += 1;
+        _terrainTileGenerator.AddTileToTerrain(switchTiles[_switchingTileIndex], _forceCurrentTileIndex);
     }
 
+    public void ChangeLevelScale()
+    {
+        var tileSizeGap = tileSizeEnd - tileSizeStart;
+        _tileSize = (int)Mathf.Round(_currentileSize);
+        _yScale += (yEndScale - yStartScale) / tileSizeGap;
+        _zScale += (zEndScale - zStartScale) / tileSizeGap;
+
+        _terrainTileGenerator.yScale = _yScale;
+        _terrainTileGenerator.zScale = _zScale;
+        _terrainTileGenerator.tileSize = _tileSize;
+
+        _forceCurrentTileIndex = (int)Player.transform.position.x / _tileSize;
+    }
 
 
     public void InitAllTiles()

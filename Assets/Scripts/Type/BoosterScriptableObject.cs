@@ -10,6 +10,6 @@ public class BoosterScriptableObject : ScriptableObject
     public int texStripLength;
     public float boostAmount;
 
-    public float[] lightsPositions;
+    public Vector3[] lightsPositions;
 }
 

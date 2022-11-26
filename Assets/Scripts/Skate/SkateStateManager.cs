@@ -401,18 +401,13 @@ public class SkateStateManager : MonoBehaviour
     public void SetGameOver()
     {
         audioManager.StopAll(staticTracksNames);
+        audioManager.Play("gameOverSong");
 
-        var isBestScore = _skateScoreManager.GetTotalScore() > PlayerPrefs.GetFloat("bestScore");
-
-        if (_skateScoreManager.GetTotalScore() > PlayerPrefs.GetFloat("bestScore"))
-        {
-            PlayerPrefs.SetFloat("bestScore", _skateScoreManager.GetTotalScore());
-        }
         PlayerPrefs.SetInt("collectibleCount", PlayerPrefs.GetInt("collectibleCount") + _skateCollectibleCounter.GetCollectibleCount());
 
-        skateEndScreen.DisplayBestScoreSign(isBestScore);
         skateEndScreen.DisplayBestScore(PlayerPrefs.GetFloat("bestScore"));
-        skateEndScreen.DisplayScore(_skateScoreManager.GetTotalScore());
+        StartCoroutine(AnimateTotalScore(_skateScoreManager.GetTotalScore()));
+
         skateEndScreen.DisplayCollectibleCount(_skateCollectibleCounter.GetCollectibleCount());
         skateEndScreen.DisplayAllCollectibleCount(PlayerPrefs.GetInt("collectibleCount"));
 
@@ -434,6 +429,38 @@ public class SkateStateManager : MonoBehaviour
         SetGameOver();
     }
 
+    private IEnumerator AnimateTotalScore(float totalScore)
+    {
+        yield return new WaitForSeconds(0.3f); //LET END SCREEN APPEAR
+
+        audioManager.Play("scoreSong");
+
+        var isNewBestScoreDisplayed = false;
+        skateEndScreen.DisplayBestScoreSign(false);
+
+        for (float a = 0; a < 1; a += Time.deltaTime / 2)
+        {
+            var currentAnimatedScore = Mathf.Lerp(0, totalScore, a);
+            skateEndScreen.DisplayScore((int)currentAnimatedScore);
+
+            //ANIMATE BEST SCORE
+            if (currentAnimatedScore > PlayerPrefs.GetFloat("bestScore") && !isNewBestScoreDisplayed)
+            {
+                isNewBestScoreDisplayed = true;
+
+                skateEndScreen.DisplayBestScoreSign(true);
+                skateEndScreen.GetComponent<Animator>().SetTrigger("DisplayNewBestSign");
+
+                PlayerPrefs.SetFloat("bestScore", totalScore);
+
+                audioManager.Play("newBestScoreSong");
+            }
+
+            yield return null;
+        }
+        skateEndScreen.DisplayScore(totalScore);
+    }
+
     public bool IsSkateStateStopped()
     {
         return _isSkateStateStopped;
@@ -445,6 +472,9 @@ public class SkateStateManager : MonoBehaviour
     {
         if (_skateRotationReader.IsTrueUpsideDown() && !_skateTerrainReader.IsGrindOnTerrain())
         {
+
+            _skatePhysController.StopSkate();
+
             SetGameOverWithDelay(0.5f);
         }
         else if (!GetIsInclined())
