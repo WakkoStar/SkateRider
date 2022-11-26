@@ -36,4 +36,10 @@ public class SkateEndScreen : MonoBehaviour
     {
         bestScoreCanvas.alpha = shouldDisplay ? 1 : 0;
     }
+
+    public void UpdateCollectibleCount(int count)
+    {
+        DisplayCollectibleCount(count);
+        DisplayAllCollectibleCount(PlayerPrefs.GetInt("collectibleCount") + count);
+    }
 }

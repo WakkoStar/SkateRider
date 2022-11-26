@@ -17,10 +17,11 @@ public class SkateCollectibleCounter
         _collectibleCount = 0;
     }
 
-    private void IncrementCollectible()
+    public void IncrementCollectible(int value = 1)
     {
-        _collectibleCount += 1;
+        _collectibleCount += value;
     }
+
     public int GetCollectibleCount()
     {
         return _collectibleCount;

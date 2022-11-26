@@ -175,7 +175,7 @@ public class LevelTileMonitor : MonoBehaviour
             );
         }
 
-        // _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
+        _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
     }
 
     void ForceTerrainSwitch()

@@ -11,6 +11,7 @@ public class ScreenManager : MonoBehaviour
     }
 
     [SerializeField] private NamedScreen[] screens;
+    [SerializeField] private float hideDelay = 0.5f;
 
     public void Display(string name)
     {
@@ -35,7 +36,7 @@ public class ScreenManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(HideCoroutine(0.5f, screen));
+        StartCoroutine(HideCoroutine(hideDelay, screen));
     }
 
     IEnumerator HideCoroutine(float delay, NamedScreen screen)
