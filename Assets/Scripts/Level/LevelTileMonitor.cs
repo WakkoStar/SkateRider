@@ -59,9 +59,6 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private int tileAmount = 2;
 
     [SerializeField] private GameObject DefaultTile;
-    // [SerializeField] private GameObject VoidTile;
-    // [SerializeField] private GameObject StartSwitchTile;
-    // [SerializeField] private GameObject EndSwitchTile;
     [SerializeField] private List<GameObject> GrindStarts = new List<GameObject>();
     [SerializeField] private List<GameObject> GrindEnds = new List<GameObject>();
     [SerializeField] private float zStartScale = 1;
@@ -70,7 +67,6 @@ public class LevelTileMonitor : MonoBehaviour
     [SerializeField] private float yEndScale = 1.5f;
     [SerializeField] private float tileSizeStart = 5;
     [SerializeField] private float tileSizeEnd = 10;
-    // [SerializeField] private int switchTileTransitionLength = 4;
 
     private UnityAction<GameObject> onTileAddedAction;
     private UnityAction onTilePassedAction;
@@ -144,6 +140,9 @@ public class LevelTileMonitor : MonoBehaviour
 
         _yScale = yStartScale;
         _zScale = zStartScale;
+
+        _switchingTileIndex = 10000;
+        _isSwitchingSize = false;
 
         _terrainTileGenerator.yScale = _yScale;
         _terrainTileGenerator.zScale = _zScale;

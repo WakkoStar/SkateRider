@@ -43,7 +43,7 @@ public class TileSelector
                 continue;
             }
 
-            if (tile.shouldBeInSafeZone && IsSafeZone(previousTiles, 4) && !isPrevTileShouldBeCompleted)
+            if (tile.shouldBeInSafeZone && IsSafeZone(previousTiles, 3) && !isPrevTileShouldBeCompleted)
             {
                 selection = tile.obj;
             }
