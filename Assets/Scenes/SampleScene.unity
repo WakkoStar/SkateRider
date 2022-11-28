@@ -15252,8 +15252,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902918303}
   m_HandleRect: {fileID: 902918302}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.66411465
+  m_Value: 1.0000004
+  m_Size: 0.6641146
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20062,7 +20062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.5, y: -345.53076}
+  m_AnchoredPosition: {x: 8.5, y: -345.53088}
   m_SizeDelta: {x: 17, y: 691.0613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301509427
@@ -33826,7 +33826,7 @@ MonoBehaviour:
     - name: boost +0.5
       shouldBeNextTo: 0
   sideTiles:
-  - obj: {fileID: 1405190118416349639, guid: 99832400245dbec4cb12c1afd28ac2ed, type: 3}
+  - obj: {fileID: 6020208591350915000, guid: 0262aea6299c8a146b5ec14aefa7b86c, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
@@ -33839,41 +33839,41 @@ MonoBehaviour:
     - name: bump-end -1.0
       shouldBeNextTo: 0
     - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
       shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
     - name: up-start +0.5
       shouldBeNextTo: 0
     - name: up-start +0.25
@@ -33922,7 +33922,7 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
-  - obj: {fileID: 2514021991431643443, guid: cab9b7361aeca1d4f9880c465b5d6dda, type: 3}
+  - obj: {fileID: 2323386410215381550, guid: 12b2c5ecb308f7149981b710be3d67dc, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
@@ -33933,39 +33933,39 @@ MonoBehaviour:
     - name: bump-end -2.0
       shouldBeNextTo: 0
     - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
       shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
     - name: hole 0.0
       shouldBeNextTo: 0
     - name: hole +0.5
@@ -34018,7 +34018,7 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
-  - obj: {fileID: 1414461176488666805, guid: 53d347537ae01cd4697f0eaf6d2107a2, type: 3}
+  - obj: {fileID: 5457110399989793706, guid: 437988d35ee13bc41b0a8cad0ff67186, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
@@ -34027,39 +34027,39 @@ MonoBehaviour:
     - name: bump-start +0.5
       shouldBeNextTo: 0
     - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
       shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
     - name: hole -0.5
       shouldBeNextTo: 0
     - name: hole 0.0
@@ -34114,110 +34114,14 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
-  - obj: {fileID: 2302404173382381010, guid: a70298862b547d8469e97e52f1f5d9b7, type: 3}
+  - obj: {fileID: 3697690501840188340, guid: 7eaaf8db122a0c144a9af36f833c034d, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
     - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
       shouldBeNextTo: 1
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 8077808462422456546, guid: 7d0b42f54a6b38c4199a4c81ea791cb0, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
     - name: bump-end -2.0
       shouldBeNextTo: 0
     - name: bump-end -1.0
@@ -34249,31 +34153,31 @@ MonoBehaviour:
     - name: hole-start -0.5
       shouldBeNextTo: 0
     - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
       shouldBeNextTo: 1
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
     - name: grind-start +0.25
       shouldBeNextTo: 0
     - name: grind-start 0.0
@@ -34306,7 +34210,7 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
-  - obj: {fileID: 1654154088866565503, guid: 9f582582d0fadf544ac182223c84b112, type: 3}
+  - obj: {fileID: 2760183308850743478, guid: 47dc363f9c3748648830240bd7a8ba86, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
@@ -34319,301 +34223,13 @@ MonoBehaviour:
     - name: bump-end -1.0
       shouldBeNextTo: 0
     - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
       shouldBeNextTo: 1
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 5547901764203237319, guid: 64c1a2fd11d6b134c89b8b6431824dcb, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
     - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
       shouldBeNextTo: 1
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 4175994604045341617, guid: 41f424836322de7468c4ec1798a384f7, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
     - name: down-start -0.25
       shouldBeNextTo: 0
     - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
       shouldBeNextTo: 1
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 6830273093571846947, guid: 5fad19e0eee3d7f4cb95edf2f19ff08c, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
@@ -34621,561 +34237,81 @@ MonoBehaviour:
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 7557910063712384250, guid: 3199afeb383e2f94891bb8e7e5cf3ece, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 4680667294943515832, guid: fc0122c4e30d98b4fb3affdd5854c961, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 4988713772943810011, guid: b8ef2b96e7591fb4491e1102ee62ea1b, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 5621922516304734847, guid: c09605eb47e2b324988a022d9e4baec3, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 2054093691409358948, guid: 181eb5526f39f3d40b148c7910b03991, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
       shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 4579465496890921804, guid: f5e5dc06bb631a641a3ce5d38334eb97, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
     - name: bump-start +0.5
       shouldBeNextTo: 0
     - name: bump-end -2.0
@@ -35193,7 +34329,679 @@ MonoBehaviour:
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
       shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1927389914842869102, guid: 3757ae4669a1d2a4ea3a8d617fa70aad, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 8588238606781135267, guid: 931a92b5272350543abf695881e10cba, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5960315044677609310, guid: f45058868d5577f43a0f10fe553d1ac6, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 2814429131389640308, guid: 91162e25e46ebeb49927e318b50bed4b, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 2664955041406220235, guid: 2c0cda584d0495e4692cbe12845e2368, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1416245270597017846, guid: 497cee5b14ce18e47869d7affd586226, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 4584487134556508269, guid: be5c4686c11dcb14192c6ae6d495c46a, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
@@ -35343,6 +35151,220 @@ MonoBehaviour:
     - name: grind-end 0.0
       shouldBeNextTo: 0
     - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1405190118416349639, guid: 99832400245dbec4cb12c1afd28ac2ed, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 0
+    - name: bridge -1.0
+      shouldBeNextTo: 0
+    - name: bridge -0.5
+      shouldBeNextTo: 0
+    - name: bridge 0.0
+      shouldBeNextTo: 0
+    - name: bridge +0.5
+      shouldBeNextTo: 0
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 0
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
       shouldBeNextTo: 0
     - name: tunnel 0.0
       shouldBeNextTo: 0
@@ -35362,7 +35384,1579 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
-  - obj: {fileID: 5854410947655113608, guid: 42c1da269ba79c24f9c8804eb8e9f7e3, type: 3}
+  - obj: {fileID: 2514021991431643443, guid: cab9b7361aeca1d4f9880c465b5d6dda, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 0
+    - name: bridge -1.0
+      shouldBeNextTo: 0
+    - name: bridge -0.5
+      shouldBeNextTo: 0
+    - name: bridge 0.0
+      shouldBeNextTo: 0
+    - name: bridge +0.5
+      shouldBeNextTo: 0
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 0
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 1
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1414461176488666805, guid: 53d347537ae01cd4697f0eaf6d2107a2, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 0
+    - name: bridge -1.0
+      shouldBeNextTo: 0
+    - name: bridge -0.5
+      shouldBeNextTo: 0
+    - name: bridge 0.0
+      shouldBeNextTo: 0
+    - name: bridge +0.5
+      shouldBeNextTo: 0
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 0
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 1
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 2302404173382381010, guid: a70298862b547d8469e97e52f1f5d9b7, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 0
+    - name: bridge -1.0
+      shouldBeNextTo: 0
+    - name: bridge -0.5
+      shouldBeNextTo: 0
+    - name: bridge 0.0
+      shouldBeNextTo: 0
+    - name: bridge +0.5
+      shouldBeNextTo: 0
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 0
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 1
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 8077808462422456546, guid: 7d0b42f54a6b38c4199a4c81ea791cb0, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 1
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 1654154088866565503, guid: 9f582582d0fadf544ac182223c84b112, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 1
+    - name: bridge -1.0
+      shouldBeNextTo: 1
+    - name: bridge -0.5
+      shouldBeNextTo: 1
+    - name: bridge 0.0
+      shouldBeNextTo: 1
+    - name: bridge +0.5
+      shouldBeNextTo: 1
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 1
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 1
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5547901764203237319, guid: 64c1a2fd11d6b134c89b8b6431824dcb, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 1
+    - name: bridge -1.0
+      shouldBeNextTo: 1
+    - name: bridge -0.5
+      shouldBeNextTo: 1
+    - name: bridge 0.0
+      shouldBeNextTo: 1
+    - name: bridge +0.5
+      shouldBeNextTo: 1
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 1
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 1
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 1
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 4175994604045341617, guid: 41f424836322de7468c4ec1798a384f7, type: 3}
+    shouldHaveSideSelection: 1
+    sideSelection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 1
+    - name: bump-end -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.5
+      shouldBeNextTo: 1
+    - name: down-start -0.25
+      shouldBeNextTo: 1
+    - name: down-end -0.5
+      shouldBeNextTo: 1
+    - name: down-end -0.25
+      shouldBeNextTo: 1
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 1
+    - name: down -0.5
+      shouldBeNextTo: 1
+    - name: downstairs -1.0
+      shouldBeNextTo: 1
+    - name: downstairs -0.5
+      shouldBeNextTo: 1
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 1
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 1
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 1
+    - name: plain-end 0.0
+      shouldBeNextTo: 1
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 1
+    - name: grind-end -0.25
+      shouldBeNextTo: 1
+    - name: grind-start -0.25
+      shouldBeNextTo: 1
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 1
+    - name: down -0.25
+      shouldBeNextTo: 1
+    - name: up +0.25
+      shouldBeNextTo: 1
+    - name: bridge -1.0
+      shouldBeNextTo: 1
+    - name: bridge -0.5
+      shouldBeNextTo: 1
+    - name: bridge 0.0
+      shouldBeNextTo: 1
+    - name: bridge +0.5
+      shouldBeNextTo: 1
+    - name: bridge +1.0
+      shouldBeNextTo: 0
+    - name: fence-side 0.0
+      shouldBeNextTo: 1
+    - name: wall +1.0
+      shouldBeNextTo: 0
+    - name: wall +0.5
+      shouldBeNextTo: 0
+    - name: wall 0.0
+      shouldBeNextTo: 0
+    - name: wall -0.5
+      shouldBeNextTo: 0
+    - name: wall -1.0
+      shouldBeNextTo: 0
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 1
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 1
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 1
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 1
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 1
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 1
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 1
+    - name: fence 0.0
+      shouldBeNextTo: 1
+    - name: tunnel 0.0
+      shouldBeNextTo: 1
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 1
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5972367528426307732, guid: c8e09eebd79d68d478a5487529b22f81, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 1
+  - obj: {fileID: 2643615353291589842, guid: afb7958c2ca93c64985c722e55ca057f, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
     selection:
@@ -35441,7 +37035,103 @@ MonoBehaviour:
     - name: fence 0.0
       shouldBeNextTo: 0
     - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
       shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 2364101625064101367, guid: 6047c6319beef634ab43590bcbd02bf1, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 1
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
     - name: void -1.0
       shouldBeNextTo: 0
     - name: plain-end 0.0
@@ -35458,6 +37148,486 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+  - obj: {fileID: 1606830654755122038, guid: 68cc40294450b3746a72f5bbff6ec095, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 188917988200455280, guid: 29a10a26ab59b62438feebbd4d297dac, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 1
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 1
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 6830764920974161928, guid: f7fb70c69fac37441975830fd58cae88, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 5401944197820811994, guid: 6bb34faa7e5bc7045b261712bf59c17f, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 1
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 1
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
+  - obj: {fileID: 9038416832945051318, guid: b7c58b8802cf76c46ad5e6c1a0ee9dad, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 1
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 1
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.5
+      shouldBeNextTo: 1
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 1
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 0
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 1
   - obj: {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
     shouldHaveSideSelection: 0
     sideSelection: []
@@ -35539,203 +37709,11 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 0
     - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 5787367375707278729, guid: 5d9d90b2bf3a80f4d8b9f28e4a8ebac9, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
       shouldBeNextTo: 1
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 145197106718228865, guid: 71e4d2d765faccc47b9eb250114a76e0, type: 3}
-    shouldHaveSideSelection: 0
-    sideSelection: []
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 0
     - name: plain-start 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: grind -0.25
       shouldBeNextTo: 0
     - name: grind-end -0.25
@@ -35751,43 +37729,43 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-start +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -2.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -0.5
       shouldBeNextTo: 0
     - name: down-start -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down-start -0.25
       shouldBeNextTo: 0
     - name: down-end -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: downstairs -1.0
       shouldBeNextTo: 0
     - name: downstairs -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-start -2.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-start -1.0
       shouldBeNextTo: 0
     - name: hole-start -0.5
       shouldBeNextTo: 0
     - name: hole-end +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole -0.5
       shouldBeNextTo: 0
     - name: hole 0.0
@@ -35842,32 +37820,32 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -35965,49 +37943,49 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-start +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -2.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down-start -0.5
       shouldBeNextTo: 0
     - name: down-start -0.25
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down-end -0.5
       shouldBeNextTo: 0
     - name: down-end -0.25
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: up-start 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: downstairs -1.0
       shouldBeNextTo: 0
     - name: downstairs -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-start -2.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-start -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-start -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole-end +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: up-start +0.5
       shouldBeNextTo: 0
     - name: up-start +0.25
@@ -36056,49 +38034,49 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
     - name: bump-start +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-end -2.0
       shouldBeNextTo: 0
     - name: bump-end -1.0
       shouldBeNextTo: 0
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
       shouldBeNextTo: 0
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
@@ -36110,13 +38088,13 @@ MonoBehaviour:
     - name: downstairs -1.0
       shouldBeNextTo: 0
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
       shouldBeNextTo: 0
     - name: hole-start -1.0
       shouldBeNextTo: 0
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
       shouldBeNextTo: 0
     - name: hole -1.0
@@ -36128,7 +38106,7 @@ MonoBehaviour:
     - name: hole +0.5
       shouldBeNextTo: 0
     - name: up-start +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: up-start +0.25
       shouldBeNextTo: 0
     - name: down-end 0.0
@@ -36136,13 +38114,13 @@ MonoBehaviour:
     - name: up +1.0
       shouldBeNextTo: 0
     - name: up +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: up-end +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: up-end +0.25
       shouldBeNextTo: 0
     - name: upstairs +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: grind-start +0.25
       shouldBeNextTo: 0
     - name: grind-start 0.0
@@ -36179,7 +38157,7 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bump-start +0.5
       shouldBeNextTo: 0
     - name: bump-end -2.0
@@ -36270,32 +38248,32 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 1
@@ -36316,7 +38294,7 @@ MonoBehaviour:
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
@@ -36370,7 +38348,7 @@ MonoBehaviour:
     - name: grind-end 0.0
       shouldBeNextTo: 1
     - name: fence 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: tunnel 0.0
       shouldBeNextTo: 0
     - name: void -1.0
@@ -36386,7 +38364,7 @@ MonoBehaviour:
     - name: grind-start -0.25
       shouldBeNextTo: 0
     - name: boost 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: boost +0.5
       shouldBeNextTo: 0
   - obj: {fileID: 1090597259460081864, guid: 0490a5ee61fd58a4883e6663f4c35b03, type: 3}
@@ -36484,32 +38462,32 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -36698,32 +38676,32 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -36821,65 +38799,65 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
       shouldBeNextTo: 0
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
       shouldBeNextTo: 0
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
       shouldBeNextTo: 0
     - name: grind-start 0.0
@@ -36912,6 +38890,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -36923,10 +38905,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -37011,434 +38989,6 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: grind-end 0.0
       shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 2051705278859662100, guid: cbe10f0487d9b9f4788ad1aecfbeb1fa, type: 3}
-    shouldHaveSideSelection: 1
-    sideSelection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-    - name: bridge -1.0
-      shouldBeNextTo: 0
-    - name: bridge -0.5
-      shouldBeNextTo: 0
-    - name: bridge 0.0
-      shouldBeNextTo: 0
-    - name: bridge +0.5
-      shouldBeNextTo: 0
-    - name: bridge +1.0
-      shouldBeNextTo: 0
-    - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
-    - name: wall +1.0
-      shouldBeNextTo: 0
-    - name: wall +0.5
-      shouldBeNextTo: 0
-    - name: wall 0.0
-      shouldBeNextTo: 0
-    - name: wall -0.5
-      shouldBeNextTo: 0
-    - name: wall -1.0
-      shouldBeNextTo: 0
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 1
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 1
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 1
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 1
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-  - obj: {fileID: 7654977367594599024, guid: 1d6cbf0b0106e6649929789971963bc6, type: 3}
-    shouldHaveSideSelection: 1
-    sideSelection:
-    - name: plain 0.0
-      shouldBeNextTo: 0
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 0
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 0
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 0
-    - name: fence 0.0
-      shouldBeNextTo: 0
-    - name: tunnel 0.0
-      shouldBeNextTo: 0
-    - name: void -1.0
-      shouldBeNextTo: 0
-    - name: plain-end 0.0
-      shouldBeNextTo: 0
-    - name: plain-start 0.0
-      shouldBeNextTo: 0
-    - name: grind -0.25
-      shouldBeNextTo: 0
-    - name: grind-end -0.25
-      shouldBeNextTo: 0
-    - name: grind-start -0.25
-      shouldBeNextTo: 0
-    - name: boost 0.0
-      shouldBeNextTo: 0
-    - name: boost +0.5
-      shouldBeNextTo: 0
-    - name: bridge -1.0
-      shouldBeNextTo: 0
-    - name: bridge -0.5
-      shouldBeNextTo: 0
-    - name: bridge 0.0
-      shouldBeNextTo: 0
-    - name: bridge +0.5
-      shouldBeNextTo: 0
-    - name: bridge +1.0
-      shouldBeNextTo: 0
-    - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
-      shouldBeNextTo: 0
-    - name: wall +1.0
-      shouldBeNextTo: 0
-    - name: wall +0.5
-      shouldBeNextTo: 0
-    - name: wall 0.0
-      shouldBeNextTo: 0
-    - name: wall -0.5
-      shouldBeNextTo: 0
-    - name: wall -1.0
-      shouldBeNextTo: 0
-    selection:
-    - name: plain 0.0
-      shouldBeNextTo: 1
-    - name: bump-start +0.5
-      shouldBeNextTo: 0
-    - name: bump-end -2.0
-      shouldBeNextTo: 0
-    - name: bump-end -1.0
-      shouldBeNextTo: 0
-    - name: bump-end -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.5
-      shouldBeNextTo: 0
-    - name: down-start -0.25
-      shouldBeNextTo: 0
-    - name: down-end -0.5
-      shouldBeNextTo: 0
-    - name: down-end -0.25
-      shouldBeNextTo: 0
-    - name: up-start 0.0
-      shouldBeNextTo: 0
-    - name: down -1.0
-      shouldBeNextTo: 0
-    - name: down -0.5
-      shouldBeNextTo: 0
-    - name: downstairs -1.0
-      shouldBeNextTo: 0
-    - name: downstairs -0.5
-      shouldBeNextTo: 0
-    - name: hole-start -2.0
-      shouldBeNextTo: 0
-    - name: hole-start -1.0
-      shouldBeNextTo: 0
-    - name: hole-start -0.5
-      shouldBeNextTo: 0
-    - name: hole-end +0.5
-      shouldBeNextTo: 0
-    - name: hole -1.0
-      shouldBeNextTo: 0
-    - name: hole -0.5
-      shouldBeNextTo: 0
-    - name: hole 0.0
-      shouldBeNextTo: 0
-    - name: hole +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.5
-      shouldBeNextTo: 0
-    - name: up-start +0.25
-      shouldBeNextTo: 0
-    - name: down-end 0.0
-      shouldBeNextTo: 0
-    - name: up +1.0
-      shouldBeNextTo: 0
-    - name: up +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.5
-      shouldBeNextTo: 0
-    - name: up-end +0.25
-      shouldBeNextTo: 0
-    - name: upstairs +0.5
-      shouldBeNextTo: 0
-    - name: grind-start +0.25
-      shouldBeNextTo: 0
-    - name: grind-start 0.0
-      shouldBeNextTo: 1
-    - name: grind +0.25
-      shouldBeNextTo: 0
-    - name: grind 0.0
-      shouldBeNextTo: 1
-    - name: grind-end +0.25
-      shouldBeNextTo: 0
-    - name: grind-end 0.0
-      shouldBeNextTo: 1
     - name: fence 0.0
       shouldBeNextTo: 0
     - name: tunnel 0.0
@@ -37463,67 +39013,67 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start 0.0
       shouldBeNextTo: 0
     - name: grind +0.25
@@ -37554,6 +39104,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -37565,10 +39119,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -37679,65 +39229,65 @@ MonoBehaviour:
     - name: plain 0.0
       shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start 0.0
       shouldBeNextTo: 0
     - name: grind +0.25
@@ -37768,6 +39318,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -37779,10 +39333,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -37850,7 +39400,7 @@ MonoBehaviour:
     - name: up +0.5
       shouldBeNextTo: 0
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
       shouldBeNextTo: 0
     - name: upstairs +0.5
@@ -37886,72 +39436,72 @@ MonoBehaviour:
     - name: boost 0.0
       shouldBeNextTo: 0
     - name: boost +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
   - obj: {fileID: 2346198125334118669, guid: 7b1ef4431abf38f47a01d56d56053b8b, type: 3}
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
       shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start 0.0
       shouldBeNextTo: 0
     - name: grind +0.25
@@ -37982,6 +39532,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -37993,10 +39547,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -38028,7 +39578,7 @@ MonoBehaviour:
     - name: down-end -0.25
       shouldBeNextTo: 0
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
       shouldBeNextTo: 0
     - name: down -0.5
@@ -38072,15 +39622,15 @@ MonoBehaviour:
     - name: grind-start +0.25
       shouldBeNextTo: 0
     - name: grind-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind +0.25
       shouldBeNextTo: 0
     - name: grind 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-end +0.25
       shouldBeNextTo: 0
     - name: grind-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence 0.0
       shouldBeNextTo: 0
     - name: tunnel 0.0
@@ -38098,7 +39648,7 @@ MonoBehaviour:
     - name: grind-start -0.25
       shouldBeNextTo: 0
     - name: boost 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: boost +0.5
       shouldBeNextTo: 0
   - obj: {fileID: 1315914637677630456, guid: dc16c362eeb75e444be84aa175eef6ef, type: 3}
@@ -38107,65 +39657,65 @@ MonoBehaviour:
     - name: plain 0.0
       shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start 0.0
       shouldBeNextTo: 0
     - name: grind +0.25
@@ -38196,6 +39746,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -38207,10 +39761,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -38319,67 +39869,67 @@ MonoBehaviour:
     shouldHaveSideSelection: 1
     sideSelection:
     - name: plain 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-start -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end -0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: downstairs -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -2.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: down-end 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: up-end +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: upstairs +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start +0.25
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: grind-start 0.0
       shouldBeNextTo: 0
     - name: grind +0.25
@@ -38410,6 +39960,10 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+    - name: down -0.25
+      shouldBeNextTo: 0
+    - name: up +0.25
+      shouldBeNextTo: 0
     - name: bridge -1.0
       shouldBeNextTo: 0
     - name: bridge -0.5
@@ -38421,10 +39975,6 @@ MonoBehaviour:
     - name: bridge +1.0
       shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 0
-    - name: pipe 0.0
-      shouldBeNextTo: 0
-    - name: pipe-end 0.0
       shouldBeNextTo: 0
     - name: wall +1.0
       shouldBeNextTo: 0
@@ -38444,7 +39994,7 @@ MonoBehaviour:
     - name: bump-end -2.0
       shouldBeNextTo: 0
     - name: bump-end -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: bump-end -0.5
       shouldBeNextTo: 0
     - name: down-start -0.5
@@ -38468,7 +40018,7 @@ MonoBehaviour:
     - name: hole-start -2.0
       shouldBeNextTo: 0
     - name: hole-start -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: hole-start -0.5
       shouldBeNextTo: 0
     - name: hole-end +0.5
@@ -38575,7 +40125,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - index: 9
+  - index: 11
     onIndexReached:
       m_PersistentCalls:
         m_Calls:

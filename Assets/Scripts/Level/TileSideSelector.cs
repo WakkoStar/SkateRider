@@ -31,20 +31,20 @@ public class TileSideSelector
             return selectedTiles[UnityEngine.Random.Range(0, selectedTiles.Count)]; ;
 
         //SELECT SIDE TILE BY ITS HEIGHT
-        var match = Regex.Match(baseTile.name, @"([-+]?[0-9]*\.?[0-9]+)");
-        var height = "0.0";
-        if (match.Success)
-            height = match.Groups[1].Value;
+        // var match = Regex.Match(baseTile.name, @"([-+]?[0-9]*\.?[0-9]+)");
+        // var height = "0.0";
+        // if (match.Success)
+        //     height = match.Groups[1].Value;
 
-        List<Tile> acceptedTiles = tiles.FindAll(t =>
-            t.obj.name.Contains(height)
-        );
+        // List<Tile> acceptedTiles = tiles.FindAll(t =>
+        //     t.obj.name.Contains(height)
+        // );
 
-        if (acceptedTiles.Count == 0)
-            return DefaultTile;
+        // if (selectedTiles.Count == 0)
+        return DefaultTile;
 
-        var acceptedTilesObj = acceptedTiles.Select(t => t.obj).ToList();
-        return acceptedTilesObj[UnityEngine.Random.Range(0, acceptedTilesObj.Count)];
+        // var acceptedTilesObj = acceptedTiles.Select(t => t.obj).ToList();
+        // return acceptedTilesObj[UnityEngine.Random.Range(0, acceptedTilesObj.Count)];
     }
 
     private GameObject SelectTile(SideTile tile, GameObject prevTile, GameObject prevSideTile)

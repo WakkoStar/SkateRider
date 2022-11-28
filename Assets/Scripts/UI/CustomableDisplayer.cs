@@ -23,7 +23,7 @@ public class CustomableDisplayer : MonoBehaviour
     {
         SetCustomable(customable);
 
-        Texture2D tex = new Texture2D(500, 500, TextureFormat.RGB24, false);
+        Texture2D tex = new Texture2D(256, 256, TextureFormat.ETC_RGB4, false);
         tex.LoadRawTextureData(customable.thumbnail);
         tex.Apply();
 

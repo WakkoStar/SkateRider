@@ -311,15 +311,7 @@ public class LevelTileMonitor : MonoBehaviour
                 continue;
             }
 
-            var formattedTiles = tiles.Select((t) =>
-            {
-                var sT = new SideTile();
-                sT.obj = t.obj;
-                sT.selection = t.selection;
-                return sT;
-            });
-
-            var allTiles = formattedTiles.Union<SideTile>(sideTiles).ToList();
+            var allTiles = GetAllTiles();
 
             var oldSideSelection = sideTiles[i].sideSelection;
             sideTiles[i].sideSelection = new TileSelection[allTiles.Count];

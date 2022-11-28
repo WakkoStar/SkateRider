@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1524430784003182797}
   - component: {fileID: -7404505180684133196}
   m_Layer: 0
-  m_Name: void -1
+  m_Name: void -1.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,4 +111,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileComponents:
   - Tile: {fileID: 1489107717386055475}
-    shouldBeInMeshCombiner: 0
+    shouldBeInMeshCombiner: 1
