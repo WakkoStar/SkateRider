@@ -108,7 +108,6 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.DefaultTile = DefaultTile;
         _terrainTileGenerator.objectPool = _objectPool;
 
-
         _SideTerrain = InitLevelComponent("SideTerrain");
         _sideTerrainTileGenerator = _SideTerrain.AddComponent<SideTerrainTileGenerator>();
 
@@ -153,7 +152,7 @@ public class LevelTileMonitor : MonoBehaviour
         _grindTileGenerator.StartGame();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if ((int)Mathf.Round(_currentileSize) != _tileSize && !_isSwitchingSize)
         {
@@ -166,15 +165,20 @@ public class LevelTileMonitor : MonoBehaviour
 
     void AddTileToOtherLevelComponents(GameObject instanceTile)
     {
-        if (instanceTile.tag == "Grind")
+        Wait(0.2f, () =>
         {
-            _grindTileGenerator.AddTileToGrind(
-                instanceTile.transform.GetChild(0).gameObject,
-                instanceTile.transform.GetChild(1).gameObject
-            );
-        }
+            if (instanceTile.tag == "Grind")
+            {
+                _grindTileGenerator.AddTileToGrind(
+                    instanceTile.transform.GetChild(0).gameObject,
+                    instanceTile.transform.GetChild(1).gameObject
+                );
+            }
+        });
 
         _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
+
+
     }
 
     void ForceTerrainSwitch()
@@ -356,5 +360,15 @@ public class LevelTileMonitor : MonoBehaviour
         var allTiles = formattedTiles.Union<SideTile>(sideTiles.Union<SideTile>(sideTilesBackward).ToList()).ToList();
 
         return allTiles;
+    }
+
+    private void Wait(float delay, Action callback)
+    {
+        StartCoroutine(WaitCoroutine(delay, callback));
+    }
+    IEnumerator WaitCoroutine(float delay, Action callback)
+    {
+        yield return new WaitForSeconds(delay);
+        callback();
     }
 }

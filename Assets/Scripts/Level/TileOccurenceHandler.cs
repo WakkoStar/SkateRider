@@ -32,7 +32,7 @@ public class TileOccurenceHandler
         _tileOccurences[tileOccurenceIndex] = tileOccurence;
     }
 
-    public List<GameObject> SpreadTileCandidate(List<GameObject> candidates)
+    public List<GameObject> SpreadTileSelection(List<GameObject> selection)
     {
 
         var tilesNotOccured = _tileOccurences.OrderBy(t => t.occurence);
@@ -43,12 +43,20 @@ public class TileOccurenceHandler
         {
             if (count >= 5) continue;
 
-            var notOccuredCandidate = candidates.Find(c => c.name.Contains(tile.tileName));
-            if (notOccuredCandidate)
+            for (int i = 0; i < selection.Count; i++)
             {
-                notOccuredCandidates.Add(notOccuredCandidate);
-                count++;
+                var selectedTile = selection[i];
+                if (selectedTile.name.Contains(tile.tileName))
+                {
+                    notOccuredCandidates.Add(selectedTile);
+                    count++;
+                }
             }
+            // var notOccuredCandidate = candidates.Find(c => c.name.Contains(tile.tileName));
+            // if (notOccuredCandidate)
+            // {
+
+            // }
 
         }
 

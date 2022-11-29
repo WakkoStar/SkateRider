@@ -30,15 +30,13 @@ public class GrindTileGenerator : MonoBehaviour
 
     private void DeleteGrindFirstTile()
     {
-        // var terrain = terrainTileGenerator.GetTerrain();
+        var firstTile = terrainTileGenerator.GetTerrain()[0];
 
-        // var prevTile = terrain[terrain.Count - (terrainTileGenerator.tileAmount - 2)];
-
-        // if (GrindEnds.Find(grindObj => grindObj.name.Contains(prevTile.name)) != null)
-        // {
-        //     Destroy(_grind[0]);
-        //     _grind.RemoveAt(0);
-        // }
+        if (GrindEnds.Find(grindObj => grindObj.name.Contains(firstTile.name)) != null)
+        {
+            Destroy(_grind[0]);
+            _grind.RemoveAt(0);
+        }
     }
 
     public void AddTileToGrind(GameObject baseTile, GameObject grindTile)

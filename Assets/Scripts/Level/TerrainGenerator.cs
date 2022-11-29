@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
@@ -25,7 +25,7 @@ public class TerrainTileGenerator : MonoBehaviour
     private bool _forceStop;
     private int _tileIndex = -2;
     private List<GameObject> _terrain = new List<GameObject>();
-    private Dictionary<string, List<GameObject>> _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
+    // private Dictionary<string, List<GameObject>> _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
 
     private GameObject _meshCombiner;
     private float _heightOffset = 0;
@@ -55,7 +55,7 @@ public class TerrainTileGenerator : MonoBehaviour
         int currentTileIndex = (int)(Player.transform.position.x / tileSize);
         if (currentTileIndex != _tileIndex)
         {
-            DeleteTileMeshCombiner(_terrain, _tilesInMeshCombiner);
+            // DeleteTileMeshCombiner(_terrain, _meshCombiner);
             DeleteTerrainFirstTile(_terrain);
             OnTilePassed.Invoke();
             if (!_forceStop) AddTileToTerrain(_tileIndex > _startTerrainIndex ? null : DefaultTile);
@@ -75,29 +75,32 @@ public class TerrainTileGenerator : MonoBehaviour
         _heightOffset += GetHeightOffset(choosenTile.name);
 
         var instanceTile = InstantiateTile(choosenTile, playerPos + nextTileOffset, new Vector2(yScale, zScale), transform, tileSize);
+
+        MeshCombiner.CombineLayers(
+            _meshCombiner.transform,
+            _terrain.Select((tile) => tile.GetComponent<TileMeshCombinerInfo>().tileComponents)
+        );
+
         _terrain.Add(instanceTile);
-
-        var tileComponents = instanceTile.GetComponent<TileMeshCombinerInfo>().tileComponents;
-        foreach (var tileComponent in tileComponents)
-        {
-            if (tileComponent.shouldBeInMeshCombiner)
-            {
-                UpdateLayer(_tilesInMeshCombiner, tileComponent.Tile, _meshCombiner.transform);
-            }
-        }
-
-        MeshCombiner.CombineLayers(_tilesInMeshCombiner, _meshCombiner.transform);
         OnTileAdded.Invoke(instanceTile);
     }
 
     //Get height offset by string, (must contains "+0.5" or "-1.0")
     public float GetHeightOffset(string stringToParse)
     {
-        var match = Regex.Match(stringToParse, @"([-+]?[0-9]*\.?[0-9]+)");
-        if (match.Success)
-            return float.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture.NumberFormat);
+        if (stringToParse.Contains("0.0")) return 0;
+        if (stringToParse.Contains("+0.25")) return 0.25f;
+        if (stringToParse.Contains("-0.25")) return -0.25f;
+        if (stringToParse.Contains("+0.5")) return 0.5f;
+        if (stringToParse.Contains("-0.5")) return -0.5f;
+        if (stringToParse.Contains("+1.0")) return 1;
+        if (stringToParse.Contains("-1.0")) return -1;
+        if (stringToParse.Contains("+2.0")) return 2;
+        if (stringToParse.Contains("-2.0")) return -2;
 
+        Debug.LogWarning("Height offset not found on " + stringToParse);
         return 0;
+
     }
 
     public Vector3 GetScaledEulerAngles(Vector2 scale, Vector3 eulerAngles)
@@ -132,53 +135,53 @@ public class TerrainTileGenerator : MonoBehaviour
         terrain.RemoveAt(0);
     }
 
-    public void DeleteTileMeshCombiner(List<GameObject> terrain, Dictionary<string, List<GameObject>> meshCombiner)
-    {
-        if (terrain.Count == 0 || meshCombiner.Count == 0) return;
+    // public void DeleteTileMeshCombiner(List<GameObject> terrain, GameObject meshCombiner)
+    // {
+    //     // if (terrain.Count == 0 || meshCombiner.Count == 0) return;
 
-        foreach (var layer in meshCombiner)
-        {
-            layer.Value.RemoveAll(t => t.transform.position == terrain[0].transform.position);
-        }
-    }
+    //     // foreach (var layer in meshCombiner)
+    //     // {
+    //     //     layer.Value.RemoveAll(t => t.transform.position == terrain[0].transform.position);
+    //     // }
+    // }
 
-    public List<GameObject> UpdateLayer(Dictionary<string, List<GameObject>> meshCombiner, GameObject InspectedItem, Transform meshCombinerTransform)
-    {
-        List<GameObject> currentLayerComponents = null;
+    // public List<GameObject> UpdateLayer(GameObject InspectedItem, Transform meshCombinerTransform)
+    // {
+    //     List<GameObject> currentLayerComponents = null;
 
-        foreach (var layer in meshCombiner)
-        {
-            var isLayerExist = layer.Value.Find(tileComponent =>
-                tileComponent.GetComponent<MeshCollider>().sharedMaterial.name == InspectedItem.GetComponent<MeshCollider>().sharedMaterial.name
-            ) != null;
+    //     foreach (var layer in meshCombiner)
+    //     {
+    //         var isLayerExist = layer.Value.Find(tileComponent =>
+    //             tileComponent.GetComponent<MeshCollider>().sharedMaterial.name == InspectedItem.GetComponent<MeshCollider>().sharedMaterial.name
+    //         ) != null;
 
-            if (isLayerExist)
-            {
-                currentLayerComponents = meshCombiner[layer.Key];
-            }
-        }
+    //         if (isLayerExist)
+    //         {
+    //             currentLayerComponents = meshCombiner[layer.Key];
+    //         }
+    //     }
 
-        if (currentLayerComponents == null)
-        {
-            currentLayerComponents = AddNewLayer(meshCombiner, InspectedItem, meshCombinerTransform);
-        }
+    //     if (currentLayerComponents == null)
+    //     {
+    //         currentLayerComponents = AddNewLayer(meshCombiner, InspectedItem, meshCombinerTransform);
+    //     }
 
-        currentLayerComponents.Add(InspectedItem);
+    //     currentLayerComponents.Add(InspectedItem);
 
-        return currentLayerComponents;
-    }
+    //     return currentLayerComponents;
+    // }
 
-    private List<GameObject> AddNewLayer(Dictionary<string, List<GameObject>> meshCombiner, GameObject BaseItem, Transform meshCombinerTransform)
-    {
-        var layer = new GameObject("Layer " + meshCombiner.Count);
-        layer.transform.parent = meshCombinerTransform;
+    // private List<GameObject> AddNewLayer(Dictionary<string, List<GameObject>> meshCombiner, GameObject BaseItem, Transform meshCombinerTransform)
+    // {
+    //     var layer = new GameObject("Layer " + meshCombiner.Count);
+    //     layer.transform.parent = meshCombinerTransform;
 
-        layer.AddComponent<MeshFilter>().name = "Layer " + meshCombiner.Count;
-        layer.AddComponent<MeshCollider>().sharedMaterial = BaseItem.GetComponent<MeshCollider>().sharedMaterial;
-        meshCombiner.Add(layer.name, new List<GameObject>());
+    //     layer.AddComponent<MeshFilter>().name = "Layer " + meshCombiner.Count;
+    //     layer.AddComponent<MeshCollider>().sharedMaterial = BaseItem.GetComponent<MeshCollider>().sharedMaterial;
+    //     meshCombiner.Add(layer.name, new List<GameObject>());
 
-        return meshCombiner[layer.name];
-    }
+    //     return meshCombiner[layer.name];
+    // }
 
     public float GetTerrainHeight()
     {
@@ -244,8 +247,9 @@ public class TerrainTileGenerator : MonoBehaviour
         objectPool.DestroyAll();
 
         _terrain = new List<GameObject>();
-        _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
-        CleanGameObjectChilds(_meshCombiner);
+        CleanGameObjectChilds(gameObject);
+        _meshCombiner = new GameObject("Mesh Combiner");
+        _meshCombiner.transform.parent = transform;
 
         for (int i = 0; i < tileAmount - 1; i++)
         {

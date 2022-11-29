@@ -69,7 +69,7 @@ public class TileSelector
         }
 
         //SPREAD
-        selectedTiles = tileOccurenceHandler.SpreadTileCandidate(selectedTiles);
+        selectedTiles = tileOccurenceHandler.SpreadTileSelection(selectedTiles);
 
         // var defaultTileIndex = selectedTiles.FindIndex(c => c.name.Contains(DefaultTile.name));
         // if (defaultTileIndex != -1 && UnityEngine.Random.Range(0, 100f) > 90)
