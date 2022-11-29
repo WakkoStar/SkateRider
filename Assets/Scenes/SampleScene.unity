@@ -36230,19 +36230,19 @@ MonoBehaviour:
     - name: bridge +0.5
       shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
       shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -36444,19 +36444,19 @@ MonoBehaviour:
     - name: bridge +0.5
       shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
       shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -36658,19 +36658,19 @@ MonoBehaviour:
     - name: bridge +0.5
       shouldBeNextTo: 1
     - name: bridge +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: fence-side 0.0
       shouldBeNextTo: 1
     - name: wall +1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall +0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall 0.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -0.5
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     - name: wall -1.0
-      shouldBeNextTo: 0
+      shouldBeNextTo: 1
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
