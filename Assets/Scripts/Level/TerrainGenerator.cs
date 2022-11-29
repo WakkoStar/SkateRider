@@ -146,9 +146,6 @@ public class TerrainTileGenerator : MonoBehaviour
     {
         List<GameObject> currentLayerComponents = null;
 
-        Debug.Log(InspectedItem.name);
-        Debug.Log(InspectedItem.GetComponent<MeshCollider>().sharedMaterial.name);
-
         foreach (var layer in meshCombiner)
         {
             var isLayerExist = layer.Value.Find(tileComponent =>
