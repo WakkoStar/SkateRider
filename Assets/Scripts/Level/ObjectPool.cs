@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject Instantiate(GameObject instance, Vector3 pos, Quaternion quaternion, Transform parent)
     {
-        var selectedObject = FindInTransform(o => o.name.Contains(instance.name) && o.transform.position == _hidedPosition);
+        var selectedObject = FindInTransform(o => o.name.StartsWith(instance.name) && o.transform.localPosition == _hidedPosition);
 
         if (selectedObject == null)
         {
@@ -30,14 +30,14 @@ public class ObjectPool : MonoBehaviour
 
     public void Destroy(GameObject instance)
     {
-        var selectedObject = FindInTransform(o => o.name == instance.name);
+        var selectedObject = FindInTransform(o => o.Equals(instance));
 
         if (selectedObject == null)
         {
-            Debug.LogError(instance.name + " is not founded. Deleted");
+            Debug.LogError(instance.name + " is not founded (to delete)");
         }
 
-        selectedObject.transform.position = _hidedPosition;
+        selectedObject.transform.localPosition = _hidedPosition;
         selectedObject.transform.rotation = Quaternion.identity;
     }
 

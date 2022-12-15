@@ -98,6 +98,7 @@ public class SkateScoreManager : MonoBehaviour
     {
         SetShouldStopScore(false);
         _totalScore = 0;
+        _trickScore = 0;
     }
     public void SetGameOver()
     {

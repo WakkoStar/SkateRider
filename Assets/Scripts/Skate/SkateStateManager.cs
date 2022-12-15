@@ -65,6 +65,7 @@ public class SkateStateManager : MonoBehaviour
     private bool _shouldDisplayGrindTrick;
     private bool _isTailTouchPressed;
     private bool _isNoseTouchPressed;
+    private bool _isInFrontView;
 
 
     //LOCAL VALUES
@@ -389,11 +390,14 @@ public class SkateStateManager : MonoBehaviour
         transform.localEulerAngles = Vector3.zero;
 
         _isSkateStateStopped = false;
+        AuthorizeJump(false);
 
         _timerTrigger.ResetTime();
         _skateScoreManager.SetStartGame();
         _skateCollectibleCounter.SetStartGame();
         _skatePhysController.SetStartGame();
+        _skateInput.ResetNoseOffset();
+        _skateInput.ResetTailOffset();
 
         OnStartGame.Invoke();
     }
@@ -403,13 +407,8 @@ public class SkateStateManager : MonoBehaviour
         audioManager.StopAll(staticTracksNames);
         audioManager.Play("gameOverSong");
 
-        PlayerPrefs.SetInt("collectibleCount", PlayerPrefs.GetInt("collectibleCount") + _skateCollectibleCounter.GetCollectibleCount());
-
         skateEndScreen.DisplayBestScore(PlayerPrefs.GetFloat("bestScore"));
         StartCoroutine(AnimateTotalScore(_skateScoreManager.GetTotalScore()));
-
-        skateEndScreen.DisplayCollectibleCount(_skateCollectibleCounter.GetCollectibleCount());
-        skateEndScreen.DisplayAllCollectibleCount(PlayerPrefs.GetInt("collectibleCount"));
 
         _isSkateStateStopped = true;
 
@@ -438,10 +437,15 @@ public class SkateStateManager : MonoBehaviour
         var isNewBestScoreDisplayed = false;
         skateEndScreen.DisplayBestScoreSign(false);
 
+        var addedCollectibleCount = 0;
+
         for (float a = 0; a < 1; a += Time.deltaTime / 2)
         {
             var currentAnimatedScore = Mathf.Lerp(0, totalScore, a);
             skateEndScreen.DisplayScore((int)currentAnimatedScore);
+
+            if (totalScore >= 500)
+                addedCollectibleCount = (int)Mathf.Lerp(0, totalScore / 100f, a);
 
             //ANIMATE BEST SCORE
             if (currentAnimatedScore > PlayerPrefs.GetFloat("bestScore") && !isNewBestScoreDisplayed)
@@ -454,11 +458,17 @@ public class SkateStateManager : MonoBehaviour
                 PlayerPrefs.SetFloat("bestScore", totalScore);
 
                 audioManager.Play("newBestScoreSong");
+
             }
+
+            skateEndScreen.UpdateCollectibleCount(_skateCollectibleCounter.GetCollectibleCount() + addedCollectibleCount);
 
             yield return null;
         }
         skateEndScreen.DisplayScore(totalScore);
+
+        skateEndScreen.UpdateCollectibleCount(_skateCollectibleCounter.GetCollectibleCount() + addedCollectibleCount);
+        PlayerPrefs.SetInt("collectibleCount", PlayerPrefs.GetInt("collectibleCount") + _skateCollectibleCounter.GetCollectibleCount() + addedCollectibleCount);
     }
 
     public bool IsSkateStateStopped()
@@ -588,8 +598,16 @@ public class SkateStateManager : MonoBehaviour
         _skatePhysController.OnBoost();
     }
 
+    // public void BoostSkate()
+    // {
+    //     _skatePhysController.OnBoost(13);
+    //     _skatePhysController.StopBoost();
+    // }
+
     private void OnNoTouch()
     {
+        if (IsInFrontView()) return;
+
         skateMainScreen.DisplayNoTouchNotifier();
         _skatePhysController.OnNoTouch();
     }
@@ -638,5 +656,18 @@ public class SkateStateManager : MonoBehaviour
     public void SetJumpForce(float value)
     {
         _skatePhysController.SetJumpForce(value);
+    }
+
+
+
+    public void SetIsInFrontView(bool value)
+    {
+        _timerTrigger.ResetTime();
+        _isInFrontView = value;
+    }
+
+    public bool IsInFrontView()
+    {
+        return _isInFrontView;
     }
 }

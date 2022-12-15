@@ -32,7 +32,7 @@ public class GrindTileGenerator : MonoBehaviour
     {
         var firstTile = terrainTileGenerator.GetTerrain()[0];
 
-        if (GrindEnds.Find(grindObj => grindObj.name.Contains(firstTile.name)) != null)
+        if (GrindEnds.Find(grindObj => firstTile.name.Contains(grindObj.name)) != null)
         {
             Destroy(_grind[0]);
             _grind.RemoveAt(0);

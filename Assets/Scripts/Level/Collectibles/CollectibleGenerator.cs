@@ -75,7 +75,7 @@ public class CollectibleGenerator : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             var collectibleInstance = transform.GetChild(i);
-            if (collectibleInstance.transform.position.x < _terrain[_terrain.Count - 4].transform.position.x)
+            if (collectibleInstance.transform.position.x < _terrain[0].transform.position.x)
             {
                 Destroy(collectibleInstance.gameObject);
             }

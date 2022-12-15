@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CustomableDisplayer : MonoBehaviour
 {
+    [SerializeField] private Texture2D baseTexture;
     [SerializeField] private Image thumbnailImg;
     [SerializeField] private Sprite selectedSprite;
     [SerializeField] private Sprite normalSprite;
@@ -23,7 +24,7 @@ public class CustomableDisplayer : MonoBehaviour
     {
         SetCustomable(customable);
 
-        Texture2D tex = new Texture2D(256, 256, TextureFormat.ETC_RGB4, false);
+        Texture2D tex = new Texture2D(256, 256, baseTexture.format, false);
         tex.LoadRawTextureData(customable.thumbnail);
         tex.Apply();
 

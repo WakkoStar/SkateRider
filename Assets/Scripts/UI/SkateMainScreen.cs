@@ -108,16 +108,16 @@ public class SkateMainScreen : MonoBehaviour
         var endEulerAng = Vector3.zero;
         var endScale = Vector3.one;
 
-        TrickNameDisplayer.transform.eulerAngles = startEulerAng;
+        TrickNameDisplayer.transform.localEulerAngles = startEulerAng;
         TrickNameDisplayer.transform.localScale = startScale;
         for (float a = 0; a < 1; a += Time.deltaTime * 20)
         {
-            TrickNameDisplayer.transform.eulerAngles = Vector3.Lerp(startEulerAng, endEulerAng, a);
+            TrickNameDisplayer.transform.localEulerAngles = Vector3.Lerp(startEulerAng, endEulerAng, a);
             TrickNameDisplayer.transform.localScale = Vector3.Lerp(startScale, endScale, a);
             _trickNameCanvas.alpha = a;
             yield return null;
         }
-        TrickNameDisplayer.transform.eulerAngles = endEulerAng;
+        TrickNameDisplayer.transform.localEulerAngles = endEulerAng;
         TrickNameDisplayer.transform.localScale = endScale;
         _trickNameCanvas.alpha = 1;
 

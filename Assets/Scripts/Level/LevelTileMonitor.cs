@@ -39,7 +39,6 @@ public class LevelTileMonitor : MonoBehaviour
     private TerrainTileGenerator _terrainTileGenerator;
     private SideTerrainTileGenerator _sideTerrainTileGenerator;
     private GrindTileGenerator _grindTileGenerator;
-    private GameObject _objectPoolObj;
     private ObjectPool _objectPool;
 
     private Vector3 _cameraOffset;
@@ -81,19 +80,6 @@ public class LevelTileMonitor : MonoBehaviour
         _zScale = zStartScale;
 
 
-        //CREATE TILE POOL 
-        _objectPoolObj = new GameObject("Object Pool");
-        _objectPoolObj.transform.parent = transform;
-        _objectPool = _objectPoolObj.AddComponent<ObjectPool>();
-
-        for (int i = 0; i < tileAmount * 3; i++)
-        {
-            foreach (var tile in GetAllTiles())
-            {
-                _objectPool.Create(tile.obj, tile.obj.name + "-" + i);
-            }
-        }
-
         //INIT LEVEL STRUCTURE
         _Terrain = InitLevelComponent("BaseTerrain");
         _terrainTileGenerator = _Terrain.AddComponent<TerrainTileGenerator>();
@@ -106,7 +92,6 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.yScale = yStartScale;
         _terrainTileGenerator.zScale = zStartScale;
         _terrainTileGenerator.DefaultTile = DefaultTile;
-        _terrainTileGenerator.objectPool = _objectPool;
 
         _SideTerrain = InitLevelComponent("SideTerrain");
         _sideTerrainTileGenerator = _SideTerrain.AddComponent<SideTerrainTileGenerator>();
@@ -177,8 +162,6 @@ public class LevelTileMonitor : MonoBehaviour
         });
 
         _sideTerrainTileGenerator.AddTileToTerrain(instanceTile);
-
-
     }
 
     void ForceTerrainSwitch()
@@ -255,6 +238,11 @@ public class LevelTileMonitor : MonoBehaviour
         _terrainTileGenerator.tileSize = _tileSize;
 
         _forceCurrentTileIndex = (int)Player.transform.position.x / _tileSize;
+    }
+
+    public void SetCanIndexGoBack(bool value)
+    {
+        _terrainTileGenerator.SetCanIndexGoBack(value);
     }
 
 

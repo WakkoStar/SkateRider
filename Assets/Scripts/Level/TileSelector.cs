@@ -6,6 +6,7 @@ using System;
 public class TileSelector
 {
     public List<Tile> tiles = new List<Tile>();
+    private List<Tile> _tilesShouldBeCompleted = new List<Tile>();
     GameObject DefaultTile;
     TileOccurenceHandler tileOccurenceHandler;
 
@@ -14,6 +15,8 @@ public class TileSelector
         this.tiles = tiles;
         this.DefaultTile = DefaultTile;
         tileOccurenceHandler = new TileOccurenceHandler(tiles);
+
+        _tilesShouldBeCompleted = tiles.FindAll(t => t.shouldBeCompleted);
     }
 
     /**
@@ -25,8 +28,10 @@ public class TileSelector
     public GameObject ChooseTile(List<GameObject> previousTiles, float currentLevelHeight, bool shouldBeInSafeZone)
     {
         var selectedTiles = new List<GameObject>();
+
         var prevTile = previousTiles[previousTiles.Count - 1];
-        var isPrevTileShouldBeCompleted = tiles.Find(t => t.shouldBeCompleted && prevTile.name.Contains(t.obj.name)) != null;
+        var isPrevTileShouldBeCompleted = _tilesShouldBeCompleted.Find(t => prevTile.name.Contains(t.obj.name)) != null;
+        var isSafeZone = IsSafeZone(previousTiles, 3);
 
         //TILE SELECTION
         foreach (var tile in tiles)
@@ -43,7 +48,7 @@ public class TileSelector
                 continue;
             }
 
-            if (tile.shouldBeInSafeZone && IsSafeZone(previousTiles, 3) && !isPrevTileShouldBeCompleted)
+            if (tile.shouldBeInSafeZone && isSafeZone && !isPrevTileShouldBeCompleted)
             {
                 selection = tile.obj;
             }
@@ -105,6 +110,7 @@ public class TileSelector
     bool IsSafeZone(List<GameObject> previousTiles, int safeZoneLength)
     {
         bool[] isPrevTileSafeArray = new bool[safeZoneLength];
+
         for (int i = 0; i < safeZoneLength; i++)
         {
             var prevTile = previousTiles[previousTiles.Count - (1 + i)];
@@ -125,6 +131,7 @@ public class TileSelector
                 }
             }
         }
+
         return Array.TrueForAll(isPrevTileSafeArray, isPrevTileSafe => isPrevTileSafe);
     }
 }

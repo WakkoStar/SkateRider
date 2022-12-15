@@ -15,4 +15,14 @@ public class CollectibleCountDisplayer : MonoBehaviour
     {
         collectableText.text = "" + PlayerPrefs.GetInt("collectibleCount");
     }
+    public void UpdateCollectableCountWithDelay(float delay)
+    {
+        StartCoroutine(UpdateCollectableCountCoroutine(delay));
+    }
+
+    IEnumerator UpdateCollectableCountCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        collectableText.text = "" + PlayerPrefs.GetInt("collectibleCount");
+    }
 }

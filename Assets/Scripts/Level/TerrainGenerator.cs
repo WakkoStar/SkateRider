@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
@@ -16,14 +17,14 @@ public class TerrainTileGenerator : MonoBehaviour
     public float yScale = 5;
     public float zScale = 5;
     public GameObject DefaultTile;
-    public ObjectPool objectPool;
+    private ObjectPool _objectPool;
 
 
     //STATE
     private bool _shouldBeInSafeZone;
     private int _safeZoneCounter;
     private bool _forceStop;
-    private int _tileIndex = -2;
+    private int _tileIndex = 0;
     private List<GameObject> _terrain = new List<GameObject>();
     // private Dictionary<string, List<GameObject>> _tilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
 
@@ -31,18 +32,22 @@ public class TerrainTileGenerator : MonoBehaviour
     private float _heightOffset = 0;
     private int _startTerrainIndex = 5;
     private TileSelector _tileSelector;
+    private bool _canIndexGoBack = false;
 
     public UnityEvent<GameObject> OnTileAdded = new UnityEvent<GameObject>();
     public UnityEvent OnTilePassed = new UnityEvent();
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         _tileSelector = new TileSelector(tiles, DefaultTile);
 
         _meshCombiner = new GameObject("Mesh Combiner");
         _meshCombiner.transform.parent = transform;
 
+        _objectPool = CreateObjectPoolOnTerrain(tiles.Select(s => s.obj).ToList(), transform);
+
+        yield return new WaitForFixedUpdate();
         for (int i = 0; i < tileAmount - 1; i++)
         {
             AddTileToTerrain(DefaultTile);
@@ -53,10 +58,11 @@ public class TerrainTileGenerator : MonoBehaviour
     void Update()
     {
         int currentTileIndex = (int)(Player.transform.position.x / tileSize);
-        if (currentTileIndex != _tileIndex)
+        var isTileIndexChanged = CanIndexGoBack() ? currentTileIndex != _tileIndex : currentTileIndex > _tileIndex;
+        if (isTileIndexChanged)
         {
             // DeleteTileMeshCombiner(_terrain, _meshCombiner);
-            DeleteTerrainFirstTile(_terrain);
+            DeleteTerrainFirstTile(_terrain, _objectPool);
             OnTilePassed.Invoke();
             if (!_forceStop) AddTileToTerrain(_tileIndex > _startTerrainIndex ? null : DefaultTile);
 
@@ -74,7 +80,9 @@ public class TerrainTileGenerator : MonoBehaviour
         var choosenTile = forceTile != null ? forceTile : _tileSelector.ChooseTile(GetTerrain(), _heightOffset, GetSafeZone());
         _heightOffset += GetHeightOffset(choosenTile.name);
 
-        var instanceTile = InstantiateTile(choosenTile, playerPos + nextTileOffset, new Vector2(yScale, zScale), transform, tileSize);
+        var instanceTile = InstantiateTile(
+            choosenTile, playerPos + nextTileOffset, new Vector2(yScale, zScale), transform, tileSize, _objectPool
+        );
 
         MeshCombiner.CombineLayers(
             _meshCombiner.transform,
@@ -97,6 +105,7 @@ public class TerrainTileGenerator : MonoBehaviour
         if (stringToParse.Contains("-1.0")) return -1;
         if (stringToParse.Contains("+2.0")) return 2;
         if (stringToParse.Contains("-2.0")) return -2;
+        if (stringToParse.Contains("-4.0")) return -4;
 
         Debug.LogWarning("Height offset not found on " + stringToParse);
         return 0;
@@ -115,7 +124,24 @@ public class TerrainTileGenerator : MonoBehaviour
         return scaledEulerAngles;
     }
 
-    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector2 scale, Transform parent, float tileSize)
+    public ObjectPool CreateObjectPoolOnTerrain(List<GameObject> tilesObjs, Transform baseTerrain)
+    {
+        var objectPoolObj = new GameObject("Object Pool");
+        objectPoolObj.transform.parent = baseTerrain;
+        var objectPool = objectPoolObj.AddComponent<ObjectPool>();
+
+        for (int i = 0; i < tileAmount; i++)
+        {
+            foreach (var tileObj in tilesObjs)
+            {
+                objectPool.Create(tileObj, tileObj.name + "-" + i);
+            }
+        }
+
+        return objectPool;
+    }
+
+    public GameObject InstantiateTile(GameObject tile, Vector3 pos, Vector2 scale, Transform parent, float tileSize, ObjectPool objectPool)
     {
         var instanceTile = objectPool.Instantiate(tile, pos, Quaternion.identity, parent);
 
@@ -128,7 +154,7 @@ public class TerrainTileGenerator : MonoBehaviour
         return instanceTile;
     }
 
-    public void DeleteTerrainFirstTile(List<GameObject> terrain)
+    public void DeleteTerrainFirstTile(List<GameObject> terrain, ObjectPool objectPool)
     {
         if (terrain.Count == 0) return;
         objectPool.Destroy(terrain[0]);
@@ -210,6 +236,16 @@ public class TerrainTileGenerator : MonoBehaviour
 
 
 
+    public bool CanIndexGoBack()
+    {
+        return _canIndexGoBack;
+    }
+    public void SetCanIndexGoBack(bool value)
+    {
+        _canIndexGoBack = value;
+    }
+
+
     public void SetSafeZone(float safePoint, int zoneLenght)
     {
         _shouldBeInSafeZone = Mathf.Abs(safePoint - _tileIndex) < zoneLenght;
@@ -242,14 +278,15 @@ public class TerrainTileGenerator : MonoBehaviour
     public void StartGame()
     {
         _heightOffset = 0;
-        _tileIndex = -1;
-
-        objectPool.DestroyAll();
+        _tileIndex = 0;
 
         _terrain = new List<GameObject>();
         CleanGameObjectChilds(gameObject);
+
         _meshCombiner = new GameObject("Mesh Combiner");
         _meshCombiner.transform.parent = transform;
+
+        _objectPool = CreateObjectPoolOnTerrain(tiles.Select(s => s.obj).ToList(), transform);
 
         for (int i = 0; i < tileAmount - 1; i++)
         {

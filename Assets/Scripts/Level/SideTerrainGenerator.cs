@@ -15,6 +15,9 @@ public class SideTerrainTileGenerator : MonoBehaviour
 
     private List<GameObject> _forwardSideTerrain = new List<GameObject>();
     private List<GameObject> _backwardSideTerrain = new List<GameObject>();
+
+    private ObjectPool _objectForwardPool;
+    private ObjectPool _objectBackwardPool;
     private List<SideTile> _allTiles = new List<SideTile>();
 
     // private GameObject _forwardMeshCombiner;
@@ -42,6 +45,9 @@ public class SideTerrainTileGenerator : MonoBehaviour
         tileSideSelector = new TileSideSelector(terrainTileGenerator.tiles, terrainTileGenerator.DefaultTile);
         onTilePassedAction += DeleteSideTerrainFirstTile;
         terrainTileGenerator.OnTilePassed.AddListener(onTilePassedAction);
+
+        _objectForwardPool = terrainTileGenerator.CreateObjectPoolOnTerrain(sideTiles.Select(s => s.obj).ToList(), _GroundForward.transform);
+        _objectBackwardPool = terrainTileGenerator.CreateObjectPoolOnTerrain(_allTiles.Select(s => s.obj).ToList(), _GroundBackward.transform);
     }
 
     public void AddTileToTerrain(GameObject baseTile)
@@ -49,13 +55,14 @@ public class SideTerrainTileGenerator : MonoBehaviour
         UpdateSideTerrainPosition(_GroundForward, -1);
         UpdateSideTerrainPosition(_GroundBackward, 1);
 
-        AddSideTileToTerrain(baseTile, sideTiles, _forwardSideTerrain, _GroundForward);
-        AddSideTileToTerrain(baseTile, _allTiles, _backwardSideTerrain, _GroundBackward);
+        AddSideTileToTerrain(baseTile, sideTiles, _objectForwardPool, _forwardSideTerrain, _GroundForward);
+        AddSideTileToTerrain(baseTile, _allTiles, _objectBackwardPool, _backwardSideTerrain, _GroundBackward);
     }
 
     private void AddSideTileToTerrain(
         GameObject baseTile,
         List<SideTile> sideTiles,
+        ObjectPool objectSidePool,
         // Dictionary<string, List<GameObject>> sideTilesInMeshCombiner,
         // GameObject meshCombiner,
         List<GameObject> sideTerrain,
@@ -71,7 +78,8 @@ public class SideTerrainTileGenerator : MonoBehaviour
             baseTile.transform.position + SideTerrainObj.transform.position,
             new Vector2(terrainTileGenerator.yScale, terrainTileGenerator.zScale),
             SideTerrainObj.transform,
-            terrainTileGenerator.tileSize
+            terrainTileGenerator.tileSize,
+            objectSidePool
         );
 
         sideTerrain.Add(instanceTile);
@@ -91,10 +99,10 @@ public class SideTerrainTileGenerator : MonoBehaviour
     private void DeleteSideTerrainFirstTile()
     {
         // terrainTileGenerator.DeleteTileMeshCombiner(_forwardSideTerrain, _forwardSideTilesInMeshCombiner);
-        terrainTileGenerator.DeleteTerrainFirstTile(_forwardSideTerrain);
+        terrainTileGenerator.DeleteTerrainFirstTile(_forwardSideTerrain, _objectForwardPool);
 
         // terrainTileGenerator.DeleteTileMeshCombiner(_backwardSideTerrain, _backwardSideTilesInMeshCombiner);
-        terrainTileGenerator.DeleteTerrainFirstTile(_backwardSideTerrain);
+        terrainTileGenerator.DeleteTerrainFirstTile(_backwardSideTerrain, _objectBackwardPool);
     }
 
     private GameObject InitLevelComponent(string name, Transform parent, params Type[] components)
@@ -114,10 +122,13 @@ public class SideTerrainTileGenerator : MonoBehaviour
     public void StartGame()
     {
         _forwardSideTerrain = new List<GameObject>();
+        _objectForwardPool.DestroyAll();
+
         // _forwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
         // terrainTileGenerator.CleanGameObjectChilds(_forwardMeshCombiner);
 
         _backwardSideTerrain = new List<GameObject>();
+        _objectBackwardPool.DestroyAll();
         // _backwardSideTilesInMeshCombiner = new Dictionary<string, List<GameObject>>();
         // terrainTileGenerator.CleanGameObjectChilds(_backwardMeshCombiner);
     }

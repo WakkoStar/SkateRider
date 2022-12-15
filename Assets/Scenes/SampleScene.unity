@@ -578,8 +578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: -266, y: -800}
+  m_AnchoredPosition: {x: -8.099915, y: -57.80005}
+  m_SizeDelta: {x: -266, y: -691.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31329617
 MonoBehaviour:
@@ -2003,6 +2003,7 @@ GameObject:
   - component: {fileID: 109769797}
   - component: {fileID: 109769798}
   - component: {fileID: 109769799}
+  - component: {fileID: 109769800}
   m_Layer: 5
   m_Name: mainNav
   m_TagString: Untagged
@@ -2076,6 +2077,18 @@ MonoBehaviour:
   - {fileID: 1611772958}
   - {fileID: 13760842}
   - {fileID: 66915842}
+--- !u!225 &109769800
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109769796}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &114351440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -186.45001}
+  m_AnchoredPosition: {x: 0, y: -186.45026}
   m_SizeDelta: {x: 0, y: -372.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186459049
@@ -9490,7 +9503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1027.7626, y: 0}
+  m_AnchoredPosition: {x: 1027.7625, y: 0}
   m_SizeDelta: {x: 2055.5254, y: 230}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &480133232
@@ -15252,8 +15265,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902918303}
   m_HandleRect: {fileID: 902918302}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.66411465
+  m_Value: 0.99999964
+  m_Size: 0.57623494
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15795,13 +15808,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 949889064}
         m_TargetAssemblyTypeName: CollectibleCountDisplayer, Assembly-CSharp
-        m_MethodName: UpdateCollectableCount
-        m_Mode: 1
+        m_MethodName: UpdateCollectableCountWithDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 4.5
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -15852,6 +15865,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: lootboxOpenSong
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 109769800}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 109769800}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   OnBuyDeny:
     m_PersistentCalls:
@@ -17341,6 +17378,30 @@ MonoBehaviour:
           m_StringArgument: DisplayOpenDiv
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 109769800}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 109769800}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &953382183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17478,6 +17539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skateStateManager: {fileID: 7312117250052874107}
   levelTileMonitor: {fileID: 2033424716}
+  frontCameraOffset: {x: 6, y: -3, z: 0}
+  sideCameraOffset: {x: 4, y: 3, z: -15}
 --- !u!1 &965104568
 GameObject:
   m_ObjectHideFlags: 0
@@ -17514,7 +17577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881, y: -3275}
+  m_AnchoredPosition: {x: 899.0999, y: -2904}
   m_SizeDelta: {x: 655, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!225 &965104570
@@ -17914,9 +17977,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 1720, y: 3640}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 262.9}
+  m_SizeDelta: {x: 1720, y: 3265.5}
+  m_Pivot: {x: 0.5, y: 0.04988768}
 --- !u!114 &1070775120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20001,7 +20064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.5, y: -345.53076}
+  m_AnchoredPosition: {x: 8.5, y: -345.5304}
   m_SizeDelta: {x: 17, y: 691.0613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301509427
@@ -20040,24 +20103,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0596fddb7e677e489d000fb7ed95f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseTexture: {fileID: 2800000, guid: b1d1478d1361206449dc84b60a1c5f5b, type: 3}
   defaultInventory:
   - type: 2
-    textureToApply: {fileID: 2800000, guid: c7f153cf15c36ef44a98407cefe0309a, type: 3}
+    textureToApply: {fileID: 2800000, guid: b1d1478d1361206449dc84b60a1c5f5b, type: 3}
     thumbnail: {fileID: 2800000, guid: 03ccc6464b6727f4cb788dbb06091609, type: 3}
     price: -1
     nameId: board-default
   - type: 3
-    textureToApply: {fileID: 2800000, guid: 58e272e2fc56a5d40abeaf1928735beb, type: 3}
+    textureToApply: {fileID: 2800000, guid: 8f0c7d30c33589d4f9b3ffeb8bb0b7e3, type: 3}
     thumbnail: {fileID: 2800000, guid: a7f1a80698e05ac448a9222251526111, type: 3}
     price: -1
     nameId: grip-default
   - type: 1
-    textureToApply: {fileID: 2800000, guid: 7291e8b6f05c24c429af266d3134dd6e, type: 3}
+    textureToApply: {fileID: 2800000, guid: 7d73d91b2f78c9b4781a7ff23382314f, type: 3}
     thumbnail: {fileID: 2800000, guid: d07f63b6a42639e44aa97fe518b63515, type: 3}
     price: -1
     nameId: trucks-default
   - type: 0
-    textureToApply: {fileID: 2800000, guid: 6506c84e69712d94b8a59bfa2d55fde6, type: 3}
+    textureToApply: {fileID: 2800000, guid: a7d72124eb99d6d49a830af81b12f4d3, type: 3}
     thumbnail: {fileID: 2800000, guid: f306d53cc427b6b43b664364c05d8e47, type: 3}
     price: -1
     nameId: wheels-default
@@ -22153,7 +22217,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626370754}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -22584,7 +22648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881, y: -3275}
+  m_AnchoredPosition: {x: 899.0999, y: -2904}
   m_SizeDelta: {x: 655, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!225 &1671178606
@@ -23244,7 +23308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124.900024, y: -3275}
+  m_AnchoredPosition: {x: 143, y: -2904}
   m_SizeDelta: {x: 655, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1746059015
@@ -23752,8 +23816,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1407019428}
   m_HandleRect: {fileID: 1407019427}
   m_Direction: 2
-  m_Value: 0.99999964
-  m_Size: 0.7933467
+  m_Value: 0.9999993
+  m_Size: 0.76312375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -28872,7 +28936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1027.7628, y: 0}
+  m_AnchoredPosition: {x: 1027.7627, y: 0}
   m_SizeDelta: {x: 2055.5254, y: 230}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1866178314
@@ -31901,7 +31965,7 @@ MonoBehaviour:
     - name: hole -0.5
       shouldBeNextTo: 0
     - name: hole 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole +0.5
       shouldBeNextTo: 0
     - name: up-start +0.5
@@ -33524,7 +33588,7 @@ MonoBehaviour:
     shouldBeInSafeZone: 0
     shouldBeCompleted: 0
     isSafe: 0
-    isSafeFirst: 1
+    isSafeFirst: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 1
@@ -35141,7 +35205,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -35355,7 +35419,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -35569,7 +35633,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -35783,7 +35847,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -36093,7 +36157,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -36307,7 +36371,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -36386,7 +36450,7 @@ MonoBehaviour:
     - name: hole-end +0.5
       shouldBeNextTo: 0
     - name: hole -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: hole -0.5
       shouldBeNextTo: 0
     - name: hole 0.0
@@ -36521,7 +36585,7 @@ MonoBehaviour:
     - name: tunnel 0.0
       shouldBeNextTo: 1
     - name: void -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: plain-end 0.0
       shouldBeNextTo: 1
     - name: plain-start 0.0
@@ -37615,6 +37679,102 @@ MonoBehaviour:
       shouldBeNextTo: 0
     - name: boost +0.5
       shouldBeNextTo: 0
+  - obj: {fileID: 145197106718228865, guid: 71e4d2d765faccc47b9eb250114a76e0, type: 3}
+    shouldHaveSideSelection: 0
+    sideSelection: []
+    selection:
+    - name: plain 0.0
+      shouldBeNextTo: 0
+    - name: bump-start +0.5
+      shouldBeNextTo: 0
+    - name: bump-end -2.0
+      shouldBeNextTo: 0
+    - name: bump-end -1.0
+      shouldBeNextTo: 0
+    - name: bump-end -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.5
+      shouldBeNextTo: 0
+    - name: down-start -0.25
+      shouldBeNextTo: 0
+    - name: down-end -0.5
+      shouldBeNextTo: 0
+    - name: down-end -0.25
+      shouldBeNextTo: 0
+    - name: up-start 0.0
+      shouldBeNextTo: 0
+    - name: down -1.0
+      shouldBeNextTo: 0
+    - name: down -0.5
+      shouldBeNextTo: 0
+    - name: downstairs -1.0
+      shouldBeNextTo: 0
+    - name: downstairs -0.5
+      shouldBeNextTo: 0
+    - name: hole-start -2.0
+      shouldBeNextTo: 0
+    - name: hole-start -1.0
+      shouldBeNextTo: 0
+    - name: hole-start -0.5
+      shouldBeNextTo: 0
+    - name: hole-end +0.5
+      shouldBeNextTo: 0
+    - name: hole -1.0
+      shouldBeNextTo: 0
+    - name: hole -0.5
+      shouldBeNextTo: 0
+    - name: hole 0.0
+      shouldBeNextTo: 0
+    - name: hole +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.5
+      shouldBeNextTo: 0
+    - name: up-start +0.25
+      shouldBeNextTo: 0
+    - name: down-end 0.0
+      shouldBeNextTo: 0
+    - name: up +1.0
+      shouldBeNextTo: 0
+    - name: up +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.5
+      shouldBeNextTo: 0
+    - name: up-end +0.25
+      shouldBeNextTo: 0
+    - name: upstairs +0.5
+      shouldBeNextTo: 0
+    - name: grind-start +0.25
+      shouldBeNextTo: 0
+    - name: grind-start 0.0
+      shouldBeNextTo: 0
+    - name: grind +0.25
+      shouldBeNextTo: 0
+    - name: grind 0.0
+      shouldBeNextTo: 0
+    - name: grind-end +0.25
+      shouldBeNextTo: 0
+    - name: grind-end 0.0
+      shouldBeNextTo: 0
+    - name: fence 0.0
+      shouldBeNextTo: 0
+    - name: tunnel 0.0
+      shouldBeNextTo: 0
+    - name: void -1.0
+      shouldBeNextTo: 0
+    - name: plain-end 0.0
+      shouldBeNextTo: 0
+    - name: plain-start 0.0
+      shouldBeNextTo: 1
+    - name: grind -0.25
+      shouldBeNextTo: 0
+    - name: grind-end -0.25
+      shouldBeNextTo: 0
+    - name: grind-start -0.25
+      shouldBeNextTo: 0
+    - name: boost 0.0
+      shouldBeNextTo: 0
+    - name: boost +0.5
+      shouldBeNextTo: 0
   sideTilesBackward:
   - obj: {fileID: 6445004725663316192, guid: 9ca22b22049ed4547b8c2907e9b85223, type: 3}
     shouldHaveSideSelection: 1
@@ -37716,27 +37876,27 @@ MonoBehaviour:
     - name: up +0.25
       shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -37930,27 +38090,27 @@ MonoBehaviour:
     - name: up +0.25
       shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -38144,27 +38304,27 @@ MonoBehaviour:
     - name: up +0.25
       shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 1
@@ -38358,27 +38518,27 @@ MonoBehaviour:
     - name: up +0.25
       shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -38572,27 +38732,27 @@ MonoBehaviour:
     - name: up +0.25
       shouldBeNextTo: 0
     - name: bridge -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: bridge +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: fence-side 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall +0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall 0.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -0.5
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     - name: wall -1.0
-      shouldBeNextTo: 1
+      shouldBeNextTo: 0
     selection:
     - name: plain 0.0
       shouldBeNextTo: 0
@@ -39385,7 +39545,7 @@ MonoBehaviour:
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   - {fileID: 563606459524080825, guid: a422b951d87ea8f47843ba01585c68b9, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
-  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 563606459524080825, guid: a422b951d87ea8f47843ba01585c68b9, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   - {fileID: 5401944197820811994, guid: 6bb34faa7e5bc7045b261712bf59c17f, type: 3}
   - {fileID: 5972367528426307732, guid: c8e09eebd79d68d478a5487529b22f81, type: 3}
@@ -39398,9 +39558,6 @@ MonoBehaviour:
   - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
   - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
   - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
-  - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
-  - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
-  - {fileID: 1489107717386055475, guid: b70d53b75944cca44a67c0c4af71802e, type: 3}
   - {fileID: 145197106718228865, guid: 71e4d2d765faccc47b9eb250114a76e0, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
@@ -39409,23 +39566,13 @@ MonoBehaviour:
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
+  - {fileID: 5635967929492350073, guid: b45347e914f868a49867d3c6efcd43e3, type: 3}
   switchTileEvents:
-  - index: 17
-    onIndexReached:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2033424716}
-          m_TargetAssemblyTypeName: LevelTileMonitor, Assembly-CSharp
-          m_MethodName: ChangeLevelScale
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - index: 11
     onIndexReached:
       m_PersistentCalls:
@@ -39454,7 +39601,59 @@ MonoBehaviour:
             m_StringArgument: doaflipSong
             m_BoolArgument: 0
           m_CallState: 2
-  - index: 23
+        - m_Target: {fileID: 963194231}
+          m_TargetAssemblyTypeName: CameraPositionController, Assembly-CSharp
+          m_MethodName: SetIsFrontMode
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 7312117250052874107}
+          m_TargetAssemblyTypeName: SkateStateManager, Assembly-CSharp
+          m_MethodName: SetIsInFrontView
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - index: 15
+    onIndexReached:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2033424716}
+          m_TargetAssemblyTypeName: LevelTileMonitor, Assembly-CSharp
+          m_MethodName: SetCanIndexGoBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2033424716}
+          m_TargetAssemblyTypeName: LevelTileMonitor, Assembly-CSharp
+          m_MethodName: ChangeLevelScale
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - index: 27
     onIndexReached:
       m_PersistentCalls:
         m_Calls:
@@ -39480,6 +39679,42 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: speedupSong
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 963194231}
+          m_TargetAssemblyTypeName: CameraPositionController, Assembly-CSharp
+          m_MethodName: SetIsFrontMode
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7312117250052874107}
+          m_TargetAssemblyTypeName: SkateStateManager, Assembly-CSharp
+          m_MethodName: SetIsInFrontView
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2033424716}
+          m_TargetAssemblyTypeName: LevelTileMonitor, Assembly-CSharp
+          m_MethodName: SetCanIndexGoBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   tileAmount: 6

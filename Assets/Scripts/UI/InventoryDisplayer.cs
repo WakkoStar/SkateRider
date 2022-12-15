@@ -8,6 +8,7 @@ public class InventoryDisplayer : MonoBehaviour
 {
 
     //SETINGS
+    [SerializeField] private Texture2D baseTexture;
     [SerializeField] private Customable[] defaultInventory;
 
     [SerializeField] private Material WheelMat;
@@ -50,7 +51,7 @@ public class InventoryDisplayer : MonoBehaviour
     }
     void SelectCustomable(SerializableCustomable customable)
     {
-        var texToApply = new Texture2D(512, 512, TextureFormat.ETC2_RGBA8, false);
+        var texToApply = new Texture2D(512, 512, baseTexture.format, false);
         texToApply.LoadRawTextureData(customable.textureToApply);
         texToApply.Apply();
 

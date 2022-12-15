@@ -39,7 +39,7 @@ public class SkatePhysicsController : MonoBehaviour
     void FixedUpdate()
     {
         //VALUES
-        Physics.gravity = skateState.IsPushLanding() ? Vector3.down * 60 : Vector3.down * 20;
+        Physics.gravity = skateState.IsPushLanding() && !skateState.IsInFrontView() ? Vector3.down * 60 : Vector3.down * 20;
         _rb.constraints = skateState.IsOnGrind() ? _onGrindConstraints : _normalConstraints;
 
         _TE = transform.localEulerAngles;
@@ -193,12 +193,12 @@ public class SkatePhysicsController : MonoBehaviour
         }
     }
 
-    public void OnBoost()
+    public void OnBoost(float boostValue = 1.75f)
     {
         if (_stopForceMaxSpeed != null) StopCoroutine(_stopForceMaxSpeed);
         ForceMaxSpeed(false);
         _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
-        var skateBoostedSpeed = GetMaxSpeed() * 1.75f * _rb.mass;
+        var skateBoostedSpeed = GetMaxSpeed() * boostValue * _rb.mass;
 
         _rb.AddForce(Vector3.right * skateBoostedSpeed, ForceMode.Impulse);
     }
@@ -379,6 +379,8 @@ public class SkatePhysicsController : MonoBehaviour
         _rb.velocity = Vector3.right * 10;
         _rb.isKinematic = false;
         _rb.detectCollisions = true;
+
+        if (_flipCoroutine != null) StopCoroutine(_flipCoroutine);
     }
 
 }
