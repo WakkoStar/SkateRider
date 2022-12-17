@@ -144,8 +144,8 @@ public class CameraPositionController : MonoBehaviour
         var camPos = _MainCamera.transform.position;
 
         var newPos = new Vector3(
-            targetPos.x + sideCameraOffset.x,
-            SmoothLerp(_oldCameraHeight, _oldTargetHeight, targetPos.y + sideCameraOffset.y, 1),
+            Mathf.Lerp(camPos.x, targetPos.x + sideCameraOffset.x, 0.2f * 60 * Time.fixedDeltaTime),
+            Mathf.Lerp(camPos.y, targetPos.y + sideCameraOffset.y, 0.01f * 60 * Time.fixedDeltaTime),
             targetPos.z + sideCameraOffset.z
         );
 

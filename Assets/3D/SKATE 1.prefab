@@ -404,7 +404,6 @@ GameObject:
   - component: {fileID: 6343502224869812132}
   - component: {fileID: 859816639501006394}
   - component: {fileID: 4517573539974400261}
-  - component: {fileID: 2526988313914995874}
   m_Layer: 2
   m_Name: board
   m_TagString: Untagged
@@ -475,19 +474,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2526988313914995874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3430817037902665382}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.023267617, y: 0.006683908, z: 0.00077741244}
-  m_Center: {x: -0.0002415875, y: 0.000043454627, z: -0.00031712416}
 --- !u!1 &3594147514995943208
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5767407800134683176}
   - component: {fileID: 9220612452275225008}
+  - component: {fileID: 5246893017006988262}
   m_Layer: 2
   m_Name: skateboard_cycles
   m_TagString: Untagged
@@ -767,8 +754,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5308275, y: 0.054915644, z: 0.74152976}
-  m_Center: {x: -0.012041183, y: 0.04118484, z: -0.007179703}
+  m_Size: {x: 2.1757195, y: 0.03839886, z: 0.6754632}
+  m_Center: {x: 0.012734004, y: 0.067808576, z: -0.0071798055}
+--- !u!136 &5246893017006988262
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575856316708294802}
+  m_Material: {fileID: 13400000, guid: 63f540cb7832fd54fab3fd7a5d3a4794, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.16698878
+  m_Height: 2.1055639
+  m_Direction: 0
+  m_Center: {x: 0.02037221, y: -0.1, z: -0.011318775}
 --- !u!1 &7265919060976436928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,18 +1135,23 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e5748cf862e5c54ab483efb820f7aeb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7511558181221131132, guid: 8e5748cf862e5c54ab483efb820f7aeb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e5748cf862e5c54ab483efb820f7aeb, type: 3}
---- !u!4 &242735697228249478 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8e5748cf862e5c54ab483efb820f7aeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 348157788027215469}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &582528372948132668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e5748cf862e5c54ab483efb820f7aeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 348157788027215469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &242735697228249478 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8e5748cf862e5c54ab483efb820f7aeb,
     type: 3}
   m_PrefabInstance: {fileID: 348157788027215469}
   m_PrefabAsset: {fileID: 0}
@@ -1158,7 +1164,7 @@ MeshCollider:
   m_GameObject: {fileID: 582528372948132668}
   m_Material: {fileID: 13400000, guid: 63f540cb7832fd54fab3fd7a5d3a4794, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30

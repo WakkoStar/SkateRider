@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4315313968247733034}
   - component: {fileID: 1311185473880304579}
   - component: {fileID: 9196125728646097834}
-  - component: {fileID: 5827604154586627689}
+  - component: {fileID: 8104386803875747963}
   m_Layer: 0
   m_Name: largebar.001
   m_TagString: Untagged
@@ -82,20 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5827604154586627689
-MeshCollider:
+--- !u!65 &8104386803875747963
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635068255643580008}
-  m_Material: {fileID: 13400000, guid: 63f540cb7832fd54fab3fd7a5d3a4794, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3687684945130611230, guid: df224a0f05726824c8b00c77a99a6571, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0006270746, y: 0.004934267, z: 0.021600734}
+  m_Center: {x: -5.3842086e-10, y: 0.012279861, z: 0}
 --- !u!1 &7639332741761317898
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,11 +26,6 @@ public class SkatePhysicsController : MonoBehaviour
     private float _minSensitivity = 100;
     private Coroutine _stopForceMaxSpeed;
 
-    //VALUES
-    RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
-    RigidbodyConstraints _onGrindConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
-
-
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -40,7 +35,6 @@ public class SkatePhysicsController : MonoBehaviour
     {
         //VALUES
         Physics.gravity = skateState.IsPushLanding() && !skateState.IsInFrontView() ? Vector3.down * 60 : Vector3.down * 20;
-        _rb.constraints = skateState.IsOnGrind() ? _onGrindConstraints : _normalConstraints;
 
         _TE = transform.localEulerAngles;
 
@@ -235,7 +229,6 @@ public class SkatePhysicsController : MonoBehaviour
     {
         var rot = transform.rotation;
 
-
         for (float a = 0; a < 1; a += Time.deltaTime * 0.1f)
         {
             var rotateForceTotal = rotateForce * rotateDirection * Time.deltaTime * 60;
@@ -243,8 +236,10 @@ public class SkatePhysicsController : MonoBehaviour
 
             IncrementRotatemount(rotateForceTotal);
             IncrementFlipAmount(flipForceTotal);
-            transform.Rotate(new Vector3(0, rotateForceTotal, 0), Space.Self);
-            transform.Rotate(new Vector3(flipForceTotal, 0, 0), Space.Self);
+            _rb.AddTorque(transform.up * rotateForceTotal * 0.5f, ForceMode.VelocityChange);
+            _rb.AddTorque(transform.right * flipForceTotal * 0.5f, ForceMode.VelocityChange);
+            // transform.Rotate();
+            // transform.Rotate(new Vector3(flipForceTotal, 0, 0), Space.Self);
 
             yield return null;
         }
@@ -258,6 +253,11 @@ public class SkatePhysicsController : MonoBehaviour
             _rb.velocity = Vector3.Lerp(startVel, Vector3.zero, a);
             yield return null;
         }
+    }
+
+    public void SetRigidBodyConstraints(RigidbodyConstraints constraints)
+    {
+        _rb.constraints = constraints;
     }
 
     public void SetMaxSpeed(float value)

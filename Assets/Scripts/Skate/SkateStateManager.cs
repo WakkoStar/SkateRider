@@ -70,6 +70,9 @@ public class SkateStateManager : MonoBehaviour
 
     //LOCAL VALUES
     private string[] staticTracksNames = new string[] { "onSlide", "onGround", "WheelsOnAir" };
+    RigidbodyConstraints _normalConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+    RigidbodyConstraints _onGrindConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+    RigidbodyConstraints _onJumpConstraints = RigidbodyConstraints.FreezePositionZ;
 
 
     void Start()
@@ -209,6 +212,11 @@ public class SkateStateManager : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         SetIsOnGrind(other.gameObject.tag == "Grind");
+        if (other.gameObject.tag == "Grind")
+        {
+            Debug.Log("grinding");
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -506,13 +514,14 @@ public class SkateStateManager : MonoBehaviour
             _timerTrigger.ResetTime();
         }
 
-
         _skatePhysController.OnGround();
+        _skatePhysController.SetRigidBodyConstraints(_normalConstraints);
 
     }
 
     private void OnGrind()
     {
+
         _skateScoreManager.SetGrindScore(_skateScoreManager.GetGrindScore() + 1);
 
         if (_skateScoreManager.GetGrindScore() > 5 && ShouldDisplayGrindTrick())
@@ -530,6 +539,7 @@ public class SkateStateManager : MonoBehaviour
         audioManager.PlayOnly("onSlide", staticTracksNames);
 
         _skatePhysController.OnGrind();
+        _skatePhysController.SetRigidBodyConstraints(_onGrindConstraints);
     }
 
     private void OnJumpLanding()
@@ -566,6 +576,7 @@ public class SkateStateManager : MonoBehaviour
         _skateScoreManager.SetTrickScore((int)(totalFlipAmount + totalRotateAmount));
 
         _skatePhysController.OnAir();
+        _skatePhysController.SetRigidBodyConstraints(_onJumpConstraints);
     }
 
     private void OnJump(bool isManual)
